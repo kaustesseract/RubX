@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kaustubh.rubrics.CourseFragment"
+    android:background="#d67e55">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MANAGE COURSE"
+        android:id="@+id/textView12"
+        android:minWidth="140dp"
+        android:minHeight="120dp"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD CLASS"
+        android:id="@+id/button7"
+        android:layout_below="@+id/textView12"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VIEW CLASS"
+        android:id="@+id/button8"
+        android:layout_marginTop="124dp"
+        android:layout_below="@+id/button7"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp" />
+</RelativeLayout>
