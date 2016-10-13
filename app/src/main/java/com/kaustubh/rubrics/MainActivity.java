@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseHelper helper = new DatabaseHelper(this);
+
     void image()
     {
     //    ImageView img = (ImageView) findViewById(R.id.rubrics);
@@ -21,24 +23,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void click(View view)
     {
-        final EditText user = (EditText) findViewById(R.id.user);
-        final EditText pass = (EditText) findViewById(R.id.pass);
-       // String username = user.getText().toString();
-       // String password = pass.getText().toString();
-
-        if(user.getText().toString().equals("ka") && pass.getText().toString().equals("ka"))
+        if(view.getId() == R.id.submit)
         {
-            Intent i = new Intent(getApplicationContext(),BaseActivity.class);
-            startActivity(i);
+            EditText a = (EditText) findViewById(R.id.user);
+            String str = a.getText().toString();
+            EditText b = (EditText) findViewById(R.id.pass);
+            String pass = b.getText().toString();
+
+            String password = helper.search(str);
+            //String passn = helper.search(password);
+
+            if (pass.equals(password))
+            {
+                Intent i = new Intent(getApplicationContext(), BaseActivity.class);
+                startActivity(i);
 
 
-        }
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_LONG).show();
 
-        else
-        {
-            Toast.makeText(getApplicationContext(),"Wrong username or password",Toast.LENGTH_LONG).show();
 
-
+            }
         }
 
 
