@@ -17,9 +17,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_EMAIL = "email";
+    private static final String TABLE_NAME1 = "class";
+    private static final String COLUMN_STUDENTNAME = "studentname";
+    private static final String COLUMN_CLASSNAME = "calssname";
+    private static final String COLUMN_ROLL = "roll";
+
     SQLiteDatabase db;
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
+    private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , studentname VARCHAR not null , roll INTEGER not null);";
+
 
     public DatabaseHelper(Context context)
     {
@@ -33,6 +40,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         db.execSQL(TABLE_CREATE);
         this.db = db;
+
+    }
+
+    public void insertclass(Contact c1)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String query = "select * from class";
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ID,count);
+        values.put(COLUMN_STUDENTNAME,c1.getStudentc());
+        values.put(COLUMN_CLASSNAME,c1.getClassname());
+        values.put(COLUMN_ROLL,c1.getRoll());
+        db.insert(TABLE_NAME1,null,values);
+        db.close();
 
     }
 
@@ -85,6 +108,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         String query = "DROP TABLE IF EXISTS"+TABLE_NAME;
         db.execSQL(query);
+        this.onCreate(db);
+
+        String query1 = "DROP TABLE IF EXISTS"+TABLE_NAME1;
+        db.execSQL(query1);
         this.onCreate(db);
 
     }
