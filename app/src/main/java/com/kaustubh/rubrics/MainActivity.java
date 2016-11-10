@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
             if (pass.equals(password))
             {
                 Intent i = new Intent(getApplicationContext(), BaseActivity.class);
-                startActivity(i);
+
+
                 finish();
 
 
