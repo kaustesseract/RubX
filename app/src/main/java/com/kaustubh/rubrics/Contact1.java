@@ -5,43 +5,39 @@ package com.kaustubh.rubrics;
  */
 public class Contact1 {
     int id;
-    String name;
-    String password;
-    String email;
+    int roll;
+    String classname;
+    String studentc;
 
-    public void setName(String name)
+    public void setStudentc(String studentc)
     {
-        this.name = name;
+        this.studentc = studentc;
     }
 
-    public String getName()
+    public String getStudentc()
 
     {
-        return this.name;
+        return this.studentc;
     }
 
-    public void setPassword(String password)
+    public void setClassname(String classname)
+    {
+        this.classname = classname;
+    }
+
+    public String getClassname()
 
     {
-        this.password = password;
+        return this.classname;
     }
 
-    public String getPassword()
+    public void setRoll(int roll) {this.roll = roll;}
+
+    public int getRoll()
 
     {
-        return this.password;
+        return this.roll;
     }
 
-    public void setEmail(String email)
-
-    {
-        this.email = email;
-    }
-
-    public String getEmail()
-
-    {
-        return this.email;
-    }
 
 }

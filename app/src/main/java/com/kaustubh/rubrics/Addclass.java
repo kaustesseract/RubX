@@ -22,16 +22,12 @@ public class Addclass extends AppCompatActivity {
         EditText roll = (EditText) findViewById(R.id.roll);
         int rolln = Integer.parseInt(roll.getText().toString());
 
-        Contact c1 = new Contact();
+        Contact1 c1 = new Contact1();
         c1.setStudentc(studentc);
         c1.setClassname(classname);
         c1.setRoll(rolln);
-
         helper.insertclass(c1);
-
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(i);
-        finish();
+            finish();
 
 
     }

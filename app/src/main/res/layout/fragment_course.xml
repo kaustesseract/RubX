@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kaustubh.rubrics.CourseFragment"
-    android:background="#d67e55">
+    android:background="@drawable/img">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -17,12 +17,13 @@
         android:minHeight="120dp"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD CLASS"
+        android:text="ADD COURSE"
         android:id="@+id/button7"
         android:layout_below="@+id/textView12"
         android:layout_centerHorizontal="true"
@@ -31,10 +32,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VIEW CLASS"
+        android:text="VIEW COURSE"
         android:id="@+id/button8"
-        android:layout_marginTop="124dp"
-        android:layout_below="@+id/button7"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:textSize="25sp" />
+        android:layout_marginBottom="142dp" />
 </RelativeLayout>

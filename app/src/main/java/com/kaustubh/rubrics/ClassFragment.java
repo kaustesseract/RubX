@@ -46,9 +46,12 @@ public class ClassFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_class, container, false);
         View root = inflater.inflate(R.layout.fragment_class, container, false);
+        //View root1 = inflater.inflate(R.layout.fragment_class, container, false);
 
         context = root.getContext();
+
         Button buto = (Button) root.findViewById(R.id.button6);
+
         buto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,8 +60,27 @@ public class ClassFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button but = (Button) root.findViewById(R.id.button5);
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(context,Showclass.class);
+                startActivity(intent);
+            }
+        });
         return root;
+
     }
+/*
+    public void searchc(View view)
+    {
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(context,Showclass.class);
+                startActivity(intent);
+
+    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

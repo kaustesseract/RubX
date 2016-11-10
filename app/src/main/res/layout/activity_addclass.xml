@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/bbk"
     tools:context="com.kaustubh.rubrics.Addclass">
 
     <TextView
@@ -19,7 +20,8 @@
         android:minHeight="80dp"
         android:minWidth="180dp"
         android:textIsSelectable="false"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="#f6efef" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +33,8 @@
         android:layout_alignParentStart="true"
         android:minHeight="40dp"
         android:minWidth="80dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#f9f3f3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,7 +46,8 @@
         android:layout_below="@+id/name"
         android:inputType="number"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +58,8 @@
         android:textSize="20sp"
         android:layout_below="@+id/roll"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -63,7 +68,8 @@
         android:layout_alignTop="@+id/textView28"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:minWidth="190dp" />
+        android:minWidth="190dp"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -72,7 +78,8 @@
         android:minWidth="190dp"
         android:layout_alignTop="@+id/textView30"
         android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
+        android:layout_alignStart="@+id/name"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,15 +88,17 @@
         android:minWidth="190dp"
         android:layout_alignTop="@+id/textView29"
         android:layout_alignLeft="@+id/classname"
-        android:layout_alignStart="@+id/classname" />
+        android:layout_alignStart="@+id/classname"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:id="@+id/button"
-        android:layout_below="@+id/classname"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:onClick="add" />
+        android:onClick="add"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView29"
+        android:layout_toEndOf="@+id/textView29"
+        android:layout_marginBottom="42dp" />
 </RelativeLayout>
