@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/books"
     tools:context="com.kaustubh.rubrics.RegisterActivity">
 
     <TextView
@@ -18,7 +19,8 @@
         android:layout_centerHorizontal="true"
         android:minHeight="70dp"
         android:minWidth="140dp"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="#fcf8f8" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +32,8 @@
         android:layout_below="@+id/textView4"
         android:minWidth="120dp"
         android:minHeight="40dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#fbf6f6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,56 +44,85 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="77dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#fefbfb" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EMAIL ID"
+        android:text="CONFIRM PASSWORD"
         android:id="@+id/textView7"
+        android:textSize="20sp"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="77dp"
-        android:textSize="20sp" />
+        android:layout_marginTop="60dp"
+        android:textColor="#fffcfc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMAIL"
+        android:id="@+id/textView26"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#abffffff" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/username"
+        android:layout_above="@+id/textView6"
         android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        android:layout_toEndOf="@+id/textView5"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_above="@+id/textView7"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:id="@+id/password"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:textColor="#fefcfc" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/pass2"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#f6f2f2" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignTop="@+id/textView7"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:id="@+id/email"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_marginTop="58dp"
+        android:textColor="#fbf6f6" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/button4"
-        android:layout_marginBottom="68dp"
+        android:id="@+id/register"
+        android:onClick="signup"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

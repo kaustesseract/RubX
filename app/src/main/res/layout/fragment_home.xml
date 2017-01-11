@@ -1,28 +1,41 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.kaustubh.rubrics.HomeFragment"
-    android:background="#aae9ca">
+    android:background="@drawable/img">
 
     <!-- TODO: Update blank fragment layout -->
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:layout_width="267dp"
-        android:layout_height="76dp"
-        android:text="View All Course"
+        android:layout_height="146dp"
+        android:text="WELCOME TO  RUBRICS  "
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal|top"
-        android:textSize="30sp"
+        android:textSize="50sp"
+        android:textColor="#f7f4f4"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <ListView
-        android:layout_width="371dp"
-        android:layout_height="380dp"
-        android:id="@+id/listView"
-        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WHAT IS RUBRICS ??                        Rurics is a teaching which helps teachers to asses the students in a very flexible and transparent manner.It makes student aware of the scheming on which evaluation is taking place.  "
+        android:id="@+id/textView31"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:minWidth="800dp"
+        android:minHeight="400dp"
+        android:layout_below="@+id/textView10"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="#fbf8f8" />
 </RelativeLayout>
+</ScrollView>

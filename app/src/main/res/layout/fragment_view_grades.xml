@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kaustubh.rubrics.ViewGradesFragment">
+    tools:context="com.kaustubh.rubrics.ViewGradesFragment"
+    android:background="@drawable/img">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -14,7 +15,8 @@
         android:id="@+id/textView23"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="#ffffff" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -96,7 +98,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="58dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,5 +109,6 @@
         android:textSize="25sp"
         android:layout_alignTop="@+id/textView24"
         android:layout_toRightOf="@+id/textView23"
-        android:layout_toEndOf="@+id/textView23" />
+        android:layout_toEndOf="@+id/textView23"
+        android:textColor="#ffffff" />
 </RelativeLayout>
