@@ -67,14 +67,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String query = "select * from class";
-        Cursor cursor = db.rawQuery(query,null);
-        int count = cursor.getCount();
-        values.put(COLUMN_ID,count);
-        values.put(COLUMN_STUDENT,c1.getStudentc());
-        values.put(COLUMN_CLASSNAME,c1.getClassname());
-        values.put(COLUMN_ROLL,c1.getRoll());
-        db.insert(TABLE_NAME1,null,values);
-        db.close();
+        try(Cursor cursor = db.rawQuery(query, null)){
+           // Cursor cursor = db.rawQuery(query, null);
+            int count = cursor.getCount();
+            values.put(COLUMN_ID, count);
+            values.put(COLUMN_STUDENT, c1.getStudentc());
+            values.put(COLUMN_CLASSNAME, c1.getClassname());
+            values.put(COLUMN_ROLL, c1.getRoll());
+            db.insert(TABLE_NAME1, null, values);
+        }
+        finally {
+            db.close();
+        }
+
 
     }
 
