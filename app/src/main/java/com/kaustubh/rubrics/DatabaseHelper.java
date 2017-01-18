@@ -67,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String query = "select * from class";
+
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_ID,count);
@@ -75,6 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_ROLL,c1.getRoll());
         db.insert(TABLE_NAME1,null,values);
         db.close();
+
 
     }
 

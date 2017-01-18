@@ -2,18 +2,22 @@ package com.kaustubh.rubrics;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+    Context context;
 
 
     public HomeFragment() {
@@ -34,7 +38,21 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        context = root.getContext();
+
+        Button buto = (Button) root.findViewById(R.id.button12);
+
+        buto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(context,Logout.class);
+                startActivity(intent);
+            }
+        });
+        return root;
     }
 
     @Override
