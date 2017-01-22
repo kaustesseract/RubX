@@ -44,7 +44,9 @@ public class ClassFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int myValue = this.getArguments().getInt("message");
+        final int mycal = this.getArguments().getInt("message");
+
+
 
        // Toast.makeText(getActivity(), "Id is "+myValue , Toast.LENGTH_LONG).show();
         // Inflate the layout for this fragment
@@ -59,8 +61,10 @@ public class ClassFragment extends Fragment {
         buto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int pid = 5;
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
                 Intent intent = new Intent(context,AddStudentclass.class);
+                intent.putExtra("pid",pid);
                 startActivity(intent);
             }
         });
@@ -77,6 +81,8 @@ public class ClassFragment extends Fragment {
         return root;
 
     }
+
+
 /*
     public void searchc(View view)
     {
@@ -89,6 +95,7 @@ public class ClassFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
     }
 
     @Override
@@ -101,3 +108,6 @@ public class ClassFragment extends Fragment {
         super.onDetach();
     }
 }
+
+
+

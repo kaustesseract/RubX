@@ -26,18 +26,26 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView navlist;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+
+    public void onrecieve()
+    {
+        Bundle bundle = getIntent().getExtras();
+        int message = bundle.getInt("pid");
+        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
         Bundle bundle = getIntent().getExtras();
         int message = bundle.getInt("pid");
-        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
-
-      //  Bundle bundl = new Bundle();
-       // bundl.putInt("message",message );
-       // ClassFragment fragInfo = new ClassFragment();
-       // fragInfo.setArguments(bundl);
+        Bundle bundl = new Bundle();
+        bundl.putInt("message",message );
+        ClassFragment fragInfo = new ClassFragment();
+        fragInfo.setArguments(bundl);
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawlayout);
@@ -72,8 +80,6 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     }
     public void loadselection(int i)
     {
-        navlist.setItemChecked(i,true);
-
         switch(i)
         {
             case 0:  HomeFragment homeFragment = new HomeFragment();
@@ -141,6 +147,8 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
 
         loadselection(position);
         mDrawerLayout.closeDrawer(navlist);
+
+
     }
 
 }

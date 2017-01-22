@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,8 +16,28 @@ public class AddStudentclass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_studentclass);
+        Button submit = (Button)findViewById(R.id.submit);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = getIntent().getExtras();
+                int message = bundle.getInt("pid");
+                Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+
+                    EditText a = (EditText) findViewById(R.id.class1);
+                    String str = a.getText().toString();
+                    helper.createclass(str);
+
+                    Intent i = new Intent(getApplicationContext(), Addclass.class);
+                    i.putExtra("str",str);
+                    startActivity(i);
+            }
+
+        });
+
     }
-    public void class1(View view) {
+    /*public void class1(View view) {
         if (view.getId() == R.id.submit) {
             EditText a = (EditText) findViewById(R.id.class1);
             String str = a.getText().toString();
@@ -29,6 +50,8 @@ public class AddStudentclass extends AppCompatActivity {
 
 
         }
-    }
+    }*/
+
+
 }
 
