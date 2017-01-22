@@ -58,8 +58,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(TABLE_CREATE);
         //this.db = db;
 
-        db.execSQL(TABLE_CREATE1);
+       // db.execSQL(TABLE_CREATE1);
        // this.db = db;
+    }
+    public void createclass(String str)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //String query = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
+        String Class =
+                "CREATE TABLE "  +str+ " (" +
+                        COLUMN_ID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_CLASSNAME + " VARCHAR, " +
+                        COLUMN_STUDENT + " VARCHAR, " +
+                        COLUMN_ROLL + " INTEGER);";
+        db.execSQL(Class);
+
+
     }
 
     public void insertclass(Contact1 c1)
@@ -145,6 +160,34 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
    }
 
+
+    public int searchId(String name)
+    {
+
+        db = this.getReadableDatabase();
+        String query = "select name,password,id from "+TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        String a;
+        int c = 0;
+
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+                // c = cursor.getInt(0);
+
+                if(a.equals(name)) {
+                    c = cursor.getInt(2);
+
+                    break;
+
+                }
+
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
+    }
 
 
 

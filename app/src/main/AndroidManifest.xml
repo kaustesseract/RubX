@@ -26,7 +26,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".Addclass" />
-        <activity android:name=".Showclass"></activity>
+        <activity android:name=".Showclass" />
+        <activity android:name=".AddStudentclass"></activity>
     </application>
 
 </manifest>

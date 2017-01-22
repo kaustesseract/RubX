@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,15 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+        Bundle bundle = getIntent().getExtras();
+        int message = bundle.getInt("pid");
+        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+
+      //  Bundle bundl = new Bundle();
+       // bundl.putInt("message",message );
+       // ClassFragment fragInfo = new ClassFragment();
+       // fragInfo.setArguments(bundl);
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawlayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);

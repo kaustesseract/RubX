@@ -96,9 +96,10 @@
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:id="@+id/button"
-        android:onClick="add"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/textView29"
         android:layout_toEndOf="@+id/textView29"
-        android:layout_marginBottom="42dp" />
+        android:layout_marginBottom="42dp"
+        android:nestedScrollingEnabled="false"
+        android:onClick="add" />
 </RelativeLayout>

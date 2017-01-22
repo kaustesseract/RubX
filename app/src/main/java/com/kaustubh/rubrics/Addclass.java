@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import java.lang.String;
 
 public class Addclass extends AppCompatActivity {
@@ -27,7 +29,15 @@ public class Addclass extends AppCompatActivity {
         c1.setClassname(classname);
         c1.setRoll(rolln);
         helper.insertclass(c1);
-            finish();
+        //finish();
+        Bundle bundle = getIntent().getExtras();
+        String message = bundle.getString("str");
+        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+        student.setText("");
+        classn.setText("");
+        roll.setText("");
+        Intent i = new Intent(getApplicationContext(),Addclass.class);
+        startActivity(i);
 
 
     }
@@ -36,5 +46,6 @@ public class Addclass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addclass);
+
     }
 }

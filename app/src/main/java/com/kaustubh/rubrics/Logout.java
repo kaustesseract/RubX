@@ -1,5 +1,6 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -17,7 +18,26 @@ public class Logout extends AppCompatActivity{
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
 
-    
+    Context ctx;
+
+    public Logout(Context ctx)
+    {
+        this.ctx=ctx;
+        preferences = ctx.getSharedPreferences("myapp", Context.MODE_PRIVATE);
+        editor = preferences.edit();
+    }
+
+    public void setLgi(boolean lgi)
+    {
+        editor.putBoolean("login",lgi);
+        editor.commit();
+
+    }
+
+    public boolean lgi()
+    {
+        return preferences.getBoolean("logged",false);
+    }
    /* SessionManager manager;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,3 +71,4 @@ public class Logout extends AppCompatActivity{
 
 
 }
+

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -43,6 +44,9 @@ public class ClassFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        int myValue = this.getArguments().getInt("message");
+
+       // Toast.makeText(getActivity(), "Id is "+myValue , Toast.LENGTH_LONG).show();
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_class, container, false);
         View root = inflater.inflate(R.layout.fragment_class, container, false);
@@ -56,7 +60,7 @@ public class ClassFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(context,Addclass.class);
+                Intent intent = new Intent(context,AddStudentclass.class);
                 startActivity(intent);
             }
         });
