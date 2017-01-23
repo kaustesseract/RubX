@@ -27,7 +27,9 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".Addclass" />
         <activity android:name=".Showclass" />
-        <activity android:name=".AddStudentclass"></activity>
+        <activity android:name=".AddStudentclass" />
+        <activity android:name=".AddCourse" />
+        <activity android:name=".ViewCourse"></activity>
     </application>
 
 </manifest>

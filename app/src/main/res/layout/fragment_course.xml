@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD COURSE"
-        android:id="@+id/button7"
+        android:id="@+id/add"
         android:layout_below="@+id/textView12"
         android:layout_centerHorizontal="true"
         android:textSize="25sp" />
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VIEW COURSE"
-        android:id="@+id/button8"
+        android:id="@+id/view"
         android:textSize="25sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

@@ -51,8 +51,9 @@ public class ClassFragment extends Fragment {
        // Toast.makeText(getActivity(), "Id is "+myValue , Toast.LENGTH_LONG).show();
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_class, container, false);
-        View root = inflater.inflate(R.layout.fragment_class, container, false);
         //View root1 = inflater.inflate(R.layout.fragment_class, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_class, container, false);
 
         context = root.getContext();
 
