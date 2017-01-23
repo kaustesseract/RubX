@@ -18,9 +18,11 @@ public class AddStudentclass extends AppCompatActivity {
         setContentView(R.layout.activity_add_studentclass);
         Button submit = (Button)findViewById(R.id.submit);
 
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Bundle bundle = getIntent().getExtras();
                 int message = bundle.getInt("pid");
                 Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
@@ -28,9 +30,14 @@ public class AddStudentclass extends AppCompatActivity {
                     EditText a = (EditText) findViewById(R.id.class1);
                     String str = a.getText().toString();
                     helper.createclass(str);
+                Contact2 c2 = new Contact2();
+                c2.setCname(str);
+                c2.setTid(message);
+                helper.inclass(c2);
 
                     Intent i = new Intent(getApplicationContext(), Addclass.class);
                     i.putExtra("str",str);
+
                     startActivity(i);
             }
 

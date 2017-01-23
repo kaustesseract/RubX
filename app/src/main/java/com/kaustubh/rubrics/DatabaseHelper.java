@@ -14,6 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "contacts.db";
     private static final String TABLE_NAME = "contacts";
     private static final String TABLE_NAME1 = "class";
+    private static final String TABLE_CNAME = "classes";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
@@ -21,19 +22,31 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_STUDENT = "student";
     private static final String COLUMN_CLASSNAME = "classname";
     private static final String COLUMN_ROLL = "roll";
+    private static final String COLUMN_CLASS = "cname";
+    private static final String COLUMN_TID = "tid";
+
     private DatabaseHelper ourhelper;
 
     SQLiteDatabase db;
 
-    public static final String TABLE_CREATE1 =
-            "CREATE TABLE "  +TABLE_NAME1 + " (" +
+    public static final String TABLE_CRT =
+            "CREATE TABLE "+TABLE_CNAME+" (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY , " +
-                    COLUMN_CLASSNAME + " VARCHAR, " +
-                    COLUMN_STUDENT + " VARCHAR, " +
-                    COLUMN_ROLL + " INTEGER);";
+                    COLUMN_CLASS + " VARCHAR, " +
+                    COLUMN_TID + " INTEGER);";
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
+ // private static final String TABLE_CLASS = "create table classes (cid integer primary key not null , " + " classname VARCHAR not null , );";
+
+   /* String Classes =
+            "CREATE TABLE "  +COLUMN_CNAME+ " (" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY , " +
+                    COLUMN_EMAIL + " VARCHAR, " +
+                    COLUMN_STUDENT + " VARCHAR, " +
+                    COLUMN_ROLL + " INTEGER);";*/
+
+
 
     protected Context context;
     public DatabaseHelper(Context context)
@@ -58,6 +71,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(TABLE_CREATE);
         //this.db = db;
 
+        db.execSQL(TABLE_CRT);
+        this.db = db;
+
        // db.execSQL(TABLE_CREATE1);
        // this.db = db;
     }
@@ -67,9 +83,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
         //String query = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
         String Class =
-                "CREATE TABLE "  +str+ " (" +
+                "CREATE TABLE "  +str+ "(" +
                         COLUMN_ID + " INTEGER PRIMARY KEY , " +
-                        COLUMN_CLASSNAME + " VARCHAR, " +
+                        COLUMN_EMAIL + " VARCHAR, " +
                         COLUMN_STUDENT + " VARCHAR, " +
                         COLUMN_ROLL + " INTEGER);";
         db.execSQL(Class);
@@ -77,19 +93,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public void insertclass(Contact1 c1)
+    public void insertclass(Contact1 c1 , String message)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String query = "select * from class";
+        String query = "select * from "+message;
 
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_ID,count);
         values.put(COLUMN_STUDENT,c1.getStudentc());
-        values.put(COLUMN_CLASSNAME,c1.getClassname());
+        values.put(COLUMN_EMAIL,c1.getEmail());
         values.put(COLUMN_ROLL,c1.getRoll());
-        db.insert(TABLE_NAME1,null,values);
+        db.insert(message,null,values);
         db.close();
 
 
@@ -111,6 +127,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
          db.insert(TABLE_NAME,null,values);
         db.close();
 
+
+    }
+
+    public void inclass(Contact2 c2)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+TABLE_CNAME;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ID,count);
+        values.put(COLUMN_CLASS,c2.getTid());
+        values.put(COLUMN_TID,c2.getCname());
+        db.insert(TABLE_CNAME,null,values);
+        db.close();
 
     }
    /*public String searchclass()
@@ -233,6 +265,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         String query1 = "DROP TABLE IF EXISTS"+TABLE_NAME1;
         db.execSQL(query1);
+        onCreate(db);
+
+        String query2 = "DROP TABLE IF EXISTS"+TABLE_CNAME;
+        db.execSQL(query2);
         onCreate(db);
 
 

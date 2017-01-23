@@ -6,7 +6,7 @@ package com.kaustubh.rubrics;
 public class Contact1 {
     int id;
     int roll;
-    String classname;
+    String email;
     String studentc;
 
     public void setStudentc(String studentc)
@@ -20,15 +20,15 @@ public class Contact1 {
         return this.studentc;
     }
 
-    public void setClassname(String classname)
+    public void setEmail(String email)
     {
-        this.classname = classname;
+        this.email = email;
     }
 
-    public String getClassname()
+    public String getEmail()
 
     {
-        return this.classname;
+        return this.email;
     }
 
     public void setRoll(int roll) {this.roll = roll;}

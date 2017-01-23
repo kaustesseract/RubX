@@ -40,12 +40,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        Bundle bundle = getIntent().getExtras();
-        int message = bundle.getInt("pid");
-        Bundle bundl = new Bundle();
-        bundl.putInt("message",message );
-        ClassFragment fragInfo = new ClassFragment();
-        fragInfo.setArguments(bundl);
+
 
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawlayout);

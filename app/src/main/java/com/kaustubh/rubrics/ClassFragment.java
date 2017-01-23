@@ -44,7 +44,7 @@ public class ClassFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final int mycal = this.getArguments().getInt("message");
+       // final int mycal = this.getArguments().getInt("message");
 
 
 
