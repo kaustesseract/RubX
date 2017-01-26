@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
 /**
  * Created by KAUSTUBH on 13-10-2016.
  */
@@ -45,7 +48,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     COLUMN_CRID + " INTEGER PRIMARY KEY , " +
                     COLUMN_CONAME + " VARCHAR, " +
                     COLUMN_TID + " INTEGER , " +
-                    COLUMN_CLID +  "INTEGER);";
+                    COLUMN_CLSID +  " INTEGER);";
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
@@ -156,8 +159,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_CLSID,count);
-        values.put(COLUMN_CLASS,c2.getTid());
-        values.put(COLUMN_TID,c2.getCname());
+        values.put(COLUMN_CLASS,c2.getCname());
+        values.put(COLUMN_TID,c2.getTid());
         db.insert(TABLE_CNAME,null,values);
         db.close();
 
@@ -173,15 +176,70 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_CRID,count);
         values.put(COLUMN_CONAME, cr.getCourse());
+        values.put(COLUMN_CLSID, cr.getClasid());
         db.insert(TABLE_COURSE,null,values);
         db.close();
-
-
-
-
-
     }
-   /*public String searchclass()
+
+    public ArrayList<String> getspinnerdata() {
+        ArrayList<String> list = new ArrayList<String>();
+        db = this.getReadableDatabase();
+        db.beginTransaction();
+        String query = "select * from "+TABLE_CNAME;
+        Cursor cursor = db.rawQuery(query, null);
+        try{
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                // Add province name to arraylist
+                String cname = cursor.getString(cursor.getColumnIndex(COLUMN_CLASS));
+                list.add(cname);
+            }
+        }
+            db.setTransactionSuccessful();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            db.endTransaction();
+            db.close();
+        }
+        return list;
+    }
+
+
+    public int searchcid(String clas)
+    {
+
+        db = this.getReadableDatabase();
+        //String query = "select name,password,id from "+TABLE_CNAME;
+        String query = "select cname,cls_id from "+TABLE_CNAME;
+        Cursor cursor = db.rawQuery(query,null);
+        String a;
+        int c = 0;
+
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+                // c = cursor.getInt(0);
+
+                if(a.equals(clas)) {
+                    c = cursor.getInt(1);
+
+                    break;
+
+                }
+
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
+    }
+
+
+
+    /*public String searchclass()
     {
 
         String classn = " ";

@@ -39,6 +39,7 @@ public class AddStudentclass extends AppCompatActivity {
                     i.putExtra("str",str);
 
                     startActivity(i);
+                finish();
             }
 
         });

@@ -16,11 +16,11 @@ public class Showclass extends AppCompatActivity {
         TextView show = (TextView) findViewById(R.id.show);
         DatabaseHelper db = new DatabaseHelper(this);
 
-        db.open();
+        /*db.open();
         String data = db.searchclass();
         db.close();
         show.setTypeface(null, Typeface.ITALIC);
-        show.setText(data);
+        show.setText(data);*/
 
 
 
