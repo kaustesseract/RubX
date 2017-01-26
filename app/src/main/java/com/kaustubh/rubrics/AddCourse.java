@@ -28,8 +28,10 @@ public class AddCourse extends AppCompatActivity {
         Spinner sp = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adp= new ArrayAdapter<String>(AddCourse.this,R.layout.spinner_layout,R.id.txt,list);
         sp.setAdapter(adp);
-        String clas = sp.getSelectedItem().toString();
-        final int clsid = helper.searchcid(clas);
+         String clas = sp.getSelectedItem().toString();
+        final String yo = clas;
+       // Toast.makeText(getApplicationContext(), "Id is "+clas , Toast.LENGTH_LONG).show();
+
 
 
 
@@ -38,6 +40,7 @@ public class AddCourse extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               /* int clsid = helper.searchcid(clas);
                 EditText cours = (EditText)findViewById(R.id.course);
                 String course = cours.getText().toString();
 
@@ -47,6 +50,8 @@ public class AddCourse extends AppCompatActivity {
                 helper.insertcourse(cr);
                 Toast.makeText(getApplicationContext(), "Course created successfully" , Toast.LENGTH_LONG).show();
                 finish();
+                */
+                Toast.makeText(getApplicationContext(), "Id is "+yo , Toast.LENGTH_LONG).show();
 
 
 

@@ -15,12 +15,14 @@ public class Showclass extends AppCompatActivity {
         setContentView(R.layout.activity_showclass);
         TextView show = (TextView) findViewById(R.id.show);
         DatabaseHelper db = new DatabaseHelper(this);
+        Bundle bundle = getIntent().getExtras();
+        String cla = bundle.getString("text");
 
-        /*db.open();
-        String data = db.searchclass();
-        db.close();
+        db.open();
+        String data = db.searchclass(cla);
+        //db.close();
         show.setTypeface(null, Typeface.ITALIC);
-        show.setText(data);*/
+        show.setText(data);
 
 
 

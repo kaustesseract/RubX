@@ -295,15 +295,15 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String[] columns = new String[]{COLUMN_STUDENTNAME,COLUMN_CLASSNAME,COLUMN_ROLL};
 
         return null;*/
-   public String searchclass() {
-       String[] columns = new String[]{COLUMN_STUDENT,COLUMN_CLASSNAME,COLUMN_ROLL};
-       Cursor c = db.query(TABLE_NAME1,columns,null,null,null,null,null);
+   public String searchclass(String cname) {
+       String[] columns = new String[]{COLUMN_STUDENT,COLUMN_EMAIL,COLUMN_ROLL};
+       Cursor c = db.query(cname,columns,null,null,null,null,null);
        String result = "";
        int student = c.getColumnIndex(COLUMN_STUDENT);
-       int classname = c.getColumnIndex(COLUMN_CLASSNAME);
+       int email = c.getColumnIndex(COLUMN_EMAIL);
        int roll = c.getColumnIndex(COLUMN_ROLL);
        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-           result = result + "\n"+"\n" + c.getString(student) + "                            " + c.getString(classname) + "                         " + c.getString(roll) + "\n";
+           result = result + "\n"+"\n" + c.getString(student) + "            " + c.getString(email) + "          " + c.getString(roll) + "\n";
        }
 
        return result;
