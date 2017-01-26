@@ -57,7 +57,7 @@ public class Addclass extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                EditText student = (EditText) findViewById(R.id.name);
+                EditText student = (EditText) findViewById(R.id.cls_name);
                 String studentc = student.getText().toString();
 
                 EditText email1 = (EditText) findViewById(R.id.email);

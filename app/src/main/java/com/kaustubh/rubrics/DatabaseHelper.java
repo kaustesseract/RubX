@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_CLASSNAME = "classname";
     private static final String COLUMN_ROLL = "roll";
     private static final String COLUMN_CLSID = "cls_id";
-    private static final String COLUMN_CLASS = "cname";
+    public static final String COLUMN_CLASS = "cname";
     private static final String COLUMN_TID = "tid";
     private static final String COLUMN_CRID = "cr_id";
     private static final String COLUMN_CONAME = "coursename";
@@ -164,6 +164,30 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.insert(TABLE_CNAME,null,values);
         db.close();
 
+
+    }
+/*
+    public String classlist() {
+        String[] columns = new String[]{COLUMN_CLSID,COLUMN_CLASS};
+        Cursor c = db.query(TABLE_NAME1,columns,null,null,null,null,null);
+        String result = "";
+        int clsid = c.getColumnIndex(COLUMN_CLSID);
+        int classname = c.getColumnIndex(COLUMN_CLASS);
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            result = result + "\n"+"\n" + c.getString(classname) ;
+        }
+
+        return result;
+
+    }*/
+
+    public Cursor showclasslist()
+    {
+
+        db = this.getWritableDatabase();
+        String qr = "select  cls_id as _id, cname from "+TABLE_CNAME;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
     }
 
     public void insertcourse(Contactcourse cr)
