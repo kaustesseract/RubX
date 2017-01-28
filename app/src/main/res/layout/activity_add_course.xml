@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/submit"
         android:minWidth="20dp"
+        android:spinnerMode="dropdown"
         android:layout_alignTop="@+id/textView39"
         android:layout_alignRight="@+id/course"
         android:layout_alignEnd="@+id/course">
