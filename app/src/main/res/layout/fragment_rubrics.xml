@@ -11,7 +11,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"
+        android:text="CREATE RUBRICS"
         android:id="@+id/button9"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -20,10 +20,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="VIEW RUBRICS"
         android:id="@+id/button"
         android:layout_below="@+id/button9"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="142dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELETE RUBRICS"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

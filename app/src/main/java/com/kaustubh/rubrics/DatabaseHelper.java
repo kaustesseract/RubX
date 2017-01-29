@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String COLUMN_CLASS = "cname";
     private static final String COLUMN_TID = "tid";
     private static final String COLUMN_CRID = "cr_id";
-    private static final String COLUMN_CONAME = "coursename";
+    public static final String COLUMN_CONAME = "coursename";
     private static final String COLUMN_CLID = "cl_id";
 
     private DatabaseHelper ourhelper;
@@ -190,6 +190,17 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
+    public Cursor showcourselist()
+    {
+
+        db = this.getWritableDatabase();
+        String qr = "select  cr_id as _id, coursename from "+TABLE_COURSE;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
+
+
     public void insertcourse(Contactcourse cr)
     {
         db = this.getWritableDatabase();
@@ -262,39 +273,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
-
-    /*public String searchclass()
-    {
-
-        String classn = " ";
-        String studentn = " ";
-        String rolln = " " ;
-        String result =" ";
-        db = this.getReadableDatabase();
-        ContentValues values = new ContentValues();
-        String query = "select * from class WHERE 1";
-        Cursor cursor = db.rawQuery(query,null);
-        cursor.moveToFirst();
-        while(cursor.isAfterLast())
-        {
-            if(cursor.getString(cursor.getColumnIndex("roll"))!=null)
-            {
-                classn +=  cursor.getString(cursor.getColumnIndex("classname"));
-                studentn +=  cursor.getString(cursor.getColumnIndex("studentname"));
-                rolln +=  cursor.getString(cursor.getColumnIndex("roll"));
-                result = result + classn + " " + studentn + " " + rolln + "\n";
-
-
-            }
-
-        }
-        return result ;
-
-        }*/
-       /* db = this.getReadableDatabase();
-        String[] columns = new String[]{COLUMN_STUDENTNAME,COLUMN_CLASSNAME,COLUMN_ROLL};
-
-        return null;*/
    public String searchclass(String cname) {
        String[] columns = new String[]{COLUMN_STUDENT,COLUMN_EMAIL,COLUMN_ROLL};
        Cursor c = db.query(cname,columns,null,null,null,null,null);

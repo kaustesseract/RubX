@@ -30,7 +30,9 @@
         <activity android:name=".AddStudentclass" />
         <activity android:name=".AddCourse" />
         <activity android:name=".ViewCourse" />
-        <activity android:name=".Class_list"></activity>
+        <activity android:name=".Class_list" />
+        <activity android:name=".CreateRubrics" />
+        <activity android:name=".Course_list"></activity>
     </application>
 
 </manifest>
