@@ -33,7 +33,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/rubric"
         android:layout_alignBottom="@+id/textView14"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -54,17 +54,17 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/limit"
         android:layout_alignBottom="@+id/textView15"
         android:layout_toRightOf="@+id/textView15"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/rubric"
+        android:layout_alignEnd="@+id/rubric" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/button7"
+        android:id="@+id/submit"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="67dp" />

@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WHAT IS RUBRICS ??                        Rurics is a teaching which helps teachers to asses the students in a very flexible and transparent manner.It makes student aware of the scheming on which evaluation is taking place.  "
-        android:id="@+id/textView31"
+        android:id="@+id/textView32"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:minWidth="800dp"

@@ -32,7 +32,8 @@
         <activity android:name=".ViewCourse" />
         <activity android:name=".Class_list" />
         <activity android:name=".CreateRubrics" />
-        <activity android:name=".Course_list"></activity>
+        <activity android:name=".Course_list" />
+        <activity android:name=".EnterRowCol"></activity>
     </application>
 
 </manifest>

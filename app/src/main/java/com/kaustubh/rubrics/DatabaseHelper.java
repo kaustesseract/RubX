@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String TABLE_NAME1 = "class";
     private static final String TABLE_CNAME = "classes";
     private static final String TABLE_COURSE = "course";
+    private static final String TABLE_RUBRIC = "rubrics";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
@@ -32,6 +33,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_CRID = "cr_id";
     public static final String COLUMN_CONAME = "coursename";
     private static final String COLUMN_CLID = "cl_id";
+    private static final String COLUMN_RID = "r_id";
+    private static final String COLUMN_RNAME = "rname";
+    private static final String COLUMN_LIMIT = "limits";
+    private static final String COLUMN_ROWID = "row_id";
+    private static final String COLUMN_COLUMNID = "column_id";
+    private static final String COLUMN_ROWNAME = "rows";
+    private static final String COLUMN_COLUMNNAME = "columns";
+    private static final String COLUMN_WEIGHT = "weight";
+
+
+
+
+
 
     private DatabaseHelper ourhelper;
 
@@ -49,6 +63,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     COLUMN_CONAME + " VARCHAR, " +
                     COLUMN_TID + " INTEGER , " +
                     COLUMN_CLSID +  " INTEGER);";
+
+    public static final String TABLE_RUBRICS =
+            "CREATE TABLE "+TABLE_RUBRIC+"(" +
+                    COLUMN_RID + " INTEGER PRIMARY KEY , " +
+                    COLUMN_RNAME + " VARCHAR , " +
+                    COLUMN_LIMIT +  " INTEGER);";
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
@@ -90,6 +110,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         this.db = db;
 
         db.execSQL(TABLE_COURSES);
+        this.db = db;
+
+        db.execSQL(TABLE_RUBRICS);
         this.db = db;
 
 
@@ -214,6 +237,77 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_CLSID, cr.getClasid());
         db.insert(TABLE_COURSE,null,values);
         db.close();
+    }
+
+    public void insertrubrics(Contact3 c3)
+    {
+
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from rubrics";
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_RID,count);
+        values.put(COLUMN_RNAME,c3.getRubric());
+        values.put(COLUMN_LIMIT,c3.getLimit());
+        db.insert(TABLE_RUBRIC,null,values);
+        db.close();
+
+
+    }
+    public void createrowcol(String row, String column)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //String query = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
+        String rows =
+                "CREATE TABLE "  +row+ "(" +
+                        COLUMN_ROWID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_ROWNAME + " VARCHAR); ";
+        db.execSQL(rows);
+
+        String columns =
+                "CREATE TABLE "  +column+ "(" +
+                        COLUMN_COLUMNID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_COLUMNNAME + " VARCHAR , " +
+                        COLUMN_WEIGHT + " VARCHAR ); ";
+        db.execSQL(columns);
+
+
+
+
+    }
+
+    public void insertrow(Contact4 c4 , String mrow )
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+mrow;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ROWID,count);
+        values.put(COLUMN_ROWNAME,c4.getRow());
+        db.insert(mrow,null,values);
+        db.close();
+
+    }
+
+    public void insertcolumn(Contact4 c4 , String mcolumn, String weight )
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+mcolumn;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_COLUMNID,count);
+        values.put(COLUMN_COLUMNNAME,c4.getColumn());
+        values.put(COLUMN_WEIGHT,c4.getWeight());
+        db.insert(mcolumn,null,values);
+        db.close();
+
     }
 
     public ArrayList<String> getspinnerdata() {
