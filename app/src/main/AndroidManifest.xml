@@ -33,7 +33,10 @@
         <activity android:name=".Class_list" />
         <activity android:name=".CreateRubrics" />
         <activity android:name=".Course_list" />
-        <activity android:name=".EnterRowCol"></activity>
+        <activity android:name=".EnterRowCol" />
+        <activity android:name=".Types_Of_Rubric" />
+        <activity android:name=".Descrete_rubrics" />
+        <activity android:name=".EnterCol"></activity>
     </application>
 
 </manifest>
