@@ -35,7 +35,7 @@ public class Descrete_rubrics extends AppCompatActivity {
                 String row = rubr+"_row";
                 String column = rubr+"_column";
 
-                helper.createrowcol(row ,column);
+             //   helper.createrowcol(row ,column);
 
                 Intent i = new Intent(getApplicationContext(), EnterCol.class);
                 i.putExtra("rubr",rubr);

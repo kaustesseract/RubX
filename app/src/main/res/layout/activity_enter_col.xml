@@ -45,7 +45,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/row"
+        android:id="@+id/col"
         android:layout_alignBottom="@+id/textView45"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -55,12 +55,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weight"
+        android:id="@+id/lweight"
         android:layout_alignBottom="@+id/textView46"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView46"
-        android:layout_toEndOf="@+id/textView46" />
+        android:layout_toLeftOf="@+id/col"
+        android:layout_toStartOf="@+id/col"
+        android:minWidth="45dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -70,4 +69,26 @@
         android:layout_below="@+id/textView46"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="83dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/hweight"
+        android:minWidth="45dp"
+        android:layout_above="@+id/submit"
+        android:layout_toRightOf="@+id/submit"
+        android:layout_toEndOf="@+id/submit" />
+
+    <Button
+        android:text="NEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:layout_alignLeft="@+id/submit"
+        android:layout_alignStart="@+id/submit"
+        android:layout_marginTop="14dp"
+        android:id="@+id/next" />
+
 </RelativeLayout>

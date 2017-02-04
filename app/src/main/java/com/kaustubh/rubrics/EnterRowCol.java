@@ -17,34 +17,37 @@ public class EnterRowCol extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String message = bundle.getString("rubr");
 
-        final String mrow = message+"_row";
-        final String mcolumn = message+"_column";
+        final String mrow = message+"row";
 
         Button bt = (Button) findViewById(R.id.submit);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText rows = (EditText) findViewById(R.id.row);
+                EditText rows = (EditText) findViewById(R.id.col);
                 String row = rows.getText().toString();
 
-                EditText columns = (EditText) findViewById(R.id.column);
+             /*   EditText columns = (EditText) findViewById(R.id.column);
                 String column = columns.getText().toString();
 
-                EditText weights = (EditText) findViewById(R.id.weight);
-                String weight = weights.getText().toString();
+                EditText lweights = (EditText) findViewById(R.id.lweight);
+                String lweight = lweights.getText().toString();
+
+                EditText hweights = (EditText) findViewById(R.id.hweight);
+                String hweight = hweights.getText().toString();*/
 
                 Contact4 c4 = new Contact4();
                 c4.setRow(row);
                 helper.insertrow(c4,mrow);
 
-                Contact4 c5 = new Contact4();
+             /*   Contact4 c5 = new Contact4();
                 c5.setColumn(column);
-                helper.insertcolumn(c5,mcolumn,weight);
+                helper.insertcolumn(c5,mcolumn,lweight,hweight);*/
 
                 rows.setText("");
-                columns.setText("");
-                weights.setText("");
+                /*columns.setText("");
+                lweights.setText("");
+                hweights.setText("");*/
 
 
 

@@ -40,7 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_COLUMNID = "column_id";
     private static final String COLUMN_ROWNAME = "rows";
     private static final String COLUMN_COLUMNNAME = "columns";
-    private static final String COLUMN_WEIGHT = "weight";
+    private static final String COLUMN_LWEIGHT = "lweight";
+    private static final String COLUMN_HWEIGHT = "hweight";
 
 
 
@@ -250,13 +251,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c3.getRubric());
-      //  values.put(COLUMN_LIMIT,c3.getLimit());
+      //values.put(COLUMN_LIMIT,c3.getLimit());
         db.insert(TABLE_RUBRIC,null,values);
         db.close();
 
 
     }
-    public void createrowcol(String row, String column)
+    public void createrow(String row)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -267,16 +268,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                         COLUMN_ROWNAME + " VARCHAR); ";
         db.execSQL(rows);
 
+    }
+
+    public void createcol(String column)
+    {
+        db = this.getWritableDatabase();
         String columns =
                 "CREATE TABLE "  +column+ "(" +
                         COLUMN_COLUMNID + " INTEGER PRIMARY KEY , " +
                         COLUMN_COLUMNNAME + " VARCHAR , " +
-                        COLUMN_WEIGHT + " VARCHAR ); ";
+                        COLUMN_LWEIGHT + " INTEGER , " +
+                        COLUMN_HWEIGHT + " INTEGER ); ";
         db.execSQL(columns);
-
-
-
-
     }
 
     public void insertrow(Contact4 c4 , String mrow )
@@ -294,7 +297,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public void insertcolumn(Contact4 c4 , String mcolumn, String weight )
+    public void insertcolumn(Contact4 c4 , String mcolumn, int lweight ,int hweight)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -304,7 +307,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_COLUMNID,count);
         values.put(COLUMN_COLUMNNAME,c4.getColumn());
-        values.put(COLUMN_WEIGHT,c4.getWeight());
+        values.put(COLUMN_LWEIGHT,lweight);
+        values.put(COLUMN_HWEIGHT,hweight);
         db.insert(mcolumn,null,values);
         db.close();
 
