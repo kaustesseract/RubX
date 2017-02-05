@@ -1,6 +1,5 @@
 package com.kaustubh.rubrics;
 
-import android.database.Cursor;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ public class Showclass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showclass);
-        TextView show = (TextView) findViewById(R.id.show);
+        TextView show = (TextView) findViewById(R.id.ru);
         DatabaseHelper db = new DatabaseHelper(this);
         Bundle bundle = getIntent().getExtras();
         String cla = bundle.getString("text");

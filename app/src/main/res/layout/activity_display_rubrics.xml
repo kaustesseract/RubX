@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/show"
+        android:layout_below="@+id/ru"
         android:id="@+id/rubri" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
-        android:id="@+id/show"
+        android:id="@+id/ru"
         android:textSize="35sp"
         android:textColor="@android:color/black" />
 </RelativeLayout>
