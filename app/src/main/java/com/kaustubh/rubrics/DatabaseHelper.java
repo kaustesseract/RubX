@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String COLUMN_CONAME = "coursename";
     private static final String COLUMN_CLID = "cl_id";
     private static final String COLUMN_RID = "r_id";
-    private static final String COLUMN_RNAME = "rname";
+    public static final String COLUMN_RNAME = "rname";
     private static final String COLUMN_LIMIT = "limits";
     private static final String COLUMN_ROWID = "row_id";
     private static final String COLUMN_COLUMNID = "column_id";
@@ -222,6 +222,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
+
+    public Cursor showrubricslist()
+    {
+
+        db = this.getWritableDatabase();
+        String qr = "select  r_id as _id, rname from "+TABLE_RUBRIC;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
 
 
 
