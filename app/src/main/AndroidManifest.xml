@@ -36,7 +36,8 @@
         <activity android:name=".EnterRowCol" />
         <activity android:name=".Types_Of_Rubric" />
         <activity android:name=".Descrete_rubrics" />
-        <activity android:name=".EnterCol"></activity>
+        <activity android:name=".EnterCol" />
+        <activity android:name=".Display_rubrics"></activity>
     </application>
 
 </manifest>

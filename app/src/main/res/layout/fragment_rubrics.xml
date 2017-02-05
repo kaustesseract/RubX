@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VIEW RUBRICS"
-        android:id="@+id/button"
+        android:id="@+id/vrubr"
         android:layout_below="@+id/button9"
         android:layout_marginTop="142dp"
         android:layout_alignRight="@+id/button9"

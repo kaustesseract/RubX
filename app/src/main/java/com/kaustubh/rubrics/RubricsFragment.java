@@ -46,6 +46,18 @@ public class RubricsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button but = (Button) root.findViewById(R.id.vrubr);
+
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Display_rubrics.class);
+                startActivity(intent);
+
+            }
+        });
+
         return root;
     }
 
