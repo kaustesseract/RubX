@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import static android.R.attr.thumb;
 import static android.view.Gravity.CENTER;
+import static android.view.Gravity.HORIZONTAL_GRAVITY_MASK;
+import static android.view.Gravity.START;
 
 public class view_rubrics extends AppCompatActivity {
   //  DatabaseHelper datahelper = new DatabaseHelper(this);
@@ -40,6 +42,7 @@ public class view_rubrics extends AppCompatActivity {
         DatabaseHelper datahelper = new DatabaseHelper(context);
 
         TableLayout tableLayout=(TableLayout)findViewById(R.id.tablelayout);
+
         // Add header row
 
         TableRow rowHeader = new TableRow(context);
@@ -48,14 +51,15 @@ public class view_rubrics extends AppCompatActivity {
                 TableLayout.LayoutParams.WRAP_CONTENT));
         String[] headerText={"NAME OF THE STUDENT"};
         for(String c:headerText) {
-            TextView tv = new TextView(this);
-            tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
+            TextView tv2 = new TextView(this);
+            tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT));
-            tv.setGravity(CENTER);
-            tv.setTextSize(25);
-           // tv.setPadding(5, 5, 5, 5);
-            tv.setText(c);
-            rowHeader.addView(tv);
+            tv2.setGravity(START);
+            tv2.setTextSize(18);
+            tv2.setTextColor(Color.BLUE);
+            tv2.setPadding(0, 0, 0, 20);
+            tv2.setText(c);
+            rowHeader.addView(tv2);
         }
         tableLayout.addView(rowHeader);
 
@@ -71,48 +75,53 @@ public class view_rubrics extends AppCompatActivity {
             {
                 while (cursor.moveToNext()) {
                     // Read columns data
-                    int row_id= cursor.getInt(cursor.getColumnIndex("row_id"));
+                   // int row_id= cursor.getInt(cursor.getColumnIndex("row_id"));
                     String rows_name= cursor.getString(cursor.getColumnIndex("rows"));
-                   // String outlet_type= cursor.getString(cursor.getColumnIndex("outlet_type"));
-
-                    // dara rows
                     TableRow row = new TableRow(context);
-                    row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+                    row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
+
                     String[] colText={rows_name};
                     for(String text:colText) {
                         TextView tv = new TextView(this);
-                        tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,
+                        tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                                 TableRow.LayoutParams.WRAP_CONTENT));
+                        tv.setGravity(Gravity.START);
+                        tv.setTextColor(Color.WHITE);
+                        tv.setTextSize(25);
+                        //tv.setPadding(5, 5, 5, 5);
+                        tv.setText(text);
+
 
 
                         SeekBar view1 = new SeekBar(this);
-                        view1.setMinimumWidth(400);
-                        view1.setProgress(300);
                        // view1 = seekbar_inflate.inflate(R.layout.mysxm_control_coloumn, null, false);
-                       /* view1.setLayoutParams (new TableRow.LayoutParams(
+                        view1.setLayoutParams (new TableRow.LayoutParams(
                                 TableRow.LayoutParams.WRAP_CONTENT,
-                                TableRow.LayoutParams.WRAP_CONTENT));*/
-
-                    //    TableRow.LayoutParams ob = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                      //          TableRow.LayoutParams.WRAP_CONTENT,
-                        //        1);
-                        //view1.setMax(30000);
-
-
+                                TableRow.LayoutParams.WRAP_CONTENT));
                         view1.setProgress(0);
-
                         view1.setPadding(25,25,25,25);
+                        // view1.setMinimumHeight(300);
+                        // view1.setMax(150);
+                        //    view1.setMinimumWidth(280);
 
 
 
+                        TextView tv1 = new TextView(this);
+                        tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
+                                TableRow.LayoutParams.WRAP_CONTENT));
 
-                        tv.setGravity(Gravity.START);
-                        tv.setTextSize(25);
-                        tv.setPadding(25, 25, 25, 25);
-                        tv.setText(text);
-                        row.addView(tv);
-                        row.addView(view1);
+                        tv1.setGravity(Gravity.RIGHT);
+                        tv1.setTextSize(25);
+                        tv1.setTextColor(Color.WHITE);
+
+                        tv1.setText("Excellent");
+
+
+
+                        row.addView(tv,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                        row.addView(view1,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                        row.addView(tv1);
                     }
                     tableLayout.addView(row);
 

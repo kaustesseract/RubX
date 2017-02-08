@@ -38,7 +38,12 @@
         <activity android:name=".Descrete_rubrics" />
         <activity android:name=".EnterCol" />
         <activity android:name=".Display_rubrics" />
-        <activity android:name=".view_rubrics"></activity>
+        <activity android:name=".view_rubrics" />
+        <activity android:name=".Grade_Students" />
+        <activity android:name=".Grade_Course" />
+        <activity android:name=".SimplePieChartActivity" />
+        <activity android:name=".BarPlotExampleActivity" />
+        <activity android:name=".BubbleChartActivity"></activity>
     </application>
 
 </manifest>

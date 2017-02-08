@@ -23,74 +23,6 @@
         android:textSize="40sp"
         android:textColor="#f6efef" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="STUDENT NAME"
-        android:id="@+id/textView28"
-        android:layout_below="@+id/textView27"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:minHeight="40dp"
-        android:minWidth="80dp"
-        android:textSize="20sp"
-        android:textColor="#f9f3f3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EMAIL_ID"
-        android:id="@+id/textView29"
-        android:layout_marginTop="66dp"
-        android:textSize="20sp"
-        android:layout_below="@+id/cls_name"
-        android:inputType="number"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROLL NUMBER"
-        android:id="@+id/textView30"
-        android:layout_marginTop="58dp"
-        android:textSize="20sp"
-        android:layout_below="@+id/email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cls_name"
-        android:layout_alignTop="@+id/textView28"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:minWidth="190dp"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/roll"
-        android:minWidth="190dp"
-        android:layout_alignTop="@+id/textView30"
-        android:layout_alignLeft="@+id/cls_name"
-        android:layout_alignStart="@+id/cls_name"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:minWidth="190dp"
-        android:layout_alignTop="@+id/textView29"
-        android:layout_alignLeft="@+id/roll"
-        android:layout_alignStart="@+id/roll"
-        android:textColor="#ffffff" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,4 +32,73 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/textView30"
         android:layout_toEndOf="@+id/textView30" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/roll"
+        android:minWidth="190dp"
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/textView30"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:minWidth="190dp"
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/textView29"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROLL NUMBER"
+        android:id="@+id/textView30"
+        android:layout_marginTop="85dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/textView29"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMAIL_ID"
+        android:id="@+id/textView29"
+        android:layout_marginTop="63dp"
+        android:textSize="20sp"
+        android:inputType="number"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/cls_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STUDENT NAME"
+        android:id="@+id/textView28"
+        android:minHeight="40dp"
+        android:minWidth="80dp"
+        android:textSize="20sp"
+        android:textColor="#f9f3f3"
+        android:layout_below="@+id/textView27"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cls_name"
+        android:minWidth="190dp"
+        android:textColor="#ffffff"
+        android:layout_alignBaseline="@+id/textView28"
+        android:layout_alignBottom="@+id/textView28"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -42,16 +42,16 @@ public class HomeFragment extends Fragment {
 
         context = root.getContext();
 
-        Button buto = (Button) root.findViewById(R.id.button12);
+       // Button buto = (Button) root.findViewById(R.id.button12);
 
-        buto.setOnClickListener(new View.OnClickListener() {
+        /*buto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
                 Intent intent = new Intent(context,Logout.class);
                 startActivity(intent);
             }
-        });
+        });*/
         return root;
     }
 

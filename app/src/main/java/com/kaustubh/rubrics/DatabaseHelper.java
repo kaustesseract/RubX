@@ -42,6 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_COLUMNNAME = "columns";
     private static final String COLUMN_LWEIGHT = "lweight";
     private static final String COLUMN_HWEIGHT = "hweight";
+    private static final String HIGH = "high";
+    private static final String LOW = "low";
 
 
 
@@ -68,7 +70,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_RUBRICS =
             "CREATE TABLE "+TABLE_RUBRIC+"(" +
                     COLUMN_RID + " INTEGER PRIMARY KEY , " +
-                    COLUMN_RNAME + " VARCHAR );";
+                    COLUMN_RNAME + " VARCHAR , " +
+                    LOW + " INTEGER , " +
+                    HIGH + " INTEGER);";
                   //  COLUMN_LIMIT +  " INTEGER);";
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
@@ -232,6 +236,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
+    public Cursor getcourseid(int cls)
+    {
+        db = this.getWritableDatabase();
+        String qr = "select cr_id as _id , coursename from course where cls_id = "+cls;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
 
 
 
@@ -261,7 +273,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c3.getRubric());
-      //values.put(COLUMN_LIMIT,c3.getLimit());
+        values.put(LOW,c3.getLow());
+        values.put(HIGH,c3.getHigh());
         db.insert(TABLE_RUBRIC,null,values);
         db.close();
 
