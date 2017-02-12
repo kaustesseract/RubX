@@ -25,7 +25,7 @@ public class AddStudentclass extends AppCompatActivity {
 
                 Bundle bundle = getIntent().getExtras();
                 int message = bundle.getInt("pid");
-                Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+            //    Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
 
                     EditText a = (EditText) findViewById(R.id.class1);
                     String str = a.getText().toString();

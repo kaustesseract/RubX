@@ -43,7 +43,11 @@
         <activity android:name=".Grade_Course" />
         <activity android:name=".SimplePieChartActivity" />
         <activity android:name=".BarPlotExampleActivity" />
-        <activity android:name=".BubbleChartActivity"></activity>
+        <activity android:name=".BubbleChartActivity" />
+        <activity
+            android:name=".Main_Screen"
+            android:label="@string/title_activity_main__screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToggle.syncState();
         fragmentManager = getSupportFragmentManager();
-        loadselection(0);
+        //loadselection(0);
     }
     public void loadselection(int i)
     {
@@ -80,31 +80,37 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
             case 0:  HomeFragment homeFragment = new HomeFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, homeFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
             case 1:  ClassFragment classFragment = new ClassFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, classFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
             case 2:  CourseFragment courseFragment = new CourseFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, courseFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
             case 3:  RubricsFragment rubricsFragment = new RubricsFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, rubricsFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
             case 4:  GradeFragment gradeFragment = new GradeFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, gradeFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
             case 5:  ViewGradesFragment viewgradeFragment = new ViewGradesFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, viewgradeFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
 

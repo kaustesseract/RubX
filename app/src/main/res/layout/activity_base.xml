@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.kaustubh.rubrics.BaseActivity"
     android:id="@+id/drawlayout"
     android:background="#97ca91">
@@ -13,15 +14,13 @@
         android:id="@+id/fragmentholder">
 
     </FrameLayout>
-        
-
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/navlist"
-        android:background="#FFF7FAFB"
-        android:layout_gravity="start"/>
+        android:background="@android:color/white"
+        android:layout_gravity="start" />
 
 
 

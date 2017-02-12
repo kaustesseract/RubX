@@ -3,11 +3,16 @@ package com.kaustubh.rubrics;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -53,6 +58,11 @@ public class HomeFragment extends Fragment {
             }
         });*/
         return root;
+
+
+
+
+
     }
 
     @Override
@@ -69,4 +79,15 @@ public class HomeFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+
+   /* @Override
+    public void onBackStackChanged() {
+        HomeFragment mn = new HomeFragment(); //Create and instance of your fragment class here
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.group,mn,"A");
+        fragmentTransaction.addToBackStack("addA");
+        fragmentTransaction.commit();
+    }*/
 }

@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
        // Intent i = new Intent(getApplicationContext(), BaseActivity.class);
        // i.putExtra("tid",tid);
         //startActivity(i);
@@ -134,4 +133,5 @@ public class MainActivity extends AppCompatActivity {
        // donebutton.animate().alpha(1f).setDuration(6000);
         //donebutton.setVisibility(View.VISIBLE);
     }
+
 }

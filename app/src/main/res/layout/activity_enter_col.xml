@@ -54,6 +54,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="NEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next"
+        android:layout_alignBottom="@+id/submit"
+        android:layout_alignRight="@+id/textView44"
+        android:layout_alignEnd="@+id/textView44"
+        android:layout_alignTop="@+id/submit" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,44 +72,36 @@
         android:id="@+id/hweight"
         android:minWidth="45dp"
         android:maxWidth="20dp"
-        android:layout_above="@+id/submit"
-        android:layout_toEndOf="@+id/submit"
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/textView46"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/next"
-        android:layout_alignStart="@+id/next"
-        android:textColor="@android:color/white" />
+        android:layout_alignStart="@+id/next" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lweight"
         android:minWidth="45dp"
-        android:layout_alignBottom="@+id/textView46"
+        android:textColor="@android:color/white"
+        android:layout_alignBaseline="@+id/hweight"
+        android:layout_alignBottom="@+id/hweight"
         android:layout_alignLeft="@+id/submit"
         android:layout_alignStart="@+id/submit"
         android:layout_alignRight="@+id/submit"
-        android:layout_alignEnd="@+id/submit"
-        android:textColor="@android:color/white" />
-
-    <Button
-        android:text="NEXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/next"
-        android:layout_alignBaseline="@+id/submit"
-        android:layout_alignBottom="@+id/submit"
-        android:layout_alignRight="@+id/textView44"
-        android:layout_alignEnd="@+id/textView44" />
+        android:layout_alignEnd="@+id/submit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:id="@+id/submit"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="79dp"
         android:layout_below="@+id/lweight"
-        android:layout_toLeftOf="@+id/next"
-        android:layout_toStartOf="@+id/next"
-        android:layout_marginRight="35dp"
-        android:layout_marginEnd="35dp" />
+        android:layout_toRightOf="@+id/textView46"
+        android:layout_toEndOf="@+id/textView46"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
 
 </RelativeLayout>
