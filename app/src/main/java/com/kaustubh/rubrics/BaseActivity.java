@@ -31,7 +31,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         Bundle bundle = getIntent().getExtras();
         int message = bundle.getInt("pid");
-        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
     }
 
 

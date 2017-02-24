@@ -27,6 +27,7 @@ import static android.view.Gravity.START;
 public class view_rubrics extends AppCompatActivity {
   //  DatabaseHelper datahelper = new DatabaseHelper(this);
 
+
     Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -54,10 +55,10 @@ public class view_rubrics extends AppCompatActivity {
             TextView tv2 = new TextView(this);
             tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT));
-            tv2.setGravity(START);
+            tv2.setGravity(CENTER);
             tv2.setTextSize(18);
             tv2.setTextColor(Color.BLUE);
-            tv2.setPadding(0, 0, 0, 20);
+            tv2.setPadding(0, 0, 0, 25);
             tv2.setText(c);
             rowHeader.addView(tv2);
         }
@@ -89,9 +90,17 @@ public class view_rubrics extends AppCompatActivity {
                         tv.setGravity(Gravity.START);
                         tv.setTextColor(Color.WHITE);
                         tv.setTextSize(25);
-                        //tv.setPadding(5, 5, 5, 5);
+                        tv.setPadding(0, 0, 0, 80);
                         tv.setText(text);
 
+
+                        final TextView tv1 = new TextView(this);
+                        tv1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
+                                TableRow.LayoutParams.WRAP_CONTENT));
+
+                        tv1.setGravity(Gravity.RIGHT);
+                        tv1.setTextSize(25);
+                        tv1.setTextColor(Color.WHITE);
 
 
                         SeekBar view1 = new SeekBar(this);
@@ -102,22 +111,30 @@ public class view_rubrics extends AppCompatActivity {
                         view1.setProgress(0);
                         view1.setPadding(25,25,25,25);
                         // view1.setMinimumHeight(300);
-                        // view1.setMax(150);
+                         view1.setMax(50);
                         //    view1.setMinimumWidth(280);
 
 
+                        view1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                            @Override
+                            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                                tv1.setText(String.valueOf(progress));
+                            }
 
-                        TextView tv1 = new TextView(this);
-                        tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                                TableRow.LayoutParams.WRAP_CONTENT));
+                            @Override
+                            public void onStartTrackingTouch(SeekBar seekBar) {
 
-                        tv1.setGravity(Gravity.RIGHT);
-                        tv1.setTextSize(25);
-                        tv1.setTextColor(Color.WHITE);
+                            }
 
-                        tv1.setText("Excellent");
+                            @Override
+                            public void onStopTrackingTouch(SeekBar seekBar) {
+
+                            }
+                        });
 
 
+
+                        //row.addView(tv);
 
                         row.addView(tv,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                         row.addView(view1,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
