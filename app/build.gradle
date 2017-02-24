@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile files('libs/GraphView-4.2.1.jar')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
+    compile 'org.hamcrest:hamcrest-core:1.3'
 }
