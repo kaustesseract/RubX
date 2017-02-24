@@ -42,7 +42,6 @@
         <activity android:name=".Grade_Students" />
         <activity android:name=".Grade_Course" />
         <activity android:name=".SimplePieChartActivity" />
-        <activity android:name=".BarPlotExampleActivity" />
         <activity android:name=".BubbleChartActivity" />
         <activity
             android:name=".Main_Screen"

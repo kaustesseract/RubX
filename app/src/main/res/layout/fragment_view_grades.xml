@@ -8,39 +8,36 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/startXyListViewExButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ListView of XYPlots"
-        android:enabled="true"
-        android:layout_below="@+id/startSimpleXYExButton"
-        android:layout_alignRight="@+id/startSimpleXYExButton"
-        android:layout_alignEnd="@+id/startSimpleXYExButton"
-        android:layout_marginTop="84dp" />
-
-    <Button
-        android:id="@+id/startSimplePieExButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bubble Chart"
-        android:layout_marginTop="41dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/startSimpleXYExButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="A Simple XY Plot"
-        android:layout_below="@+id/startSimplePieExButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp" />
-
-    <Button
         android:id="@+id/startBarPlotExButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bar Plot"/>
+        android:text="Bar Plot"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/simplexy"
+        android:layout_alignStart="@+id/simplexy"
+        android:layout_marginBottom="84dp"
+        android:layout_alignRight="@+id/simplexy"
+        android:layout_alignEnd="@+id/simplexy" />
 
-    
+    <Button
+        android:id="@+id/simplexy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A Simple XY Plot"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bubble Chart"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/simplexy"
+        android:layout_alignEnd="@+id/simplexy"
+        android:layout_marginTop="113dp"
+        android:layout_alignLeft="@+id/simplexy"
+        android:layout_alignStart="@+id/simplexy" />
+
+
 </RelativeLayout>

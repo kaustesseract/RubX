@@ -55,7 +55,7 @@ public class view_rubrics extends AppCompatActivity {
             TextView tv2 = new TextView(this);
             tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                     TableRow.LayoutParams.WRAP_CONTENT));
-            tv2.setGravity(CENTER);
+            tv2.setGravity(START);
             tv2.setTextSize(18);
             tv2.setTextColor(Color.BLUE);
             tv2.setPadding(0, 0, 0, 25);
