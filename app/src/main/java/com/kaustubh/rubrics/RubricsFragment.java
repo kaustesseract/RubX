@@ -42,7 +42,7 @@ public class RubricsFragment extends Fragment {
             public void onClick(View v) {
 
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(context,CreateRubrics.class);
+                Intent intent = new Intent(context,Types_Of_Rubric.class);
                 startActivity(intent);
             }
         });

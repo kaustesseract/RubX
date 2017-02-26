@@ -46,7 +46,8 @@
         <activity
             android:name=".Main_Screen"
             android:label="@string/title_activity_main__screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Assignment"></activity>
     </application>
 
 </manifest>

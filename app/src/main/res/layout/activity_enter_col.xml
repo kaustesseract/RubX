@@ -23,85 +23,33 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/col"
+        android:id="@+id/crow"
         android:layout_alignBottom="@+id/textView45"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView45"
         android:layout_toEndOf="@+id/textView45"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WEIGHT"
-        android:id="@+id/textView46"
-        android:textSize="20sp"
-        android:textColor="@android:color/background_light"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ENTER CRITERIA"
-        android:id="@+id/textView45"
-        android:layout_marginTop="60dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/background_light"
-        android:layout_below="@+id/textView44"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="NEXT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/next"
-        android:layout_alignBottom="@+id/submit"
-        android:layout_alignRight="@+id/textView44"
-        android:layout_alignEnd="@+id/textView44"
-        android:layout_alignTop="@+id/submit" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/hweight"
-        android:minWidth="45dp"
-        android:maxWidth="20dp"
         android:textColor="@android:color/white"
-        android:layout_alignTop="@+id/textView46"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/next"
-        android:layout_alignStart="@+id/next" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lweight"
-        android:minWidth="45dp"
-        android:textColor="@android:color/white"
-        android:layout_alignBaseline="@+id/hweight"
-        android:layout_alignBottom="@+id/hweight"
-        android:layout_alignLeft="@+id/submit"
-        android:layout_alignStart="@+id/submit"
-        android:layout_alignRight="@+id/submit"
-        android:layout_alignEnd="@+id/submit" />
+        android:layout_alignLeft="@+id/lweight"
+        android:layout_alignStart="@+id/lweight" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
         android:id="@+id/submit"
-        android:layout_marginTop="79dp"
-        android:layout_below="@+id/lweight"
-        android:layout_toRightOf="@+id/textView46"
-        android:layout_toEndOf="@+id/textView46"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTER ROW"
+        android:id="@+id/textView45"
+        android:textSize="20sp"
+        android:textColor="@android:color/background_light"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

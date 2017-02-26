@@ -32,12 +32,12 @@ public class Descrete_rubrics extends AppCompatActivity {
                 //c3.setLimit(limi);
                 helper.insertrubrics(c3);
 
-                String row = rubr+"_row";
-                String column = rubr+"_column";
+                String row = rubr+"row";
+                String column = rubr+"column";
 
-             //   helper.createrowcol(row ,column);
+                helper.createdrowcol(row ,column);
 
-                Intent i = new Intent(getApplicationContext(), EnterCol.class);
+                Intent i = new Intent(getApplicationContext(), EnterRowCol.class);
                 i.putExtra("rubr",rubr);
                 // Toast.makeText(getApplicationContext(), "Id is "+pid , Toast.LENGTH_LONG).show();
                 startActivity(i);

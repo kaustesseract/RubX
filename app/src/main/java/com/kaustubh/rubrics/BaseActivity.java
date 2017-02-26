@@ -47,9 +47,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
         navlist = (ListView) findViewById(R.id.navlist);
         ArrayList<String> navarray = new ArrayList<String>();
-        navarray.add("Home");
+       // navarray.add("Home");
         navarray.add("Manage class");
         navarray.add("Manage course");
+        navarray.add("Manage Assignment");
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
         navarray.add("View graphs");
@@ -77,21 +78,27 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         switch(i)
         {
-            case 0:  HomeFragment homeFragment = new HomeFragment();
+           /* case 0:  HomeFragment homeFragment = new HomeFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, homeFragment);
                      fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
-                     break;
-            case 1:  ClassFragment classFragment = new ClassFragment();
+                     break;*/
+            case 0:  ClassFragment classFragment = new ClassFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, classFragment);
                      fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;
-            case 2:  CourseFragment courseFragment = new CourseFragment();
+            case 1:  CourseFragment courseFragment = new CourseFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, courseFragment);
+                     fragmentTransaction.addToBackStack(null);
+                     fragmentTransaction.commit();
+                     break;
+            case 2:  AssignmentFragment assignmentFragment = new AssignmentFragment();
+                     fragmentTransaction = fragmentManager.beginTransaction();
+                     fragmentTransaction.replace(R.id.fragmentholder, assignmentFragment);
                      fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;

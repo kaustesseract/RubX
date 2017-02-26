@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kaustubh.rubrics.AssignmentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:text="CREATE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cassign"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="161dp" />
+
+    <Button
+        android:text="VIEW ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cassign"
+        android:layout_alignLeft="@+id/cassign"
+        android:layout_alignStart="@+id/cassign"
+        android:layout_marginTop="120dp"
+        android:id="@+id/vassign" />
+</RelativeLayout>

@@ -10,17 +10,17 @@ public class Types_Of_Rubric extends AppCompatActivity {
 
     DatabaseHelper helper = new DatabaseHelper(this);
 
-    public void continous(View view)
-    {
-
-        Intent i = new Intent(getApplicationContext(),CreateRubrics.class);
-        startActivity(i);
-    }
-
-    public void descrete(View view)
+    public void simple(View view)
     {
 
         Intent i = new Intent(getApplicationContext(),Descrete_rubrics.class);
+        startActivity(i);
+    }
+
+    public void priority(View view)
+    {
+
+        Intent i = new Intent(getApplicationContext(),CreateRubrics.class);
         startActivity(i);
     }
 

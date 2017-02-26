@@ -44,7 +44,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_HWEIGHT = "hweight";
     private static final String HIGH = "high";
     private static final String LOW = "low";
-
+    private static final String COLUMN_PRIORITY = "priority";
+    private static final String COLUMN_ASSID = "a_id";
+    private static final String COLUMN_ASSNAME = "ass_name";
+    private static final String COLUMN_DAY = "day";
+    private static final String COLUMN_MONTH = "month";
+    private static final String COLUMN_YEAR = "year";
+    private static final String COLUMN_GRADE = "grade";
 
 
 
@@ -273,14 +279,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c3.getRubric());
-        values.put(LOW,c3.getLow());
-        values.put(HIGH,c3.getHigh());
+       // values.put(LOW,c3.getLow());
+       // values.put(HIGH,c3.getHigh());
         db.insert(TABLE_RUBRIC,null,values);
         db.close();
 
 
     }
-    public void createrow(String row)
+    public void createdrowcol(String row , String col)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -291,21 +297,45 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                         COLUMN_ROWNAME + " VARCHAR); ";
         db.execSQL(rows);
 
-    }
-
-    public void createcol(String column)
-    {
-        db = this.getWritableDatabase();
-        String columns =
-                "CREATE TABLE "  +column+ "(" +
+        String cols =
+                "CREATE TABLE " +col+ "(" +
                         COLUMN_COLUMNID + " INTEGER PRIMARY KEY , " +
                         COLUMN_COLUMNNAME + " VARCHAR , " +
                         COLUMN_LWEIGHT + " INTEGER , " +
-                        COLUMN_HWEIGHT + " INTEGER ); ";
-        db.execSQL(columns);
+                        COLUMN_HWEIGHT + " INTEGER); ";
+
+        db.execSQL(cols);
+
     }
 
-    public void insertrow(Contact4 c4 , String mrow )
+    public void createrow(String row)
+    {
+        db = this.getWritableDatabase();
+        String rows =
+                "CREATE TABLE "  +row+ "(" +
+                        COLUMN_RID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_RNAME + " VARCHAR , " +
+                        COLUMN_LWEIGHT + " INTEGER , " +
+                        COLUMN_HWEIGHT + " INTEGER , " +
+                        COLUMN_PRIORITY + " INTEGER); ";
+        db.execSQL(rows);
+    }
+
+    public void createassignment(String assname)
+    {
+        db = this.getWritableDatabase();
+        String assnames =
+                "CREATE TABLE "  +assname+ "(" +
+                        COLUMN_ASSID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_ASSNAME + " VARCHAR , " +
+                        COLUMN_DAY + " INTEGER , " +
+                        COLUMN_MONTH + " INTEGER , " +
+                        COLUMN_YEAR + " INTEGER , " +
+                        COLUMN_GRADE + " INTEGER); ";
+        db.execSQL(assnames);
+    }
+
+    public void insertdrow(Contact4 c4 , String mrow )
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -320,19 +350,55 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public void insertcolumn(Contact4 c4 , String mcolumn, int lweight ,int hweight)
+    public void insertdcol(Contact4 c5 , String mcol)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        String query = "select * from "+mcolumn;
+        String query = "select * from "+mcol;
+        Cursor cr = db.rawQuery(query,null);
+        int count = cr.getCount();
+        values.put(COLUMN_COLUMNID,count);
+        values.put(COLUMN_COLUMNNAME,c5.getColumn());
+        db.insert(mcol,null,values);
+        db.close();
+
+    }
+
+
+    public void insertRow(Contact4 c4 , String mrow)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+mrow;
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
-        values.put(COLUMN_COLUMNID,count);
-        values.put(COLUMN_COLUMNNAME,c4.getColumn());
-        values.put(COLUMN_LWEIGHT,lweight);
-        values.put(COLUMN_HWEIGHT,hweight);
-        db.insert(mcolumn,null,values);
+        values.put(COLUMN_RID,count);
+        values.put(COLUMN_RNAME,c4.getColumn());
+      //  values.put(COLUMN_LWEIGHT,lweight);
+       // values.put(COLUMN_HWEIGHT,hweight);
+       // values.put(COLUMN_PRIORITY,prior);
+        db.insert(mrow,null,values);
+        db.close();
+
+    }
+
+    public void insertassignment(ContactAssignment ca ,String assname)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+assname;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ASSID,count);
+        values.put(COLUMN_ASSNAME,ca.getAssname());
+        values.put(COLUMN_DAY,ca.getDay());
+        values.put(COLUMN_MONTH,ca.getMonth());
+        values.put(COLUMN_YEAR,ca.getYear());
+        values.put(COLUMN_GRADE,ca.getGrade());
+        db.insert(assname,null,values);
         db.close();
 
     }
@@ -362,6 +428,37 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
         return list;
     }
+
+
+    public ArrayList<String> getcoursespinnerdata() {
+        ArrayList<String> list = new ArrayList<String>();
+        db = this.getReadableDatabase();
+        db.beginTransaction();
+        String query = "select * from "+TABLE_COURSE;
+        Cursor cursor = db.rawQuery(query, null);
+        try{
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    // Add province name to arraylist
+                    String coname = cursor.getString(cursor.getColumnIndex(COLUMN_CONAME));
+                    list.add(coname);
+                }
+            }
+            db.setTransactionSuccessful();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            db.endTransaction();
+            db.close();
+        }
+        return list;
+    }
+
+
+
+
 
 
     public int searchcid(String clas)
@@ -394,7 +491,42 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
-   public String searchclass(String cname) {
+    public int searchcoid(String cours)
+    {
+
+        db = this.getReadableDatabase();
+        //String query = "select name,password,id from "+TABLE_CNAME;
+        String query = "select coursename,cr_id from "+TABLE_COURSE;
+        Cursor cursor = db.rawQuery(query,null);
+        String a;
+        int c = 0;
+
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+                // c = cursor.getInt(0);
+
+                if(a.equals(cours)) {
+                    c = cursor.getInt(1);
+
+                    break;
+
+                }
+
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
+    }
+
+
+
+
+
+
+
+    public String searchclass(String cname) {
        String[] columns = new String[]{COLUMN_STUDENT,COLUMN_EMAIL,COLUMN_ROLL};
        Cursor c = db.query(cname,columns,null,null,null,null,null);
        String result = "";
