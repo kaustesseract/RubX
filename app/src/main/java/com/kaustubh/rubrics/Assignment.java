@@ -1,10 +1,18 @@
 package com.kaustubh.rubrics;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,19 +20,27 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
+import android.content.BroadcastReceiver;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
 
-public class Assignment extends AppCompatActivity {
+public class Assignment extends AppCompatActivity{
 
     String cours;
     int yearx,monthx,dayx;
     static final int DIALOG_ID = 0;
+    int hour_x , minute_x;
     final Calendar cal = Calendar.getInstance();
 
    EditText deadline;
+    EditText time;
   //  String deadline = deadlines.getText().toString();
 
 
@@ -38,8 +54,12 @@ public class Assignment extends AppCompatActivity {
         yearx = cal.get(Calendar.YEAR);
         monthx=cal.get(Calendar.MONTH);
         dayx=cal.get(Calendar.DAY_OF_MONTH);
+        hour_x=cal.get(Calendar.HOUR);
+        minute_x=cal.get(Calendar.MINUTE);
 
         deadline = (EditText) findViewById(R.id.calender);
+        time = (EditText) findViewById(R.id.editText);
+
 
 
 
@@ -69,12 +89,24 @@ public class Assignment extends AppCompatActivity {
        });
 
 
+        Button bt = (Button) findViewById(R.id.time);
+
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new TimePickerDialog(Assignment.this,listi,hour_x,minute_x, false).show();
+            }
+        });
+
+
+
         Button br = (Button) findViewById(R.id.submit);
         br.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
               //  EditText deadlines = (EditText) findViewById(R.id.editText);
+
 
                 EditText anames = (EditText) findViewById(R.id.aname);
                 String aname = anames.getText().toString();
@@ -86,26 +118,104 @@ public class Assignment extends AppCompatActivity {
                 int coid = helper.searchcoid(cours);
                 String assname = "Course_"+cours+"_"+coid;
 
-                helper.createassignment(assname);
+                String tablename = helper.searchtable(assname) ;
 
-                ContactAssignment ca = new ContactAssignment();
-                ca.setAssname(aname);
-                ca.setDay(dayx);
-                ca.setMonth(monthx);
-                ca.setYear(yearx);
-                ca.setGrade(grade);
-                helper.insertassignment(ca,assname);
-                Toast.makeText(Assignment.this,"Assignment is created successfully",Toast.LENGTH_SHORT).show();
+                if(assname.equals(tablename))
+                {
+                    ContactAssignment ca = new ContactAssignment();
+                    ca.setAssname(aname);
+                    ca.setDay(dayx);
+                    ca.setMonth(monthx);
+                    ca.setYear(yearx);
+                    ca.setGrade(grade);
+                    ca.setHour(hour_x);
+                    ca.setMinute(minute_x);
+                    helper.insertassignment(ca,assname);
+                    Toast.makeText(Assignment.this,"Assignment is created successfully",Toast.LENGTH_SHORT).show();
+                 //   finish();
+
+                }
+
+                else {
+
+                    helper.createassignment(assname);
+
+                    ContactAssignment ca = new ContactAssignment();
+                    ca.setAssname(aname);
+                    ca.setDay(dayx);
+                    ca.setMonth(monthx);
+                    ca.setYear(yearx);
+                    ca.setGrade(grade);
+                    ca.setHour(hour_x);
+                    ca.setMinute(minute_x);
+                    helper.insertassignment(ca, assname);
+                    Toast.makeText(Assignment.this, "Assignment is created successfully and set ", Toast.LENGTH_SHORT).show();
+                 //   finish();
+                }
+
+              /*  Intent intent = new Intent(getApplicationContext(),BaseActivity.class);
+
+                PendingIntent pintent = PendingIntent.getActivity(Assignment.this,0,intent,0);
+                Notification noti = new Notification.Builder(Assignment.this).setTicker("Ticker Title").
+                        setContentTitle("Welcome to Rubrics").setContentText("Deadline of "+aname+" has crossed!! Time to correct it.")
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentIntent(pintent).getNotification();
+                noti.flags = Notification.FLAG_AUTO_CANCEL;
+
+              //  noti.flags = Notification.DEFAULT_VIBRATE;
+                NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                nm.notify(0,noti);*/
+
+// Setting up the notification of the deadline
+
+             //   Calendar cal = Calendar.getInstance();
+               /* cal.setTimeInMillis(System.currentTimeMillis());
+                cal.clear();
+                cal.set(yearx,monthx,dayx,2,26);*/
+
+
+              /*  Long atime = new GregorianCalendar().getTimeInMillis()+5*100;
+
+                Intent intent  = new Intent(getApplicationContext(),AlarmRubrics.class);
+                AlarmManager alarmManager1 = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager1.set(AlarmManager.RTC_WAKEUP,atime,PendingIntent.getBroadcast(getApplicationContext(),1,intent,PendingIntent.FLAG_UPDATE_CURRENT));*/
+
+
+               /*Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(System.currentTimeMillis());
+                cal.clear();
+                cal.set(yearx,monthx,dayx,hour_x,minute_x);
+                Intent myIntent1 = new Intent(getApplicationContext(), AlarmRubrics.class);
+                PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(), 1253, myIntent1,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager1.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent1);*/
+               // finish();
+
+
+               // cal.set(dayx, monthx, yearx);
+                /*cal.set(Calendar.YEAR, 2017);
+                cal.set(Calendar.MONTH, 3);
+                cal.set(Calendar.DAY_OF_MONTH, 2);*/
+
+                cal.set(Calendar.HOUR_OF_DAY, hour_x);
+                cal.set(Calendar.MINUTE, minute_x);
+                cal.set(Calendar.SECOND,0);
+               // cal.set(Calendar.AM_PM,Calendar.PM);
+
+                Intent myIntent1  = new Intent(getApplicationContext(),AlarmRubrics.class);
+                PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(), 1253, myIntent1,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                AlarmManager alarmManager1 = (AlarmManager)getSystemService(ALARM_SERVICE);
+                alarmManager1.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent1);
                 finish();
-
-
-
-
-
-
-
             }
         });
+
+
+
+
+
 
     }
 
@@ -116,6 +226,17 @@ public class Assignment extends AppCompatActivity {
             monthx = month + 1;
             dayx = dayOfMonth;
             deadline.setText(dayx + "/"+ monthx+"/"+yearx);
+
+
+        }
+    };
+
+    TimePickerDialog.OnTimeSetListener listi = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            hour_x=hourOfDay;
+            minute_x=minute;
+            time.setText(hour_x + ":" +minute_x);
 
         }
     };

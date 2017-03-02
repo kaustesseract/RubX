@@ -51,6 +51,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_MONTH = "month";
     private static final String COLUMN_YEAR = "year";
     private static final String COLUMN_GRADE = "grade";
+    private static final String COLUMN_HOUR = "hour";
+    private static final String COLUMN_MINUTE = "minute";
 
 
 
@@ -331,7 +333,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                         COLUMN_DAY + " INTEGER , " +
                         COLUMN_MONTH + " INTEGER , " +
                         COLUMN_YEAR + " INTEGER , " +
-                        COLUMN_GRADE + " INTEGER); ";
+                        COLUMN_GRADE + " INTEGER , " +
+                        COLUMN_HOUR + " INTEGER , " +
+                        COLUMN_MINUTE + " INTEGER); ";
         db.execSQL(assnames);
     }
 
@@ -398,6 +402,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_MONTH,ca.getMonth());
         values.put(COLUMN_YEAR,ca.getYear());
         values.put(COLUMN_GRADE,ca.getGrade());
+        values.put(COLUMN_HOUR,ca.getHour());
+        values.put(COLUMN_MINUTE,ca.getMinute());
         db.insert(assname,null,values);
         db.close();
 
@@ -597,6 +603,32 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             while(cursor.moveToNext());
         }
         return b;
+    }
+
+    public String searchtable(String tname)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT name FROM sqlite_master WHERE type='table'";
+        Cursor cursor = db.rawQuery(query,null);
+        String a = "Not found";
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+                //b = cursor.getString(1);
+
+                if(a.equals(tname)) {
+                   // b = cursor.getString(1);
+                    break;
+
+                }
+
+            }
+            while(cursor.moveToNext());
+        }
+        return a;
+
+
     }
 
    /* protected void createTables(SQLiteDatabase db) {

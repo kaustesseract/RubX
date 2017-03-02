@@ -11,6 +11,8 @@ public class ContactAssignment {
     int year;
     int month;
     int day;
+    int hour;
+    int minute;
 
 
     public void setAssname(String assname)
@@ -56,4 +58,24 @@ public class ContactAssignment {
     {
         return this.grade;
     }
+
+    public void setHour(int hour) {this.hour = hour;}
+
+    public int getHour()
+
+    {
+        return this.hour;
+    }
+
+    public void setMinute(int minute) {this.minute = minute;}
+
+    public int getMinute()
+
+    {
+        return this.minute;
+    }
+
+
+
+
 }
