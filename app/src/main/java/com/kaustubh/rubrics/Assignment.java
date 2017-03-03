@@ -34,7 +34,7 @@ import java.util.TimeZone;
 public class Assignment extends AppCompatActivity{
 
     String cours;
-    int yearx,monthx,dayx;
+    int yearx,monthx,dayx,mont;
     static final int DIALOG_ID = 0;
     int hour_x , minute_x;
     final Calendar cal = Calendar.getInstance();
@@ -194,20 +194,32 @@ public class Assignment extends AppCompatActivity{
 
 
                // cal.set(dayx, monthx, yearx);
-                /*cal.set(Calendar.YEAR, 2017);
-                cal.set(Calendar.MONTH, 3);
-                cal.set(Calendar.DAY_OF_MONTH, 2);*/
 
-                cal.set(Calendar.HOUR_OF_DAY, hour_x);
-                cal.set(Calendar.MINUTE, minute_x);
-                cal.set(Calendar.SECOND,0);
+               /* cal.set(Calendar.HOUR_OF_DAY,hour_x);
+                cal.set(Calendar.MINUTE,minute_x);
+                cal.set(Calendar.SECOND,0);*/
                // cal.set(Calendar.AM_PM,Calendar.PM);
+
+
+                Calendar cal1 = Calendar.getInstance();
+                cal1.set(Calendar.DAY_OF_MONTH, dayx);
+                cal1.set(Calendar.MONTH, monthx);
+                cal1.set(Calendar.YEAR, yearx);
+                cal1.set(Calendar.HOUR_OF_DAY, hour_x);
+                cal1.set(Calendar.MINUTE, minute_x);
+
+               // cal1.set(Calendar.AM_PM,Calendar.PM);
+
+
+              /*  cal.set(Calendar.HOUR_OF_DAY,hour_x);
+                cal.set(Calendar.MINUTE,minute_x);*/
+
 
                 Intent myIntent1  = new Intent(getApplicationContext(),AlarmRubrics.class);
                 PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(), 1253, myIntent1,
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager alarmManager1 = (AlarmManager)getSystemService(ALARM_SERVICE);
-                alarmManager1.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent1);
+                alarmManager1.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), pendingIntent1);
                 finish();
             }
         });
@@ -223,9 +235,10 @@ public class Assignment extends AppCompatActivity{
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
             yearx = year;
-            monthx = month + 1;
+            monthx = month;
+            mont = month + 1;
             dayx = dayOfMonth;
-            deadline.setText(dayx + "/"+ monthx+"/"+yearx);
+            deadline.setText(dayx + "/"+ mont+"/"+yearx);
 
 
         }
