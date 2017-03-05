@@ -185,9 +185,9 @@ Context context;
 
 
 
-                        row.addView(tv);
+                    //    row.addView(tv);
 
-                      //  row.addView(tv,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                        row.addView(tv,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
 
                     }
                     tableLayout.addView(row);

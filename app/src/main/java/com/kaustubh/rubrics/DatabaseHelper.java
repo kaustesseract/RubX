@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String TABLE_CNAME = "classes";
     private static final String TABLE_COURSE = "course";
     private static final String TABLE_RUBRIC = "rubrics";
+    private static final String TABLE_STARTGRADE = "start_grading";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
@@ -46,13 +47,17 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String LOW = "low";
     private static final String COLUMN_PRIORITY = "priority";
     private static final String COLUMN_ASSID = "a_id";
-    private static final String COLUMN_ASSNAME = "ass_name";
+    public static final String COLUMN_ASSNAME = "ass_name";
     private static final String COLUMN_DAY = "day";
     private static final String COLUMN_MONTH = "month";
     private static final String COLUMN_YEAR = "year";
     private static final String COLUMN_GRADE = "grade";
     private static final String COLUMN_HOUR = "hour";
     private static final String COLUMN_MINUTE = "minute";
+    private static final String COLUMN_GNAME = "tgrade";
+    private static final String COLUMN_STID = "st_id";
+    private static final String COLUMN_TGRADE = "tg_id";
+
 
 
 
@@ -79,9 +84,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             "CREATE TABLE "+TABLE_RUBRIC+"(" +
                     COLUMN_RID + " INTEGER PRIMARY KEY , " +
                     COLUMN_RNAME + " VARCHAR , " +
-                    LOW + " INTEGER , " +
-                    HIGH + " INTEGER);";
+                    COLUMN_GRADE + " INTEGER);";
                   //  COLUMN_LIMIT +  " INTEGER);";
+
+
+    public static final String TABLE_STGRADE =
+             "CREATE TABLE "+TABLE_STARTGRADE+"(" +
+                     COLUMN_STID + " INTEGER PRIMARY KEY , " +
+                     COLUMN_GNAME + " VARCHAR);";
+
+
 
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
@@ -126,6 +138,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         this.db = db;
 
         db.execSQL(TABLE_RUBRICS);
+        this.db = db;
+
+        db.execSQL(TABLE_STGRADE);
         this.db = db;
 
 
@@ -252,6 +267,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
+    public Cursor searchassign(String table)
+    {
+        db = this.getWritableDatabase();
+        String qr = "select a_id as _id , ass_name from "+table;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
 
 
 
@@ -281,6 +304,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c3.getRubric());
+        values.put(COLUMN_GRADE,c3.getGrade());
        // values.put(LOW,c3.getLow());
        // values.put(HIGH,c3.getHigh());
         db.insert(TABLE_RUBRIC,null,values);
@@ -333,10 +357,51 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                         COLUMN_DAY + " INTEGER , " +
                         COLUMN_MONTH + " INTEGER , " +
                         COLUMN_YEAR + " INTEGER , " +
-                        COLUMN_GRADE + " INTEGER , " +
                         COLUMN_HOUR + " INTEGER , " +
                         COLUMN_MINUTE + " INTEGER); ";
         db.execSQL(assnames);
+    }
+
+    public void creategradetable(String tgrade)
+    {
+        db = this.getWritableDatabase();
+        String gradename =
+                "CREATE TABLE " +tgrade+ "(" +
+                        COLUMN_TGRADE + " INTEGER PRIMARY KEY , " +
+                        COLUMN_CONAME + " VARCHAR , " +
+                        COLUMN_CRID + " INTEGER); ";
+        db.execSQL(gradename);
+    }
+
+    public void insertteacher(String tgrade)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+TABLE_STARTGRADE;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_STID,count);
+        values.put(COLUMN_GNAME, tgrade);
+        db.insert(TABLE_STARTGRADE,null,values);
+    }
+
+    public void insertgrade(int coid , String course , String tgrade)
+    {
+
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+tgrade;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_TGRADE,count);
+        values.put(COLUMN_CRID,coid);
+        values.put(COLUMN_CONAME,course);
+        db.insert(tgrade,null,values);
+        db.close();
+
+
     }
 
     public void insertdrow(Contact4 c4 , String mrow )
@@ -380,8 +445,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c4.getColumn());
-      //  values.put(COLUMN_LWEIGHT,lweight);
-       // values.put(COLUMN_HWEIGHT,hweight);
+        values.put(COLUMN_LWEIGHT,c4.getLweight());
+        values.put(COLUMN_HWEIGHT,c4.getHweight());
        // values.put(COLUMN_PRIORITY,prior);
         db.insert(mrow,null,values);
         db.close();
@@ -401,7 +466,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_DAY,ca.getDay());
         values.put(COLUMN_MONTH,ca.getMonth());
         values.put(COLUMN_YEAR,ca.getYear());
-        values.put(COLUMN_GRADE,ca.getGrade());
         values.put(COLUMN_HOUR,ca.getHour());
         values.put(COLUMN_MINUTE,ca.getMinute());
         db.insert(assname,null,values);
@@ -528,10 +592,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
-
-
-
-
     public String searchclass(String cname) {
        String[] columns = new String[]{COLUMN_STUDENT,COLUMN_EMAIL,COLUMN_ROLL};
        Cursor c = db.query(cname,columns,null,null,null,null,null);
@@ -631,6 +691,27 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public String searchstgrade(String tename)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT tgrade FROM "+TABLE_STARTGRADE;
+        Cursor cursor = db.rawQuery(query,null);
+        String a = "not found";
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getString(0);
+
+                if(a.equals(tename))
+                {
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return a;
+    }
+
    /* protected void createTables(SQLiteDatabase db) {
         if (db != null) {
             db.execSQL(TABLE_CREATE1);
@@ -640,21 +721,26 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        String query = "DROP TABLE IF EXISTS"+TABLE_NAME;
+        String query = "DROP TABLE IF EXISTS "+TABLE_NAME;
         db.execSQL(query);
         onCreate(db);
 
-        String query1 = "DROP TABLE IF EXISTS"+TABLE_NAME1;
+        String query1 = "DROP TABLE IF EXISTS "+TABLE_NAME1;
         db.execSQL(query1);
         onCreate(db);
 
-        String query2 = "DROP TABLE IF EXISTS"+TABLE_CNAME;
+        String query2 = "DROP TABLE IF EXISTS "+TABLE_CNAME;
         db.execSQL(query2);
         onCreate(db);
 
-        String query3 = "DROP TABLE IF EXISTS"+TABLE_COURSE;
+        String query3 = "DROP TABLE IF EXISTS "+TABLE_COURSE;
         db.execSQL(query3);
         onCreate(db);
+
+        String query4 = "DROP TABLE IF EXISTS "+TABLE_STARTGRADE;
+        db.execSQL(query4);
+        onCreate(db);
+
 
 
 

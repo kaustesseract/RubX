@@ -9,6 +9,7 @@ public class Contact3 {
     int low;
     String rubrics;
     int high;
+    int grade;
 
     public void setRubric(String rubrics)
     {
@@ -29,4 +30,8 @@ public class Contact3 {
     public void setHigh(int high) {this.high = high;}
 
     public int getHigh() {return this.high;}
+
+    public void setGrade(int grade) {this.grade = grade;}
+
+    public int getGrade() {return this.grade;}
 }

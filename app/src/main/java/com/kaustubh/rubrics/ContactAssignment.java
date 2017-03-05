@@ -13,6 +13,7 @@ public class ContactAssignment {
     int day;
     int hour;
     int minute;
+    String coname;
 
 
     public void setAssname(String assname)
@@ -73,6 +74,14 @@ public class ContactAssignment {
 
     {
         return this.minute;
+    }
+
+    public void setconame(String coname) {this.coname = coname;}
+
+    public String getconame()
+
+    {
+        return this.coname;
     }
 
 

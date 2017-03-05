@@ -111,8 +111,7 @@ public class Assignment extends AppCompatActivity{
                 EditText anames = (EditText) findViewById(R.id.aname);
                 String aname = anames.getText().toString();
 
-                EditText grades = (EditText) findViewById(R.id.editText6);
-                int grade = Integer.parseInt(grades.getText().toString());
+
 
 
                 int coid = helper.searchcoid(cours);
@@ -127,7 +126,6 @@ public class Assignment extends AppCompatActivity{
                     ca.setDay(dayx);
                     ca.setMonth(monthx);
                     ca.setYear(yearx);
-                    ca.setGrade(grade);
                     ca.setHour(hour_x);
                     ca.setMinute(minute_x);
                     helper.insertassignment(ca,assname);
@@ -145,7 +143,6 @@ public class Assignment extends AppCompatActivity{
                     ca.setDay(dayx);
                     ca.setMonth(monthx);
                     ca.setYear(yearx);
-                    ca.setGrade(grade);
                     ca.setHour(hour_x);
                     ca.setMinute(minute_x);
                     helper.insertassignment(ca, assname);

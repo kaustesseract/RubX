@@ -25,10 +25,10 @@ public class CreateRubrics extends AppCompatActivity {
                 EditText rub = (EditText) findViewById(R.id.rubric);
                 String rubr = rub.getText().toString();
 
-              /*  EditText lows = (EditText) findViewById(R.id.low);
-                int low = Integer.parseInt(lows.getText().toString());
+                EditText grades = (EditText) findViewById(R.id.editText4);
+                int grade = Integer.parseInt(grades.getText().toString());
 
-                EditText highs = (EditText) findViewById(R.id.high);
+                /*EditText highs = (EditText) findViewById(R.id.high);
                 int high = Integer.parseInt(highs.getText().toString());*/
 
 
@@ -36,6 +36,7 @@ public class CreateRubrics extends AppCompatActivity {
 
                 Contact3 c3 = new Contact3();
                 c3.setRubric(rubr);
+                c3.setGrade(grade);
                // c3.setLow(low);
                 //c3.setHigh(high);
                 //c3.setLimit(limi);

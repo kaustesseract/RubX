@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kaustubh.rubrics">
-    
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +29,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".Addclass" />
-        <activity android:name=".Assignment"/>
+        <activity android:name=".Assignment" />
         <activity android:name=".Showclass" />
         <activity android:name=".AddStudentclass" />
         <activity android:name=".AddCourse" />
@@ -52,10 +52,12 @@
             android:label="@string/title_activity_main__screen"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <receiver android:name=".AlarmRubrics" />
 
-     <receiver android:name=".AlarmRubrics"></receiver>
+        <activity android:name=".Grade_rubrics" />
+        <activity android:name=".Grade_assignment" />
+        <activity android:name=".Add_rubrics_param" />
+        <activity android:name=".Grade_Start"></activity>
     </application>
-
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 
 </manifest>
