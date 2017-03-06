@@ -146,7 +146,7 @@ public class Assignment extends AppCompatActivity{
                     ca.setHour(hour_x);
                     ca.setMinute(minute_x);
                     helper.insertassignment(ca, assname);
-                    Toast.makeText(Assignment.this, "Assignment is created successfully and set ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Assignment.this, "Assignment is created successfully", Toast.LENGTH_SHORT).show();
                  //   finish();
                 }
 

@@ -57,6 +57,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_GNAME = "tgrade";
     private static final String COLUMN_STID = "st_id";
     private static final String COLUMN_TGRADE = "tg_id";
+    //private static final String COLUMN_ASSGRADE = "Agrade";
+    private static final String COLUMN_GRADEID = "Gr_id";
 
 
 
@@ -373,6 +375,35 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(gradename);
     }
 
+    public void courseassignment(String courseass)
+    {
+        db = this.getWritableDatabase();
+        String courseas =
+                "CREATE TABLE " +courseass+ "(" +
+                        COLUMN_GRADEID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_ASSID + " INTEGER , " +
+                        COLUMN_ASSNAME + " VARCHAR ); ";
+
+        db.execSQL(courseas);
+
+    }
+
+    public void insertcourseassignment(String assname , int assid , String courseass)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String query = "select * from "+courseass;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_GRADEID,count);
+        values.put(COLUMN_ASSNAME, assname);
+        values.put(COLUMN_ASSID, assid);
+        db.insert(courseass,null,values);
+
+
+
+    }
+
     public void insertteacher(String tgrade)
     {
         db = this.getWritableDatabase();
@@ -444,7 +475,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
-        values.put(COLUMN_RNAME,c4.getColumn());
+        values.put(COLUMN_RNAME,c4.getRow());
         values.put(COLUMN_LWEIGHT,c4.getLweight());
         values.put(COLUMN_HWEIGHT,c4.getHweight());
        // values.put(COLUMN_PRIORITY,prior);
@@ -710,6 +741,43 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             while(cursor.moveToNext());
         }
         return a;
+    }
+
+    public int searchassid(String assname , String asstablename)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT ass_name , a_id FROM "+asstablename;
+        Cursor cursor = db.rawQuery(query,null);
+        String b = "Not found";
+        int a = 0;
+        if(cursor.moveToFirst())
+        {
+            do{
+                b = cursor.getString(0);
+
+                if(b.equals(assname))
+                {
+                    a = cursor.getInt(1);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return a;
+
+
+    }
+
+    public int getrubricscount(String rname)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+rname;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+
+        return count;
     }
 
    /* protected void createTables(SQLiteDatabase db) {

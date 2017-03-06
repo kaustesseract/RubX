@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class Grade_rubrics extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
+     String rname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,19 +53,37 @@ public class Grade_rubrics extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view.findViewById(R.id.ru);
                 //  String list = (ll.getItemAtPosition(position));
-                String text = textView.getText().toString();
+               String text = textView.getText().toString();
+
+                rname = text+"row";
+                int rcount =  db.getrubricscount(rname);
+                Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
 
                // Toast.makeText(getApplicationContext(),course +" "+clas, Toast.LENGTH_SHORT).show();
             }
         });
 
+        String assignmenttable = "Course_"+courses+"_"+coid;
+
+        final int assid = db.searchassid(assname,assignmenttable);
+
         String tgradetable = db.searchtable(tgrade);
+        String coursetable = db.searchtable(course);
 
         if(tgrade.equals(tgradetable))
         {
 
             // put if condition here tho check if course name already exists in the cname column
-            db.insertgrade(coid,course,tgrade);
+            if(course.equals(coursetable))
+            {
+                db.insertcourseassignment(assname,assid,course);
+
+            }
+            else {
+                db.courseassignment(course);
+           //     db.insertgrade(coid, course, tgrade);
+                db.insertcourseassignment(assname,assid,course);
+            }
 
 
 
@@ -80,6 +99,8 @@ public class Grade_rubrics extends AppCompatActivity {
 
 
         }
+
+
 
 
 

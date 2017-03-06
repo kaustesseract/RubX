@@ -20,7 +20,6 @@ public class Grade_assignment extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
        final String course = bundle.getString("course");
         final String clas = bundle.getString("class");
-
         int coid = db.searchcoid(course);
 
         String table = "Course"+"_"+course+"_"+coid;
