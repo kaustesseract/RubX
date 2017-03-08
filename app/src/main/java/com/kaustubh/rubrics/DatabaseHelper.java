@@ -59,6 +59,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_TGRADE = "tg_id";
     //private static final String COLUMN_ASSGRADE = "Agrade";
     private static final String COLUMN_GRADEID = "Gr_id";
+    private static final String COLUMN_SGID = "sg_id";
+    private static final String COLUMN_TOTAL = "total";
+   // private static String k = " ";
 
 
 
@@ -388,6 +391,38 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public void createstartgrade(String[] rparam, String studentgrade , int rcount)
+    {
+        int j = rcount - 1;
+        String k = " ";
+        db = this.getWritableDatabase();
+        String studentgradetable =
+                "CREATE TABLE "+studentgrade+ "(" +
+                        COLUMN_SGID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_STID + " INTEGER , " ;
+
+
+                        for(int i=0;i<rcount;i++)
+                        {
+
+
+                            studentgradetable += rparam[i] + " INTEGER , ";
+
+                        }
+                         studentgradetable += "" +
+                        COLUMN_TOTAL + " INTEGER ); ";
+
+
+
+
+
+        db.execSQL(studentgradetable);
+
+
+
+
+    }
+
     public void insertcourseassignment(String assname , int assid , String courseass)
     {
         db = this.getWritableDatabase();
@@ -639,6 +674,29 @@ public class DatabaseHelper extends SQLiteOpenHelper{
    }
 
 
+    public String[] getrubricsparam(String rname) {
+        String[] columns = new String[]{COLUMN_RNAME};
+        Cursor c = db.query(rname,columns,null,null,null,null,null);
+        String result = "";
+        int i=0;
+
+        int rubname = c.getColumnIndex(COLUMN_RNAME);
+        String[] rubs = new String[c.getCount()];
+        // int email = c.getColumnIndex(COLUMN_EMAIL);
+       // int roll = c.getColumnIndex(COLUMN_ROLL);
+        if(c.moveToFirst())
+        {
+            for(i=0;i<c.getCount();i++) {
+                rubs[i] =  c.getString(rubname) ;
+                c.moveToNext();
+            }
+        }
+
+        return rubs;
+
+    }
+
+
     public int searchId(String name)
     {
 
@@ -768,6 +826,33 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public String getstudentname(int i , String clas)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT  cl_id , student FROM "+clas;
+        Cursor cursor = db.rawQuery(query,null);
+       String b = "Not found";
+        int a = 0;
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getInt(0);
+
+                if(a==i)
+                {
+                    b = cursor.getString(1);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return b;
+
+
+
+    }
+
+
     public int getrubricscount(String rname)
     {
         db = this.getWritableDatabase();
@@ -778,6 +863,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
 
         return count;
+    }
+
+    public int getstudentcount(String clas)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String query = "select * from "+clas;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+
+        return count;
+
     }
 
    /* protected void createTables(SQLiteDatabase db) {

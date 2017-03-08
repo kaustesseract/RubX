@@ -11,6 +11,9 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Grade_rubrics extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
      String rname;
@@ -27,6 +30,9 @@ public class Grade_rubrics extends AppCompatActivity {
         String tgrade = "grade";
         final String course = courses + "_Grade";
         int coid = db.searchcoid(courses);
+        int classid = db.searchcid(clas);
+
+        final String studentgrade = "Studentgrade_"+classid+"_"+coid;
 
 
 
@@ -57,9 +63,29 @@ public class Grade_rubrics extends AppCompatActivity {
 
                 rname = text+"row";
                 int rcount =  db.getrubricscount(rname);
-                Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
+                int i;
+              //  Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
 
-               // Toast.makeText(getApplicationContext(),course +" "+clas, Toast.LENGTH_SHORT).show();
+              //  String[] rubname = new String[r];
+
+                String rubname[] = db.getrubricsparam(rname);
+
+
+                String studgrade = db.searchtable(studentgrade);
+
+                if(studentgrade.equals(studgrade))
+                {
+                    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
+                    intent.putExtra("class",clas);
+                    intent.putExtra("rubname",rname);
+                    startActivity(intent);
+                }
+                else {
+                    db.createstartgrade(rubname, studentgrade, rcount);
+                }
+
+
+
             }
         });
 
