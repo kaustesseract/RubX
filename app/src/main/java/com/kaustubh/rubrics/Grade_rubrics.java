@@ -31,6 +31,7 @@ public class Grade_rubrics extends AppCompatActivity {
         final String course = courses + "_Grade";
         int coid = db.searchcoid(courses);
         int classid = db.searchcid(clas);
+        final int put = 0;
 
         final String studentgrade = "Studentgrade_"+classid+"_"+coid;
 
@@ -78,6 +79,9 @@ public class Grade_rubrics extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
                     intent.putExtra("class",clas);
                     intent.putExtra("rubname",rname);
+                    intent.putExtra("int",put);
+                    intent.putExtra("gradetable",studentgrade);
+                    intent.putExtra("courses",courses);
                     startActivity(intent);
                 }
                 else {

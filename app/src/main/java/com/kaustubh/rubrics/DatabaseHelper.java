@@ -412,11 +412,26 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                          studentgradetable += "" +
                         COLUMN_TOTAL + " INTEGER ); ";
 
-
-
-
-
         db.execSQL(studentgradetable);
+    }
+
+    public void insertgrades(int put ,String[] criteria,int[] val,int total,String gradetable,int counts)
+    {
+        db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        String query = "select * from "+gradetable;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_SGID,count);
+        values.put(COLUMN_STID,put);
+        for(int i=0;i<counts;i++)
+        {
+            values.put(criteria[i],val[i]);
+        }
+
+        values.put(COLUMN_TOTAL,total);
+        db.insert(gradetable,null,values);
+
 
 
 
