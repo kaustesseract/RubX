@@ -12,7 +12,7 @@ import android.widget.Toast;
  * Created by KAUSTUBH on 01-03-2017.
  */
 
-public class AlarmRubrics extends BroadcastReceiver {
+public class  AlarmRubrics extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {

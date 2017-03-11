@@ -31,9 +31,11 @@ public class Grade_rubrics extends AppCompatActivity {
         final String course = courses + "_Grade";
         int coid = db.searchcoid(courses);
         int classid = db.searchcid(clas);
+        String assignmenttable = "Course_"+courses+"_"+coid;
+        int assid = db.searchassid(assname,assignmenttable);
         final int put = 0;
 
-        final String studentgrade = "Studentgrade_"+classid+"_"+coid;
+        final String studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid;
 
 
 
@@ -93,9 +95,8 @@ public class Grade_rubrics extends AppCompatActivity {
             }
         });
 
-        String assignmenttable = "Course_"+courses+"_"+coid;
 
-        final int assid = db.searchassid(assname,assignmenttable);
+
 
         String tgradetable = db.searchtable(tgrade);
         String coursetable = db.searchtable(course);

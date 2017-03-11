@@ -1,10 +1,12 @@
 package com.kaustubh.rubrics;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -18,13 +20,13 @@ import java.util.ArrayList;
 public class Barchart extends AppCompatActivity {
     DatabaseHelper helper = new DatabaseHelper(this);
 
-
+    double i = 0f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barchart);
         BarChart bar  = (BarChart) findViewById(R.id.bargraph);
-        ArrayList<BarEntry> barchart = new ArrayList<>();
+       /* ArrayList<BarEntry> barchart = new ArrayList<>();
         barchart.add(new BarEntry(0f,44f));
         barchart.add(new BarEntry(1f,88f));
         barchart.add(new BarEntry(2f,66f));
@@ -72,10 +74,83 @@ public class Barchart extends AppCompatActivity {
 
         XAxis xAxis = bar.getXAxis();
         xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
-        xAxis.setValueFormatter(formatter);
+        xAxis.setValueFormatter(formatter);*/
+
+        SQLiteDatabase db = helper.getReadableDatabase();
+        // Start the transaction.
+        db.beginTransaction();
+        try {
+            ArrayList<BarEntry> barchart = new ArrayList<>();
+            String query = "SELECT total FROM Studentgrade_2_6";
+            Cursor cursor = db.rawQuery(query, null);
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+               int a =  cursor.getInt(cursor.getColumnIndex("total"));
+
+
+                barchart.add(new BarEntry((float) i,a));
+                i++;
+            }
+            db.setTransactionSuccessful();
+            BarDataSet bardataset = new BarDataSet(barchart,"bardata");
+
+
+            final ArrayList<String> studentid = new ArrayList<>();
+            String queryst = "SELECT st_id FROM Studentgrade_2_6";
+            Cursor cr = db.rawQuery(queryst, null);
+            for (cr.moveToFirst(); !cr.isAfterLast(); cr.moveToNext()) {
+                int k =  cr.getInt(cr.getColumnIndex("st_id"));
+                String j = String.valueOf(k);
+                studentid.add(j);
+            }
+
+            ArrayList<IBarDataSet> studentm = new ArrayList<>();
+            studentm.add((IBarDataSet)bardataset);
+
+            IAxisValueFormatter formatter = new IAxisValueFormatter() {
+
+                @Override
+                public String getFormattedValue(float value, AxisBase axis) {
+                    return studentid.get((int)value);
+                }
+
+                // we don't draw numbers, so no decimal digits needed
+
+            };
+
+
+            XAxis xAxis = bar.getXAxis();
+            xAxis.setGranularity(1f); // minimum axis-step (interval) is 1
+            xAxis.setValueFormatter(formatter);
+
+
+
+            BarData barData = new BarData(bardataset);
+            bar.setData(barData);
+            bar.setData(barData);
+            //  bar.setFitBars(true);
+            //  bar.setBorderWidth(1f);
+            bar.setTouchEnabled(true);
+            bar.setDragEnabled(true);
+            bar.setScaleEnabled(true);
+        }
+            catch (SQLiteException e)
+            {
+                e.printStackTrace();
+
+            }
+            finally
+            {
+                db.endTransaction();
+                // End the transaction.
+                db.close();
+                // Close database
+            }
 
 
 
 
-    }
+
+
+
+        }
 }

@@ -187,7 +187,7 @@ public class Start_Grading extends AppCompatActivity {
                             view1.setPadding(25, 25, 25, 25);
                           //  view1.setKeyProgressIncrement(1);
                            //  view1.setMinimumHeight(rows_hweight);
-                            view1.setMax(rows_hweight);
+                            view1.setMax(rows_hweight-rows_lweight);
                              //   view1.setMinimumWidth(rows_lweight);
 
 
@@ -195,13 +195,6 @@ public class Start_Grading extends AppCompatActivity {
                                 @Override
                                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-                                    int step = 1;
-                                    if(progress<rows_lweight)
-                                    {
-                                        progress = rows_lweight;
-                                       // progress = ((int)Math.round(progress/step ))*step;
-                                       // progress = progress + 1;
-                                    }
 
                                     tv1.setText(String.valueOf(progress));
 
