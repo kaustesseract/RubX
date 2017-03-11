@@ -47,6 +47,16 @@ public class GradeFragment extends Fragment {
             }
         });
 
+        Button but = (Button) root.findViewById(R.id.view);
+
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Grade_Students.class);
+                startActivity(intent);
+            }
+        });
+
 
         return root;
 

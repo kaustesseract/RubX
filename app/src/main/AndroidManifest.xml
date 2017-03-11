@@ -58,7 +58,11 @@
         <activity android:name=".Grade_assignment" />
         <activity android:name=".Add_rubrics_param" />
         <activity android:name=".Grade_Start" />
-        <activity android:name=".Start_Grading"></activity>
+        <activity android:name=".Start_Grading" />
+        <activity android:name=".Barchart" />
+        <activity android:name=".Scatter_plot" />
+        <activity android:name=".View_Assignment" />
+        <activity android:name=".Show_Assignment"></activity>
     </application>
 
 </manifest>

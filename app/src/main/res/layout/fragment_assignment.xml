@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bbk"
     tools:context="com.kaustubh.rubrics.AssignmentFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -23,5 +24,18 @@
         android:layout_alignLeft="@+id/cassign"
         android:layout_alignStart="@+id/cassign"
         android:layout_marginTop="120dp"
-        android:id="@+id/vassign" />
+        android:id="@+id/vassign"
+        android:layout_alignRight="@+id/cassign"
+        android:layout_alignEnd="@+id/cassign" />
+
+    <TextView
+        android:text="MANAGE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView47"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp" />
 </RelativeLayout>

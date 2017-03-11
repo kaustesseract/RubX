@@ -150,7 +150,7 @@ public class Start_Grading extends AppCompatActivity {
                         // Read columns data
                         // int row_id= cursor.getInt(cursor.getColumnIndex("row_id"));
                         String rows_name = cursor.getString(cursor.getColumnIndex("rname"));
-                        int rows_lweight = cursor.getInt(cursor.getColumnIndex("lweight"));
+                        final int rows_lweight = cursor.getInt(cursor.getColumnIndex("lweight"));
                         int rows_hweight = cursor.getInt(cursor.getColumnIndex("hweight"));
                         TableRow row = new TableRow(context);
                         row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
@@ -185,6 +185,7 @@ public class Start_Grading extends AppCompatActivity {
                                     TableRow.LayoutParams.WRAP_CONTENT));
                             view1.setProgress(0);
                             view1.setPadding(25, 25, 25, 25);
+                          //  view1.setKeyProgressIncrement(1);
                            //  view1.setMinimumHeight(rows_hweight);
                             view1.setMax(rows_hweight);
                              //   view1.setMinimumWidth(rows_lweight);
@@ -193,6 +194,14 @@ public class Start_Grading extends AppCompatActivity {
                             view1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                                 @Override
                                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                                    int step = 1;
+                                    if(progress<rows_lweight)
+                                    {
+                                        progress = rows_lweight;
+                                       // progress = ((int)Math.round(progress/step ))*step;
+                                       // progress = progress + 1;
+                                    }
 
                                     tv1.setText(String.valueOf(progress));
 
@@ -284,6 +293,7 @@ public class Start_Grading extends AppCompatActivity {
                            // datahelper.insertgrades(put,cname,marks,w,gradetable,count);
                             Intent intents = new Intent(getApplicationContext(), BaseActivity.class);
                             startActivity(intents);
+                            finish();
 
                         }
 

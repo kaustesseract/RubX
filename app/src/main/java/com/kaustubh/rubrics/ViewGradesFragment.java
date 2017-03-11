@@ -57,6 +57,31 @@ public class ViewGradesFragment extends Fragment {
             }
         });
 
+        Button buts = (Button) root.findViewById(R.id.barplot);
+
+        buts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(context,Barchart.class);
+                startActivity(intent);
+            }
+        });
+
+        Button scatter = (Button) root.findViewById(R.id.scatter);
+
+        scatter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(context,Scatter_plot.class);
+                startActivity(intent);
+            }
+        });
+
+
         return root;
     }
 

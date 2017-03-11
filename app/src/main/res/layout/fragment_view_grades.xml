@@ -8,14 +8,14 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/startBarPlotExButton"
+        android:id="@+id/bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bar Plot"
-        android:layout_alignParentBottom="true"
+        android:text="Bubble Chart"
+        android:layout_marginTop="63dp"
+        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/simplexy"
         android:layout_alignStart="@+id/simplexy"
-        android:layout_marginBottom="84dp"
         android:layout_alignRight="@+id/simplexy"
         android:layout_alignEnd="@+id/simplexy" />
 
@@ -24,20 +24,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A Simple XY Plot"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/bubble"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
 
     <Button
-        android:id="@+id/bubble"
+        android:id="@+id/barplot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bubble Chart"
-        android:layout_alignParentTop="true"
+        android:text="Bar Plot"
+        android:layout_below="@+id/simplexy"
+        android:layout_marginTop="71dp"
         android:layout_alignRight="@+id/simplexy"
         android:layout_alignEnd="@+id/simplexy"
-        android:layout_marginTop="113dp"
-        android:layout_alignLeft="@+id/simplexy"
-        android:layout_alignStart="@+id/simplexy" />
+        android:layout_alignLeft="@+id/bubble"
+        android:layout_alignStart="@+id/bubble" />
+
+    <Button
+        android:text="SCATTER PLOT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="46dp"
+        android:id="@+id/scatter"
+        android:layout_alignRight="@+id/barplot"
+        android:layout_alignEnd="@+id/barplot"
+        android:layout_alignLeft="@+id/barplot"
+        android:layout_alignStart="@+id/barplot" />
 
 
 </RelativeLayout>

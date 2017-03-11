@@ -50,7 +50,7 @@ public class view_rubrics extends AppCompatActivity {
         rowHeader.setBackgroundColor(Color.parseColor("#c0c0c0"));
         rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText={"NAME OF THE STUDENT"};
+        String[] headerText={"CRITERIA","HIGH LIMIT","LOW LIMIT"};
         for(String c:headerText) {
             TextView tv2 = new TextView(this);
             tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
@@ -60,7 +60,7 @@ public class view_rubrics extends AppCompatActivity {
             tv2.setTextColor(Color.BLUE);
             tv2.setPadding(0, 0, 0, 25);
             tv2.setText(c);
-            rowHeader.addView(tv2);
+            rowHeader.addView(tv2,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
         }
         tableLayout.addView(rowHeader);
 
@@ -77,12 +77,14 @@ public class view_rubrics extends AppCompatActivity {
                 while (cursor.moveToNext()) {
                     // Read columns data
                    // int row_id= cursor.getInt(cursor.getColumnIndex("row_id"));
-                    String rows_name= cursor.getString(cursor.getColumnIndex("rows"));
+                    String rows_name= cursor.getString(cursor.getColumnIndex("rname"));
+                    int lweight= cursor.getInt(cursor.getColumnIndex("lweight"));
+                    int hweight= cursor.getInt(cursor.getColumnIndex("hweight"));
                     TableRow row = new TableRow(context);
                     row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
 
-                    String[] colText={rows_name};
+                    String[] colText={rows_name,lweight+"",hweight+""};
                     for(String text:colText) {
                         TextView tv = new TextView(this);
                         tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
@@ -94,7 +96,7 @@ public class view_rubrics extends AppCompatActivity {
                         tv.setText(text);
 
 
-                        final TextView tv1 = new TextView(this);
+                     /*   final TextView tv1 = new TextView(this);
                         tv1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                                 TableRow.LayoutParams.WRAP_CONTENT));
 
@@ -130,15 +132,15 @@ public class view_rubrics extends AppCompatActivity {
                             public void onStopTrackingTouch(SeekBar seekBar) {
 
                             }
-                        });
+                        });*/
 
 
 
                         //row.addView(tv);
 
                         row.addView(tv,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
-                        row.addView(view1,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
-                        row.addView(tv1);
+                      //  row.addView(view1,new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                      //  row.addView(tv1);
                     }
                     tableLayout.addView(row);
 

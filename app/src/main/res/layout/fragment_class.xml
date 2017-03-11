@@ -8,26 +8,6 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Class"
-        android:id="@+id/button5"
-        android:textSize="20sp"
-        android:layout_below="@+id/textView11"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD CLASS"
-        android:id="@+id/button6"
-        android:textSize="20sp"
-        android:layout_marginBottom="146dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_alignStart="@+id/button5" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,4 +20,24 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Class"
+        android:id="@+id/button5"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button6"
+        android:layout_alignStart="@+id/button6"
+        android:layout_marginBottom="142dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD CLASS"
+        android:id="@+id/button6"
+        android:textSize="20sp"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
