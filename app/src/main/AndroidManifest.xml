@@ -62,7 +62,10 @@
         <activity android:name=".Barchart" />
         <activity android:name=".Scatter_plot" />
         <activity android:name=".View_Assignment" />
-        <activity android:name=".Show_Assignment"></activity>
+        <activity android:name=".Show_Assignment" />
+        <activity android:name=".TM_Select_Class" />
+        <activity android:name=".TM_ShowCourse" />
+        <activity android:name=".TMSelect_Assignment"></activity>
     </application>
 
 </manifest>

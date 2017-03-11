@@ -26,6 +26,9 @@ public class Barchart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barchart);
         BarChart bar  = (BarChart) findViewById(R.id.bargraph);
+
+        Bundle bundle = getIntent().getExtras();
+        String gradetable = bundle.getString("gradetable");
        /* ArrayList<BarEntry> barchart = new ArrayList<>();
         barchart.add(new BarEntry(0f,44f));
         barchart.add(new BarEntry(1f,88f));
@@ -81,7 +84,7 @@ public class Barchart extends AppCompatActivity {
         db.beginTransaction();
         try {
             ArrayList<BarEntry> barchart = new ArrayList<>();
-            String query = "SELECT total FROM Studentgrade_2_6";
+            String query = "SELECT total FROM "+gradetable;
             Cursor cursor = db.rawQuery(query, null);
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                int a =  cursor.getInt(cursor.getColumnIndex("total"));
@@ -95,7 +98,7 @@ public class Barchart extends AppCompatActivity {
 
 
             final ArrayList<String> studentid = new ArrayList<>();
-            String queryst = "SELECT st_id FROM Studentgrade_2_6";
+            String queryst = "SELECT st_id FROM "+gradetable;
             Cursor cr = db.rawQuery(queryst, null);
             for (cr.moveToFirst(); !cr.isAfterLast(); cr.moveToNext()) {
                 int k =  cr.getInt(cr.getColumnIndex("st_id"));

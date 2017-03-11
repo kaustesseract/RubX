@@ -24,33 +24,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="A Simple XY Plot"
+        android:layout_marginTop="53dp"
         android:layout_below="@+id/bubble"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/barplot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bar Plot"
+        android:text="TOTAL MARKS "
+        android:layout_marginTop="55dp"
         android:layout_below="@+id/simplexy"
-        android:layout_marginTop="71dp"
+        android:layout_alignLeft="@+id/simplexy"
+        android:layout_alignStart="@+id/simplexy"
         android:layout_alignRight="@+id/simplexy"
-        android:layout_alignEnd="@+id/simplexy"
-        android:layout_alignLeft="@+id/bubble"
-        android:layout_alignStart="@+id/bubble" />
+        android:layout_alignEnd="@+id/simplexy" />
 
     <Button
         android:text="SCATTER PLOT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="46dp"
         android:id="@+id/scatter"
-        android:layout_alignRight="@+id/barplot"
-        android:layout_alignEnd="@+id/barplot"
+        android:layout_marginTop="58dp"
+        android:layout_below="@+id/barplot"
         android:layout_alignLeft="@+id/barplot"
-        android:layout_alignStart="@+id/barplot" />
+        android:layout_alignStart="@+id/barplot"
+        android:layout_alignRight="@+id/barplot"
+        android:layout_alignEnd="@+id/barplot" />
 
 
 </RelativeLayout>
