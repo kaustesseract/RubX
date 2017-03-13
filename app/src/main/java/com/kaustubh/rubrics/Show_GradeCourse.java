@@ -46,7 +46,7 @@ public class Show_GradeCourse extends AppCompatActivity {
                 TextView textView = (TextView) view.findViewById(R.id.stg);
                 //  String list = (ll.getItemAtPosition(position));
                 String course = textView.getText().toString();
-                Intent i = new Intent(getApplicationContext(), Grade_assignment.class);
+                Intent i = new Intent(getApplicationContext(), Show_GradeAssignment.class);
                 i.putExtra("course",course);
                 i.putExtra("class",message);
                 startActivity(i);

@@ -47,7 +47,7 @@ public class Show_GradeAssignment extends AppCompatActivity {
                 //  String list = (ll.getItemAtPosition(position));
                 String assname = textView.getText().toString();
 
-                Intent i = new Intent(getApplicationContext(), Grade_rubrics.class);
+                Intent i = new Intent(getApplicationContext(), Show_AllGrades.class);
                 i.putExtra("course",course);
                 i.putExtra("class",clas);
                 i.putExtra("assname",assname);

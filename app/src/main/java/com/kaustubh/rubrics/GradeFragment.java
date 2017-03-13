@@ -52,7 +52,7 @@ public class GradeFragment extends Fragment {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Grade_Students.class);
+                Intent intent = new Intent(context,Show_GradeClass.class);
                 startActivity(intent);
             }
         });

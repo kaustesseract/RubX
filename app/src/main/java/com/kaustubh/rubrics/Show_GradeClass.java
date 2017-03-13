@@ -42,7 +42,7 @@ public class Show_GradeClass extends AppCompatActivity {
                 TextView textView = (TextView) view.findViewById(R.id.stugrade);
                 //  String list = (ll.getItemAtPosition(position));
                 String text = textView.getText().toString();
-                Intent i = new Intent(getApplicationContext(), Grade_Course.class);
+                Intent i = new Intent(getApplicationContext(), Show_GradeCourse.class);
                 i.putExtra("text",text);
                 startActivity(i);
 

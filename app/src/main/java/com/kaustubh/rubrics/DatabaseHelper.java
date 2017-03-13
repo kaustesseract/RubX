@@ -711,6 +711,28 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+
+
+    public String[] getgradeparam(String gradetable)
+    {
+
+        Cursor dbCursor = getReadableDatabase().query(gradetable, null, null, null, null, null, null);
+        String[] columnNames = dbCursor.getColumnNames();
+        return columnNames;
+
+    }
+
+
+
+    public int getgradecolumncount(String gradetable)
+    {
+
+        Cursor dbCursor = getReadableDatabase().query(gradetable, null, null, null, null, null, null);
+        int columncount = dbCursor.getColumnCount();
+        return columncount;
+
+    }
+
     public int[] gettotalmarks(String gradetable)
     {
         String[] columns = new String[]{COLUMN_TOTAL};
