@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AddStudentclass extends AppCompatActivity {
 
@@ -16,7 +15,7 @@ public class AddStudentclass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_studentclass);
-        Button submit = (Button)findViewById(R.id.submit);
+        Button submit = (Button)findViewById(R.id.submitst);
 
 
         submit.setOnClickListener(new View.OnClickListener() {

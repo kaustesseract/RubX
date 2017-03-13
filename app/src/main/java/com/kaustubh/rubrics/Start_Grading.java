@@ -264,6 +264,7 @@ public class Start_Grading extends AppCompatActivity {
                             intent.putExtra("courses",courses);
                             intent.putExtra("gradetable",gradetable);
                             startActivity(intent);
+                            finish();
                         }
                         else
                         {

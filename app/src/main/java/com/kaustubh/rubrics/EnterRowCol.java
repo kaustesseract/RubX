@@ -20,7 +20,7 @@ public class EnterRowCol extends AppCompatActivity {
         final String mrow = message+"row";
         final String mcol = message+"col";
 
-        Button bt = (Button) findViewById(R.id.submit);
+        Button bt = (Button) findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

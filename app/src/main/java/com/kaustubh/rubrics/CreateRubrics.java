@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class CreateRubrics extends AppCompatActivity {
 
@@ -17,7 +16,7 @@ public class CreateRubrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_rubrics);
 
-        Button bt = (Button) findViewById(R.id.submit);
+        Button bt = (Button) findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -711,6 +711,39 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public int[] gettotalmarks(String gradetable)
+    {
+        String[] columns = new String[]{COLUMN_TOTAL};
+        Cursor c = getReadableDatabase().query(gradetable,columns,null,null,null,null,null);
+        int i=0;
+        int total = c.getColumnIndex(COLUMN_TOTAL);
+        int[] totals = new int[c.getCount()];
+        if(c.moveToFirst())
+        {
+            for(i=0;i<c.getCount();i++) {
+                totals[i] =  c.getInt(total) ;
+                c.moveToNext();
+            }
+        }
+
+
+        return totals;
+
+    }
+
+
+    public int gettotalcount(String gradetable)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+gradetable;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+
+        return count;
+    }
+
 
     public int searchId(String name)
     {

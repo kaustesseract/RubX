@@ -2,17 +2,11 @@ package com.kaustubh.rubrics;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,14 +16,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import android.content.BroadcastReceiver;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class Assignment extends AppCompatActivity{
 
@@ -100,7 +89,7 @@ public class Assignment extends AppCompatActivity{
 
 
 
-        Button br = (Button) findViewById(R.id.submit);
+        Button br = (Button) findViewById(R.id.submitst);
         br.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

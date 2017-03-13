@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp"
         android:onClick="class1"
-        android:id="@+id/submit" />
+        android:id="@+id/submitst" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -48,7 +48,7 @@
         android:layout_marginTop="58dp"
         android:background="@drawable/image"
         android:id="@+id/calendar"
-        android:layout_toStartOf="@+id/submit"
+        android:layout_toStartOf="@+id/submitst"
         android:layout_alignRight="@+id/textView22"
         android:layout_alignEnd="@+id/textView22" />
 
@@ -79,7 +79,7 @@
         android:text="SUBMIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/submit"
+        android:id="@+id/submitst"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

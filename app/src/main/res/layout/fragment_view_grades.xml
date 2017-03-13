@@ -11,7 +11,7 @@
         android:id="@+id/bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bubble Chart"
+        android:text="THRESHOLD MARKS ANALYSIS"
         android:layout_marginTop="63dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/simplexy"

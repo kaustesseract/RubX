@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/submit"
+        android:id="@+id/submitst"
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -63,8 +63,8 @@
         android:id="@+id/loweight"
         android:layout_alignBottom="@+id/textView33"
         android:layout_toRightOf="@+id/textView33"
-        android:layout_alignRight="@+id/submit"
-        android:layout_alignEnd="@+id/submit"
+        android:layout_alignRight="@+id/submitst"
+        android:layout_alignEnd="@+id/submitst"
         android:textColor="@android:color/white" />
 
     <EditText

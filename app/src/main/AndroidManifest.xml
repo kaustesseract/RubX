@@ -65,7 +65,15 @@
         <activity android:name=".Show_Assignment" />
         <activity android:name=".TM_Select_Class" />
         <activity android:name=".TM_ShowCourse" />
-        <activity android:name=".TMSelect_Assignment"></activity>
+        <activity android:name=".TMSelect_Assignment" />
+        <activity android:name=".TH_SelectClass" />
+        <activity android:name=".TH_ShowCourse" />
+        <activity android:name=".TH_SelectAssignment" />
+        <activity android:name=".Set_TH" />
+        <activity android:name=".Show_GradeClass" />
+        <activity android:name=".Show_GradeCourse" />
+        <activity android:name=".Show_GradeAssignment" />
+        <activity android:name=".Show_AllGrades"></activity>
     </application>
 
 </manifest>

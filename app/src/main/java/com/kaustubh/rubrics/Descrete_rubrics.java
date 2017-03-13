@@ -16,7 +16,7 @@ public class Descrete_rubrics extends AppCompatActivity {
         setContentView(R.layout.activity_descrete_rubrics);
 
 
-        Button bt =  (Button)findViewById(R.id.submit);
+        Button bt =  (Button)findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,5 @@
 package com.kaustubh.rubrics;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +21,7 @@ public class EnterCol extends AppCompatActivity {
         final String mrow = message + "row";
         // final String mcolumn = message+"_column";
 
-        Button bt = (Button) findViewById(R.id.submit);
+        Button bt = (Button) findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -54,7 +54,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
         navarray.add("View graphs");
-        navarray.add("Feedback");
+        navarray.add("Account Settings");
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
         navlist.setAdapter(adapter);
