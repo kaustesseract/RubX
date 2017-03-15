@@ -82,7 +82,7 @@ public class BubbleChartActivity extends AppCompatActivity {
         ArrayList<PieEntry> yEntrys = new ArrayList<>();
         yEntrys.add(new PieEntry(lowers , 1));
         yEntrys.add(new PieEntry(uppers , 2));
-        PieDataSet pieDataSet = new PieDataSet(yEntrys, "Student marks");
+        PieDataSet pieDataSet = new PieDataSet(yEntrys, "Number of Students");
         pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
 

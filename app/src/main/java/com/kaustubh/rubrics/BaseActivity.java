@@ -1,5 +1,6 @@
 package com.kaustubh.rubrics;
 
+import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -54,6 +55,8 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
         navarray.add("View graphs");
+        navarray.add("Notes");
+        navarray.add("Feedback");
         navarray.add("Account Settings");
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
@@ -119,6 +122,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      fragmentTransaction.replace(R.id.fragmentholder, viewgradeFragment);
                      fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
+                     break;
+            case 6:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
+                     startActivity(j);
+                     finish();
                      break;
 
 

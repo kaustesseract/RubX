@@ -73,7 +73,12 @@
         <activity android:name=".Show_GradeClass" />
         <activity android:name=".Show_GradeCourse" />
         <activity android:name=".Show_GradeAssignment" />
-        <activity android:name=".Show_AllGrades"></activity>
+        <activity android:name=".Show_AllGrades" />
+        <activity
+            android:name=".All_Notes"
+            android:label="@string/title_activity_all__notes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Edit_Notes"></activity>
     </application>
 
 </manifest>
