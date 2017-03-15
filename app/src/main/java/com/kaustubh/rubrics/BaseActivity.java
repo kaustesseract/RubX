@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -55,9 +54,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
         navarray.add("View graphs");
-        navarray.add("Notes");
-        navarray.add("Feedback");
+        navarray.add("Manage Notes");
         navarray.add("Account Settings");
+        navarray.add("Feedback");
+
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
         navlist.setAdapter(adapter);
@@ -127,6 +127,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      startActivity(j);
                      finish();
                      break;
+            case 7:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
+                startActivity(k);
+                finish();
+                break;
 
 
         }

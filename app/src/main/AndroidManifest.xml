@@ -78,7 +78,9 @@
             android:name=".All_Notes"
             android:label="@string/title_activity_all__notes"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Edit_Notes"></activity>
+        <activity android:name=".Edit_Notes" />
+        <activity android:name=".EditAccount" />
+        <activity android:name=".ViewAccount"></activity>
     </application>
 
 </manifest>
