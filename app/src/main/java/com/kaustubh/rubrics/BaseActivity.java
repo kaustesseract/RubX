@@ -56,6 +56,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("View graphs");
         navarray.add("Manage Notes");
         navarray.add("Account Settings");
+        navarray.add("Generate results");
         navarray.add("Feedback");
 
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -128,9 +129,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
             case 7:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
-                startActivity(k);
-                finish();
-                break;
+                        startActivity(k);
+                        finish();
+                        break;
+            case 8:
 
 
         }

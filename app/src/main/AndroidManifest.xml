@@ -80,7 +80,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Edit_Notes" />
         <activity android:name=".EditAccount" />
-        <activity android:name=".ViewAccount"></activity>
+        <activity android:name=".ViewAccount" />
+        <activity android:name=".Generate_class" />
+        <activity android:name=".Generate_Course" />
+        <activity android:name=".Generate_Assignment" />
+        <activity android:name=".Generate_pdf"></activity>
     </application>
 
 </manifest>
