@@ -2,7 +2,6 @@ package com.kaustubh.rubrics;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -45,7 +44,7 @@ public class ViewGradesFragment extends Fragment {
             }
         });
 
-        Button but = (Button) root.findViewById(R.id.bubble);
+        Button but = (Button) root.findViewById(R.id.bubble1);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +56,7 @@ public class ViewGradesFragment extends Fragment {
             }
         });
 
-        Button buts = (Button) root.findViewById(R.id.barplot);
+        Button buts = (Button) root.findViewById(R.id.barplot1);
 
         buts.setOnClickListener(new View.OnClickListener() {
             @Override

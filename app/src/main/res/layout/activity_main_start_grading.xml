@@ -18,26 +18,26 @@
         android:textSize="30sp" />
 
     <Button
-        android:text="Button"
+        android:text="START GARDING STUDENTS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView83"
         android:layout_marginTop="136dp"
-        android:id="@+id/button10"
+        android:id="@+id/startgrade"
         android:layout_alignRight="@+id/textView83"
         android:layout_alignEnd="@+id/textView83"
         android:layout_alignLeft="@+id/textView83"
         android:layout_alignStart="@+id/textView83" />
 
     <Button
-        android:text="Button"
+        android:text="VIEW STDENT GRADES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button10"
+        android:layout_below="@+id/startgrade"
         android:layout_marginTop="86dp"
-        android:id="@+id/button11"
-        android:layout_alignRight="@+id/button10"
-        android:layout_alignEnd="@+id/button10"
-        android:layout_alignLeft="@+id/button10"
-        android:layout_alignStart="@+id/button10" />
+        android:id="@+id/viewgrade"
+        android:layout_alignRight="@+id/startgrade"
+        android:layout_alignEnd="@+id/startgrade"
+        android:layout_alignLeft="@+id/startgrade"
+        android:layout_alignStart="@+id/startgrade" />
 </RelativeLayout>

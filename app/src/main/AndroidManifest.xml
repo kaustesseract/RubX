@@ -89,7 +89,10 @@
         <activity android:name=".MainCourse" />
         <activity android:name=".MainAssignment" />
         <activity android:name=".MainRubrics" />
-        <activity android:name=".MainStartGrading"></activity>
+        <activity android:name=".MainStartGrading" />
+        <activity android:name=".MainGraphs" />
+        <activity android:name=".MainStudentfeedback" />
+        <activity android:name=".MainGenerateResults"></activity>
     </application>
 
 </manifest>

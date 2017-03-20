@@ -110,23 +110,30 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
 
-            case 4:  GradeFragment gradeFragment = new GradeFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, gradeFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+            case 4:  Intent t = new Intent(getApplicationContext(), MainStartGrading.class);
+                     startActivity(t);
+                     finish();
                      break;
-            case 5:  ViewGradesFragment viewgradeFragment = new ViewGradesFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, viewgradeFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+
+            case 5:  Intent q = new Intent(getApplicationContext(), MainGraphs.class);
+                     startActivity(q);
+                     finish();
                      break;
-            case 6:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
+            case 6:  Intent v = new Intent(getApplicationContext(), MainStudentfeedback.class);
+                     startActivity(v);
+                     finish();
+                     break;
+
+            case 7:  Intent z = new Intent(getApplicationContext(), MainStudentfeedback.class);
+                     startActivity(z);
+                     finish();
+                     break;
+
+            case 8:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
                      startActivity(j);
                      finish();
                      break;
-            case 7:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
+            case 9:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
                      startActivity(k);
                      finish();
                      break;

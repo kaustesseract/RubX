@@ -7,44 +7,18 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class MainRubrics extends AppCompatActivity {
+public class MainGenerateResults extends AppCompatActivity {
 
     private ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_rubrics);
+        setContentView(R.layout.activity_main_generate_results);
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-        Button buto = (Button) findViewById(R.id.rubrica);
-
-        buto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(getApplicationContext(),CreateRubrics.class);
-                startActivity(intent);
-            }
-        });
-
-        Button but = (Button) findViewById(R.id.rubricv);
-
-        but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Display_rubrics.class);
-                startActivity(intent);
-
-            }
-        });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -10,39 +10,67 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainRubrics extends AppCompatActivity {
+public class MainGraphs extends AppCompatActivity {
 
     private ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_rubrics);
+        setContentView(R.layout.activity_main_graphs);
+
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        Button buto = (Button) findViewById(R.id.rubrica);
+
+        Button buto = (Button) findViewById(R.id.sxy);
 
         buto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(getApplicationContext(),CreateRubrics.class);
+                Intent intent = new Intent(getApplicationContext(),SimplePieChartActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button but = (Button) findViewById(R.id.rubricv);
+        Button but = (Button) findViewById(R.id.bubble1);
 
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Display_rubrics.class);
-                startActivity(intent);
 
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(getApplicationContext(),TH_SelectClass.class);
+                startActivity(intent);
             }
         });
+
+        Button buts = (Button) findViewById(R.id.barplot1);
+
+        buts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(getApplicationContext(),TM_Select_Class.class);
+                startActivity(intent);
+            }
+        });
+
+        Button scatter = (Button) findViewById(R.id.scatter);
+
+        scatter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+                Intent intent = new Intent(getApplicationContext(),Scatter_plot.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
