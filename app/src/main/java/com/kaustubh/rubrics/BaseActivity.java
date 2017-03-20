@@ -54,10 +54,12 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
         navarray.add("View graphs");
+        navarray.add("Send Students Feedback");
+        navarray.add("Generate results");
         navarray.add("Manage Notes");
         navarray.add("Account Settings");
-        navarray.add("Generate results");
-        navarray.add("Feedback");
+        navarray.add("Help & Support");
+
 
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
@@ -88,30 +90,26 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
                      break;*/
-            case 0:  ClassFragment classFragment = new ClassFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, classFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+            case 0:  Intent y = new Intent(getApplicationContext(), MainClass.class);
+                     startActivity(y);
+                     finish();
                      break;
-            case 1:  CourseFragment courseFragment = new CourseFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, courseFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+
+            case 1:  Intent p = new Intent(getApplicationContext(), MainCourse.class);
+                     startActivity(p);
+                     finish();
                      break;
-            case 2:  AssignmentFragment assignmentFragment = new AssignmentFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, assignmentFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+
+            case 2:  Intent l = new Intent(getApplicationContext(), MainAssignment.class);
+                     startActivity(l);
+                     finish();
                      break;
-            case 3:  RubricsFragment rubricsFragment = new RubricsFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, rubricsFragment);
-                     fragmentTransaction.addToBackStack(null);
-                     fragmentTransaction.commit();
+
+            case 3:  Intent u = new Intent(getApplicationContext(), MainRubrics.class);
+                     startActivity(u);
+                     finish();
                      break;
+
             case 4:  GradeFragment gradeFragment = new GradeFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, gradeFragment);
@@ -129,10 +127,10 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
             case 7:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
-                        startActivity(k);
-                        finish();
-                        break;
-            case 8:
+                     startActivity(k);
+                     finish();
+                     break;
+
 
 
         }

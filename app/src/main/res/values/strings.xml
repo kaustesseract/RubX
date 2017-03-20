@@ -102,4 +102,5 @@
     <string name="title_activity_notes_">Notes_Activity</string>
     <string name="title_activity_notes">Notes</string>
     <string name="title_activity_all__notes">All_Notes</string>
+    <string name="title_activity_show__notes">Show_Notes</string>
 </resources>

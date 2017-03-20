@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_rubrics"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context="com.kaustubh.rubrics.MainRubrics">
+
+    <TextView
+        android:text="MANAGE RUBRICS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView82"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp" />
+
+    <Button
+        android:text="ADD RUBRICS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="113dp"
+        android:id="@+id/rubrica"
+        android:layout_below="@+id/textView82"
+        android:layout_alignLeft="@+id/textView82"
+        android:layout_alignStart="@+id/textView82"
+        android:layout_alignRight="@+id/textView82"
+        android:layout_alignEnd="@+id/textView82" />
+
+    <Button
+        android:text="VIEW RUBRICS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rubricv"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/rubrica"
+        android:layout_alignStart="@+id/rubrica"
+        android:layout_marginBottom="129dp"
+        android:layout_alignRight="@+id/textView82"
+        android:layout_alignEnd="@+id/textView82" />
+</RelativeLayout>

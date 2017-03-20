@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,7 @@ public class All_Notes extends AppCompatActivity {
    static ArrayList<String> arrayList = new ArrayList<>();
    static ArrayAdapter arrayAdapter;
     static Set<String> set;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +120,12 @@ public class All_Notes extends AppCompatActivity {
                 return true;
             }
         });
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+
     }
 
 
@@ -163,10 +171,22 @@ public class All_Notes extends AppCompatActivity {
             return true;
         }
 
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, BaseActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+        }
+
+
+
         return super.onOptionsItemSelected(item);
     }
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
+
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
             Intent j = new Intent(getApplicationContext(), BaseActivity.class);

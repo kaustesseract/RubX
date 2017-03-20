@@ -48,9 +48,6 @@ public class Generate_pdf extends AppCompatActivity {
             public void onClick(View v) {
 
                 gpdfs = (EditText) findViewById(R.id.cpdf);
-                
-
-
 
 
             }
