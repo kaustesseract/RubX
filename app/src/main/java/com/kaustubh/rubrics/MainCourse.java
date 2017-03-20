@@ -58,6 +58,7 @@ public class MainCourse extends AppCompatActivity {
                 Intent intent = new Intent(this, BaseActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
                 return true;
         }
 

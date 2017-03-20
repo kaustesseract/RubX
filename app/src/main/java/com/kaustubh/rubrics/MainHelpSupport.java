@@ -7,19 +7,35 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class MainStudentfeedback extends AppCompatActivity {
+public class MainHelpSupport extends AppCompatActivity {
 
     private ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_studentfeedback);
+        setContentView(R.layout.activity_main_help_support);
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-    }
 
+        Button bt = (Button) findViewById(R.id.email);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"kaustubhironmaiden@gmail.com"});
+               // intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"kaustubhironmaiden@gmail.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Feedback");
+                intent.putExtra(Intent.EXTRA_TEXT," ");
+                intent.setType("message/rfc822");
+                startActivity(intent);
+            }
+        });
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

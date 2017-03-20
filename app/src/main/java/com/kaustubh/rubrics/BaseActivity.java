@@ -138,6 +138,11 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
 
+            case 10:Intent m = new Intent(getApplicationContext(), MainHelpSupport.class);
+                startActivity(m);
+                finish();
+                break;
+
 
 
         }

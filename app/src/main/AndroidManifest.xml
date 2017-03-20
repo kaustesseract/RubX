@@ -92,7 +92,8 @@
         <activity android:name=".MainStartGrading" />
         <activity android:name=".MainGraphs" />
         <activity android:name=".MainStudentfeedback" />
-        <activity android:name=".MainGenerateResults"></activity>
+        <activity android:name=".MainGenerateResults" />
+        <activity android:name=".MainHelpSupport"></activity>
     </application>
 
 </manifest>
