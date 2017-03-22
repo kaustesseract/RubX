@@ -61,6 +61,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("Help & Support");
 
 
+
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
         navlist.setAdapter(adapter);
@@ -124,7 +125,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
 
-            case 7:  Intent z = new Intent(getApplicationContext(), MainStudentfeedback.class);
+            case 7:  Intent z = new Intent(getApplicationContext(), Generate_class.class);
                      startActivity(z);
                      finish();
                      break;

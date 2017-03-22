@@ -20,7 +20,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/gassignment"
-        android:layout_below="@+id/gassignment" />
+        android:layout_below="@+id/gassignment"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/gass" />
+
 </RelativeLayout>

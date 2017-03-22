@@ -28,7 +28,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:background="?android:attr/colorFocusedHighlight" />
+            android:background="@android:color/holo_orange_dark" />
 
         <TextView
             android:text="A rubric for assessment, usually in the form of a matrix or grid, is a tool used to interpret and grade students' work against criteria and standards. Rubrics are sometimes called &quot;criteria sheets&quot;, &quot;grading schemes&quot;, or &quot;scoring guides&quot;. Rubrics can be designed for any content domain.  A rubric makes explicit a range of assessment criteria and expected performance standards. Assessors evaluate a student's performance against all of these, rather than assigning a single subjective score. A rubric:  handed out to students during an assessment task briefing makes them aware of all expectations related to the assessment task, and helps them evaluate their own work as it progresses helps teachers apply consistent standards when assessing qualitative tasks, and promotes consistency in shared marking. You can use rubrics to structure discussions with students about different levels of performance on an assessment task. You can have them assist in the rubric design process, thus taking more responsibility for their own learning."

@@ -24,7 +24,10 @@
         android:layout_marginTop="106dp"
         android:id="@+id/addco"
         android:layout_below="@+id/textView80"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/textView80"
+        android:layout_alignEnd="@+id/textView80"
+        android:layout_alignLeft="@+id/textView80"
+        android:layout_alignStart="@+id/textView80" />
 
     <Button
         android:text="VIEW COURSE"
@@ -34,5 +37,7 @@
         android:layout_alignRight="@+id/addco"
         android:layout_alignEnd="@+id/addco"
         android:layout_marginTop="115dp"
-        android:id="@+id/viewco" />
+        android:id="@+id/viewco"
+        android:layout_alignLeft="@+id/addco"
+        android:layout_alignStart="@+id/addco" />
 </RelativeLayout>

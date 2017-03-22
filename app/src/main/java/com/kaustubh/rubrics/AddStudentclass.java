@@ -23,7 +23,7 @@ public class AddStudentclass extends AppCompatActivity {
             public void onClick(View v) {
 
                 Bundle bundle = getIntent().getExtras();
-                int message = bundle.getInt("pid");
+         //       int message = bundle.getInt("pid");
             //    Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
 
                     EditText a = (EditText) findViewById(R.id.class1);
@@ -31,7 +31,7 @@ public class AddStudentclass extends AppCompatActivity {
                     helper.createclass(str);
                 Contact2 c2 = new Contact2();
                 c2.setCname(str);
-                c2.setTid(message);
+          //0-0      c2.setTid(message);
                 helper.inclass(c2);
 
                     Intent i = new Intent(getApplicationContext(), Addclass.class);

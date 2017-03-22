@@ -24,7 +24,10 @@
         android:layout_marginBottom="142dp"
         android:id="@+id/viewc"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/addc"
+        android:layout_alignEnd="@+id/addc"
+        android:layout_alignLeft="@+id/addc"
+        android:layout_alignStart="@+id/addc" />
 
     <Button
         android:text="ADD CLASS"
@@ -32,7 +35,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/addc"
         android:layout_below="@+id/textView79"
-        android:layout_alignRight="@+id/viewc"
-        android:layout_alignEnd="@+id/viewc"
-        android:layout_marginTop="98dp" />
+        android:layout_marginTop="98dp"
+        android:layout_alignRight="@+id/textView79"
+        android:layout_alignEnd="@+id/textView79"
+        android:layout_alignLeft="@+id/textView79"
+        android:layout_alignStart="@+id/textView79" />
 </RelativeLayout>

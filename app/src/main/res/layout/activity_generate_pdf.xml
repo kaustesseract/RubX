@@ -4,45 +4,39 @@
     android:id="@+id/activity_generate_pdf"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.Generate_pdf">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/cpdf"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="143dp"
-        android:hint="content" />
-
     <TextView
-        android:text="ENTER"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cpdf"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView77"
-        android:textSize="24sp" />
-
-    <TextView
-        android:text="GENERATE PDF"
+        android:text="GENERATE FILES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView78"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textColor="@android:color/background_light" />
 
     <Button
-        android:text="SUBMIT"
+        android:text="GENERATE PDF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="115dp"
         android:id="@+id/gpdf"
         android:layout_below="@+id/cpdf"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp" />
+
+    <Button
+        android:text="GENERATE EXCEL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gpdf"
+        android:layout_marginTop="126dp"
+        android:id="@+id/gexcel"
+        android:layout_alignRight="@+id/gpdf"
+        android:layout_alignEnd="@+id/gpdf"
+        android:layout_alignLeft="@+id/gpdf"
+        android:layout_alignStart="@+id/gpdf"
+        android:textSize="24sp" />
 </RelativeLayout>

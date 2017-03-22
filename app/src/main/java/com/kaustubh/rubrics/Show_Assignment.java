@@ -72,7 +72,7 @@ public class Show_Assignment extends AppCompatActivity {
                     row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
 
-                    String Lastdate = day+"/"+month+"/"+year;
+                    String Lastdate = day+"/"+month+1+"/"+year;
                     String deadline = hour+" : "+minute;
 
                     String[] colText={ass_name,Lastdate,deadline};
