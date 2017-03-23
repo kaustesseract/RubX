@@ -10,22 +10,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+public class MainAttendance extends AppCompatActivity {
 
-public class Generate_class extends AppCompatActivity {
     private ActionBar actionBar;
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generate_class);
-
+        setContentView(R.layout.activity_main_attendance);
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -47,7 +43,7 @@ public class Generate_class extends AppCompatActivity {
                         name,
                         0
                 );
-        ListView ll = (ListView)findViewById(R.id.gclass);
+        ListView ll = (ListView)findViewById(R.id.attendance);
         ll.setAdapter(myadapter);
 
         ll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,10 +54,10 @@ public class Generate_class extends AppCompatActivity {
 
 
                 String text = textView.getText().toString();
-                Intent i = new Intent(getApplicationContext(), Generate_Course.class);
+                Intent i = new Intent(getApplicationContext(), Attendance.class);
                 i.putExtra("text",text);
-               startActivity(i);
-                finish();
+                startActivity(i);
+               // finish();
 
             }});
     }

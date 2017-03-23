@@ -691,7 +691,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public String[] getrubricsparam(String rname) {
         String[] columns = new String[]{COLUMN_RNAME};
-        Cursor c = db.query(rname,columns,null,null,null,null,null);
+        Cursor c = getReadableDatabase().query(rname,columns,null,null,null,null,null);
         String result = "";
         int i=0;
 
@@ -711,6 +711,26 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public String[] getstudentname(String studenttable)
+    {
+        String[] columns = new String[]{COLUMN_STUDENT};
+        Cursor c = getReadableDatabase().query(studenttable,columns,null,null,null,null,null);
+        String result = "";
+        int i=0;
+        int studentname = c.getColumnIndex(COLUMN_STUDENT);
+        String[] studs = new String[c.getCount()];
+
+
+        if(c.moveToFirst())
+        {
+            for(i=0;i<c.getCount();i++) {
+                studs[i] =  c.getString(studentname) ;
+                c.moveToNext();
+            }
+        }
+        return  studs;
+
+    }
 
 
     public String[] getgradeparam(String gradetable)

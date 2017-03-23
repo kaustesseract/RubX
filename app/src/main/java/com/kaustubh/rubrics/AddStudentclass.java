@@ -34,7 +34,7 @@ public class AddStudentclass extends AppCompatActivity {
           //0-0      c2.setTid(message);
                 helper.inclass(c2);
 
-                    Intent i = new Intent(getApplicationContext(), Addclass.class);
+                    Intent i = new Intent(getApplicationContext(), Types_Of_Addc.class);
                     i.putExtra("str",str);
 
                     startActivity(i);

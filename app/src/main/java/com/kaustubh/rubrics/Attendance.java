@@ -1,7 +1,6 @@
 package com.kaustubh.rubrics;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,58 +11,60 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Generate_class extends AppCompatActivity {
-    private ActionBar actionBar;
-    
+public class Attendance extends AppCompatActivity {
 
+    private ActionBar actionBar;
+    ArrayList<String> selectedItems = new ArrayList<>();
+    DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_generate_class);
-
+        setContentView(R.layout.activity_attendance);
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        DatabaseHelper db = new DatabaseHelper(this);
-
-        db.open();
-        Cursor cursor = db.showclasslist();
-        startManagingCursor(cursor);
-        String[] ar = new String[]{DatabaseHelper.COLUMN_CLASS};
-        int[] name = new int[]{R.id.stugrade};
-
-        SimpleCursorAdapter myadapter =
-                new SimpleCursorAdapter(
-                        this,
-                        R.layout.display_gradeclass,
-                        cursor,
-                        ar,
-                        name,
-                        0
-                );
-        ListView ll = (ListView)findViewById(R.id.gclass);
-        ll.setAdapter(myadapter);
-
-        ll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                TextView textView = (TextView) view.findViewById(R.id.stugrade);
-                //  String list = (ll.getItemAtPosition(position));
+        Bundle bundle = getIntent().getExtras();
+        final String message = bundle.getString("text");
 
 
-                String text = textView.getText().toString();
-                Intent i = new Intent(getApplicationContext(), Generate_Course.class);
-                i.putExtra("text",text);
-               startActivity(i);
-                finish();
+        ListView list = (ListView) findViewById(R.id.check_list);
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+      //  String[] items = {"Kaustubh", "Sushant", "Manish", "Kunal"};
+        String[] items = db.getstudentname(message);
 
-            }});
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkbox, R.id.itm, items);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemselected = ((TextView) view).getText().toString();
+                if (selectedItems.contains(itemselected)) {
+                    selectedItems.remove(itemselected);
+
+                }
+                else
+                {
+                    selectedItems.add(itemselected);
+                }
+
+            }
+        });
+    }
+
+    public void selected(View view)
+    {
+        String items = "";
+        for(String item:selectedItems)
+        {
+                items += item+"\n";
+        }
+        Toast.makeText(getApplicationContext(),items,Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -95,7 +96,7 @@ public class Generate_class extends AppCompatActivity {
 
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
-            Intent j = new Intent(getApplicationContext(), BaseActivity.class);
+            Intent j = new Intent(getApplicationContext(), MainAttendance.class);
             startActivity(j);
             finish();
         }

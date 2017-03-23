@@ -8,35 +8,36 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/img"
-    tools:context="com.kaustubh.rubrics.Types_Of_Rubric">
+    tools:context="com.kaustubh.rubrics.Types_Of_Addc">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TYPES OF RUBRICS"
+        android:text="INSERT THE STUDENTS"
         android:id="@+id/textView42"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="36sp"
+        android:textSize="30sp"
         android:textColor="@android:color/background_light" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIMPLE RUBRICS"
-        android:id="@+id/button4"
+        android:text="ADD MANUALLY"
+        android:id="@+id/addm"
+        android:layout_marginTop="102dp"
         android:layout_below="@+id/textView42"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:onClick="simple" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PRIORITY RUBRICS"
-        android:id="@+id/button7"
-        android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="119dp"
-        android:onClick="priority" />
+        android:text="IMPORT CSV"
+        android:id="@+id/addcsv"
+        android:layout_marginBottom="116dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/addm"
+        android:layout_alignEnd="@+id/addm"
+        android:layout_alignLeft="@+id/addm"
+        android:layout_alignStart="@+id/addm" />
 </RelativeLayout>
