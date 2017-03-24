@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_help_support"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kaustubh.rubrics.MainHelpSupport">
+
+    <TextView
+        android:text="HELP AND SUPPORT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView86"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/textView87"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:text="Thank you very much for using our application. We would like to improve our application with your suggestions.Please Send us your queries and suggestions in the following email address. "
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="SEND EMAIL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView87"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp"
+        android:id="@+id/email" />
+</RelativeLayout>

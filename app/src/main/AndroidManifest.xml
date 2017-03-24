@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.kaustubh.rubrics">
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" ></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -26,6 +30,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".Addclass" />
+        <activity android:name=".Assignment" />
         <activity android:name=".Showclass" />
         <activity android:name=".AddStudentclass" />
         <activity android:name=".AddCourse" />
@@ -38,7 +43,58 @@
         <activity android:name=".Descrete_rubrics" />
         <activity android:name=".EnterCol" />
         <activity android:name=".Display_rubrics" />
-        <activity android:name=".view_rubrics"></activity>
+        <activity android:name=".view_rubrics" />
+        <activity android:name=".Grade_Students" />
+        <activity android:name=".Grade_Course" />
+        <activity android:name=".SimplePieChartActivity" />
+        <activity android:name=".BubbleChartActivity" />
+        <activity
+            android:name=".Main_Screen"
+            android:label="@string/title_activity_main__screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name=".AlarmRubrics" />
+
+        <activity android:name=".Grade_rubrics" />
+        <activity android:name=".Grade_assignment" />
+        <activity android:name=".Add_rubrics_param" />
+        <activity android:name=".Grade_Start" />
+        <activity android:name=".Start_Grading" />
+        <activity android:name=".Barchart" />
+        <activity android:name=".Scatter_plot" />
+        <activity android:name=".View_Assignment" />
+        <activity android:name=".Show_Assignment" />
+        <activity android:name=".TM_Select_Class" />
+        <activity android:name=".TM_ShowCourse" />
+        <activity android:name=".TMSelect_Assignment" />
+        <activity android:name=".TH_SelectClass" />
+        <activity android:name=".TH_ShowCourse" />
+        <activity android:name=".TH_SelectAssignment" />
+        <activity android:name=".Set_TH" />
+        <activity android:name=".Show_GradeClass" />
+        <activity android:name=".Show_GradeCourse" />
+        <activity android:name=".Show_GradeAssignment" />
+        <activity android:name=".Show_AllGrades" />
+        <activity
+            android:name=".All_Notes"
+            android:label="@string/title_activity_all__notes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Edit_Notes" />
+        <activity android:name=".EditAccount" />
+        <activity android:name=".ViewAccount" />
+        <activity android:name=".Generate_class" />
+        <activity android:name=".Generate_Course" />
+        <activity android:name=".Generate_Assignment" />
+        <activity android:name=".Generate_pdf" />
+        <activity android:name=".MainClass" />
+        <activity android:name=".MainCourse" />
+        <activity android:name=".MainAssignment" />
+        <activity android:name=".MainRubrics" />
+        <activity android:name=".MainStartGrading" />
+        <activity android:name=".MainGraphs" />
+        <activity android:name=".MainStudentfeedback" />
+        <activity android:name=".MainGenerateResults" />
+        <activity android:name=".MainHelpSupport"></activity>
     </application>
 
 </manifest>

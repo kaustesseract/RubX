@@ -7,68 +7,65 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.EnterCol">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ENTER CRITERIA"
-        android:id="@+id/textView44"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#111010"
-        android:textSize="40sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ENTER CRITERIA"
-        android:id="@+id/textView45"
-        android:layout_below="@+id/textView44"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="58dp"
-        android:textSize="20sp"
-        android:textColor="#100f0f" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WEIGHT"
-        android:id="@+id/textView46"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:textColor="#171414" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/col"
+        android:id="@+id/crow"
         android:layout_alignBottom="@+id/textView45"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView45"
-        android:layout_toEndOf="@+id/textView45" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lweight"
-        android:layout_alignBottom="@+id/textView46"
-        android:layout_toLeftOf="@+id/col"
-        android:layout_toStartOf="@+id/col"
-        android:minWidth="45dp" />
+        android:layout_toEndOf="@+id/textView45"
+        android:textColor="@android:color/white"
+        android:layout_alignLeft="@+id/lweight"
+        android:layout_alignStart="@+id/lweight" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/submit"
-        android:layout_below="@+id/textView46"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp" />
+        android:id="@+id/submitst"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTER ROW"
+        android:id="@+id/textView45"
+        android:textSize="20sp"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/textView44"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="80dp" />
+
+    <TextView
+        android:text="ENTER WEIGHT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView45"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="102dp"
+        android:id="@+id/textView33"
+        android:textSize="20sp"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/loweight"
+        android:layout_alignBottom="@+id/textView33"
+        android:layout_toRightOf="@+id/textView33"
+        android:layout_alignRight="@+id/submitst"
+        android:layout_alignEnd="@+id/submitst"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -76,19 +73,21 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/hweight"
-        android:minWidth="45dp"
-        android:layout_above="@+id/submit"
-        android:layout_toRightOf="@+id/submit"
-        android:layout_toEndOf="@+id/submit" />
+        android:layout_alignBaseline="@+id/loweight"
+        android:layout_alignBottom="@+id/loweight"
+        android:layout_toRightOf="@+id/loweight"
+        android:layout_alignRight="@+id/textView44"
+        android:layout_alignEnd="@+id/textView44"
+        android:textColor="@android:color/white" />
 
-    <Button
-        android:text="NEXT"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/submit"
-        android:layout_alignLeft="@+id/submit"
-        android:layout_alignStart="@+id/submit"
-        android:layout_marginTop="14dp"
-        android:id="@+id/next" />
+        android:text="ENTER CRITERIA"
+        android:id="@+id/textView44"
+        android:textColor="@android:color/background_light"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

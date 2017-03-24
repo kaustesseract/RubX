@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/group"
     tools:context="com.kaustubh.rubrics.MainActivity"
     android:background="@drawable/books">
 
@@ -32,8 +33,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="85dp"
-        android:layout_toLeftOf="@+id/submit"
-        android:layout_toStartOf="@+id/submit"
+        android:layout_toLeftOf="@+id/submitst"
+        android:layout_toStartOf="@+id/submitst"
         android:minHeight="30dp"
         android:textSize="20sp"
         android:textColor="#f8ebeb" />
@@ -46,7 +47,7 @@
         android:singleLine="false"
         android:textSize="20sp"
         android:layout_marginBottom="91dp"
-        android:layout_above="@+id/submit"
+        android:layout_above="@+id/submitst"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#fbf2f2" />
@@ -77,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
-        android:id="@+id/submit"
+        android:id="@+id/submitst"
         android:layout_marginBottom="40dp"
         android:onClick="click"
         android:layout_alignParentBottom="true"
@@ -91,7 +92,7 @@
         android:background="#e93232"
         android:textColor="#fcfafa"
         android:minHeight="35dp"
-        android:layout_alignTop="@+id/submit"
+        android:layout_alignTop="@+id/submitst"
         android:layout_alignRight="@+id/pass"
         android:layout_alignEnd="@+id/pass" />
 
@@ -101,7 +102,7 @@
         android:text="Register"
         android:id="@+id/button3"
         android:onClick="register"
-        android:layout_alignTop="@+id/submit"
+        android:layout_alignTop="@+id/submitst"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

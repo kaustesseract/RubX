@@ -1,10 +1,8 @@
 package com.kaustubh.rubrics;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button submit = (Button)findViewById(R.id.submit);
+        Button submit = (Button)findViewById(R.id.submitst);
         session = new Logout(this);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
        // Intent i = new Intent(getApplicationContext(), BaseActivity.class);
        // i.putExtra("tid",tid);
         //startActivity(i);
@@ -134,4 +131,5 @@ public class MainActivity extends AppCompatActivity {
        // donebutton.animate().alpha(1f).setDuration(6000);
         //donebutton.setVisibility(View.VISIBLE);
     }
+
 }

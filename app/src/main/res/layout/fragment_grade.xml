@@ -8,76 +8,26 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <ImageView
+    <Button
+        android:text="GRADE STUDENTS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:layout_centerVertical="true"
+        android:id="@+id/grade"
+        android:layout_above="@+id/view"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/board" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GOOD"
-        android:id="@+id/textView18"
-        android:layout_marginTop="42dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BAD"
-        android:id="@+id/textView19"
-        android:textSize="30sp"
-        android:layout_alignTop="@+id/textView18"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AIM"
-        android:id="@+id/textView20"
-        android:layout_below="@+id/textView18"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="42dp"
-        android:textSize="30sp"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="THEORY"
-        android:id="@+id/textView21"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="30sp"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CONCLUSION"
-        android:id="@+id/textView22"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="104dp"
-        android:textSize="20sp"
-        android:textColor="#ffffff" />
+        android:layout_marginBottom="135dp"
+        android:textSize="24sp" />
 
     <Button
+        android:text="VIEW GRADES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/button10"
+        android:layout_marginBottom="160dp"
+        android:id="@+id/view"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/grade"
+        android:layout_alignStart="@+id/grade"
+        android:layout_alignRight="@+id/grade"
+        android:layout_alignEnd="@+id/grade"
+        android:textSize="24sp" />
 </RelativeLayout>

@@ -9,6 +9,8 @@ public class Contact4 {
     int weight;
     String row;
     String column;
+    int lweight;
+    int hweight;
 
     public void setRow(String row)
     {
@@ -41,4 +43,9 @@ public class Contact4 {
         return this.weight;
     }
 
+    public void setLweight(int lweight){ this.lweight = lweight;}
+    public int getLweight(){ return this.lweight; }
+
+    public void setHweight(int hweight){ this.hweight = hweight;}
+    public int getHweight(){ return this.hweight; }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_course"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context="com.kaustubh.rubrics.MainCourse">
+
+    <TextView
+        android:text="MANAGE COURSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView80"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp" />
+
+    <Button
+        android:text="ADD COURSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="106dp"
+        android:id="@+id/addco"
+        android:layout_below="@+id/textView80"
+        android:layout_alignRight="@+id/textView80"
+        android:layout_alignEnd="@+id/textView80"
+        android:layout_alignLeft="@+id/textView80"
+        android:layout_alignStart="@+id/textView80" />
+
+    <Button
+        android:text="VIEW COURSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addco"
+        android:layout_alignRight="@+id/addco"
+        android:layout_alignEnd="@+id/addco"
+        android:layout_marginTop="115dp"
+        android:id="@+id/viewco"
+        android:layout_alignLeft="@+id/addco"
+        android:layout_alignStart="@+id/addco" />
+</RelativeLayout>

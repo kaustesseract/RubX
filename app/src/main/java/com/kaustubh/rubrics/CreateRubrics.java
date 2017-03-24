@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class CreateRubrics extends AppCompatActivity {
 
@@ -17,7 +16,7 @@ public class CreateRubrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_rubrics);
 
-        Button bt = (Button) findViewById(R.id.submit);
+        Button bt = (Button) findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,16 +24,28 @@ public class CreateRubrics extends AppCompatActivity {
                 EditText rub = (EditText) findViewById(R.id.rubric);
                 String rubr = rub.getText().toString();
 
+                EditText grades = (EditText) findViewById(R.id.editText4);
+                int grade = Integer.parseInt(grades.getText().toString());
+
+                /*EditText highs = (EditText) findViewById(R.id.high);
+                int high = Integer.parseInt(highs.getText().toString());*/
+
+
+
+
                 Contact3 c3 = new Contact3();
                 c3.setRubric(rubr);
+                c3.setGrade(grade);
+               // c3.setLow(low);
+                //c3.setHigh(high);
                 //c3.setLimit(limi);
                 helper.insertrubrics(c3);
 
                 String row = rubr+"row";
-                String column = rubr+"column";
+               // String column = rubr+"column";
 
                 helper.createrow(row);
-                helper.createcol(column);
+               // helper.createcol(column);
 
                 Intent i = new Intent(getApplicationContext(), EnterCol.class);
                 i.putExtra("rubr",rubr);

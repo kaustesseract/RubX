@@ -1,5 +1,6 @@
 package com.kaustubh.rubrics;
 
+import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,7 +15,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         Bundle bundle = getIntent().getExtras();
         int message = bundle.getInt("pid");
-        Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
     }
 
 
@@ -47,13 +47,21 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
         navlist = (ListView) findViewById(R.id.navlist);
         ArrayList<String> navarray = new ArrayList<String>();
-        navarray.add("Home");
+       // navarray.add("Home");
         navarray.add("Manage class");
         navarray.add("Manage course");
+        navarray.add("Manage Assignment");
         navarray.add("Manage rubrics");
         navarray.add("Start grading");
-        navarray.add("View grades");
-        navarray.add("Assign deadlines");
+        navarray.add("View graphs");
+        navarray.add("Send Students Feedback");
+        navarray.add("Generate results");
+        navarray.add("Manage Notes");
+        navarray.add("Account Settings");
+        navarray.add("Help & Support");
+
+
+
         navlist.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_activated_1,navarray);
         navlist.setAdapter(adapter);
@@ -71,42 +79,71 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToggle.syncState();
         fragmentManager = getSupportFragmentManager();
-        loadselection(0);
+        //loadselection(0);
     }
     public void loadselection(int i)
     {
         switch(i)
         {
-            case 0:  HomeFragment homeFragment = new HomeFragment();
+           /* case 0:  HomeFragment homeFragment = new HomeFragment();
                      fragmentTransaction = fragmentManager.beginTransaction();
                      fragmentTransaction.replace(R.id.fragmentholder, homeFragment);
+                     fragmentTransaction.addToBackStack(null);
                      fragmentTransaction.commit();
+                     break;*/
+            case 0:  Intent y = new Intent(getApplicationContext(), MainClass.class);
+                     startActivity(y);
+                     finish();
                      break;
-            case 1:  ClassFragment classFragment = new ClassFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, classFragment);
-                     fragmentTransaction.commit();
+
+            case 1:  Intent p = new Intent(getApplicationContext(), MainCourse.class);
+                     startActivity(p);
+                     finish();
                      break;
-            case 2:  CourseFragment courseFragment = new CourseFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, courseFragment);
-                     fragmentTransaction.commit();
+
+            case 2:  Intent l = new Intent(getApplicationContext(), MainAssignment.class);
+                     startActivity(l);
+                     finish();
                      break;
-            case 3:  RubricsFragment rubricsFragment = new RubricsFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, rubricsFragment);
-                     fragmentTransaction.commit();
+
+            case 3:  Intent u = new Intent(getApplicationContext(), MainRubrics.class);
+                     startActivity(u);
+                     finish();
                      break;
-            case 4:  GradeFragment gradeFragment = new GradeFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, gradeFragment);
-                     fragmentTransaction.commit();
+
+            case 4:  Intent t = new Intent(getApplicationContext(), MainStartGrading.class);
+                     startActivity(t);
+                     finish();
                      break;
-            case 5:  ViewGradesFragment viewgradeFragment = new ViewGradesFragment();
-                     fragmentTransaction = fragmentManager.beginTransaction();
-                     fragmentTransaction.replace(R.id.fragmentholder, viewgradeFragment);
-                     fragmentTransaction.commit();
+
+            case 5:  Intent q = new Intent(getApplicationContext(), MainGraphs.class);
+                     startActivity(q);
+                     finish();
                      break;
+            case 6:  Intent v = new Intent(getApplicationContext(), MainStudentfeedback.class);
+                     startActivity(v);
+                     finish();
+                     break;
+
+            case 7:  Intent z = new Intent(getApplicationContext(), Generate_class.class);
+                     startActivity(z);
+                     finish();
+                     break;
+
+            case 8:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
+                     startActivity(j);
+                     finish();
+                     break;
+            case 9:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
+                     startActivity(k);
+                     finish();
+                     break;
+
+            case 10:Intent m = new Intent(getApplicationContext(), MainHelpSupport.class);
+                startActivity(m);
+                finish();
+                break;
+
 
 
         }

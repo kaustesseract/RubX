@@ -18,19 +18,20 @@ public class EnterRowCol extends AppCompatActivity {
         String message = bundle.getString("rubr");
 
         final String mrow = message+"row";
+        final String mcol = message+"col";
 
-        Button bt = (Button) findViewById(R.id.submit);
+        Button bt = (Button) findViewById(R.id.submitst);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText rows = (EditText) findViewById(R.id.col);
+                EditText rows = (EditText) findViewById(R.id.row);
                 String row = rows.getText().toString();
 
-             /*   EditText columns = (EditText) findViewById(R.id.column);
+                EditText columns = (EditText) findViewById(R.id.col);
                 String column = columns.getText().toString();
 
-                EditText lweights = (EditText) findViewById(R.id.lweight);
+               /* EditText lweights = (EditText) findViewById(R.id.lweight);
                 String lweight = lweights.getText().toString();
 
                 EditText hweights = (EditText) findViewById(R.id.hweight);
@@ -38,7 +39,11 @@ public class EnterRowCol extends AppCompatActivity {
 
                 Contact4 c4 = new Contact4();
                 c4.setRow(row);
-                helper.insertrow(c4,mrow);
+                helper.insertdrow(c4,mrow);
+
+                Contact4 c5 = new Contact4();
+                c5.setColumn(column);
+                helper.insertdcol(c5,mcol);
 
              /*   Contact4 c5 = new Contact4();
                 c5.setColumn(column);

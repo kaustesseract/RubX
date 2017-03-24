@@ -68,7 +68,7 @@ public class Addclass extends AppCompatActivity {
 
                 Bundle bundle = getIntent().getExtras();
                 String message = bundle.getString("str");
-                Toast.makeText(getApplicationContext(), "Class is "+message , Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "Class is "+message , Toast.LENGTH_LONG).show();
 
                 Contact1 c1 = new Contact1();
                 c1.setStudentc(studentc);

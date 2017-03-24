@@ -12,5 +12,5 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:text="New Text"
-        android:textColor="#0b0b0b" />
+        android:textColor="@android:color/background_light" />
 </LinearLayout>

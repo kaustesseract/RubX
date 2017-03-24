@@ -6,9 +6,10 @@ package com.kaustubh.rubrics;
 public class Contact3 {
 
     int id;
-    int limit;
+    int low;
     String rubrics;
-    String studentc;
+    int high;
+    int grade;
 
     public void setRubric(String rubrics)
     {
@@ -22,11 +23,15 @@ public class Contact3 {
     }
 
 
-    public void setLimit(int limit) {this.limit = limit;}
+    public void setLow(int low) {this.low = low;}
 
-    public int getLimit()
+    public int getLow() {return this.low;}
 
-    {
-        return this.limit;
-    }
+    public void setHigh(int high) {this.high = high;}
+
+    public int getHigh() {return this.high;}
+
+    public void setGrade(int grade) {this.grade = grade;}
+
+    public int getGrade() {return this.grade;}
 }

@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bbk"
+    tools:context="com.kaustubh.rubrics.AssignmentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:text="CREATE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cassign"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="161dp" />
+
+    <Button
+        android:text="VIEW ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cassign"
+        android:layout_alignLeft="@+id/cassign"
+        android:layout_alignStart="@+id/cassign"
+        android:layout_marginTop="120dp"
+        android:id="@+id/vassign"
+        android:layout_alignRight="@+id/cassign"
+        android:layout_alignEnd="@+id/cassign" />
+
+    <TextView
+        android:text="MANAGE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView47"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
+</RelativeLayout>

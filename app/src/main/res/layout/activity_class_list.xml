@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.Class_list">
+
 
     <ListView
         android:layout_width="wrap_content"
@@ -24,5 +26,6 @@
         android:id="@+id/textView40"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>

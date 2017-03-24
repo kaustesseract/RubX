@@ -11,7 +11,7 @@
         android:minWidth="400dp"
         android:minHeight="60dp"
         android:textSize="30sp"
-        android:textColor="#201e1e"
+        android:textColor="@android:color/background_light"
         android:textAlignment="center" />
 
 </RelativeLayout>
