@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Google+"
-        android:id="@+id/button2"
+        android:id="@+id/google"
         android:background="#e93232"
         android:textColor="#fcfafa"
         android:minHeight="35dp"
