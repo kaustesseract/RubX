@@ -47,7 +47,7 @@ public class CreateRubrics extends AppCompatActivity {
                 helper.createrow(row);
                // helper.createcol(column);
 
-                Intent i = new Intent(getApplicationContext(), EnterCol.class);
+                Intent i = new Intent(getApplicationContext(), Add_Type_Rubrics.class);
                 i.putExtra("rubr",rubr);
                 // Toast.makeText(getApplicationContext(), "Id is "+column , Toast.LENGTH_LONG).show();
                 startActivity(i);

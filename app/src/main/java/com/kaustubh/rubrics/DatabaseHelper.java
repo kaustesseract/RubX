@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_STUDENT = "student";
+    private static final String COLUMN_TOTALMARKS = "totalmarks";
     private static final String COLUMN_CLASSNAME = "classname";
     private static final String COLUMN_ROLL = "roll";
     private static final String COLUMN_CLSID = "cls_id";
@@ -75,7 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_CRT =
             "CREATE TABLE "+TABLE_CNAME+" (" +
                     COLUMN_CLSID + " INTEGER PRIMARY KEY , " +
-                    COLUMN_CLASS + " VARCHAR, " +
+                    COLUMN_CLASS + " VARCHAR , " +
+                    COLUMN_TOTALMARKS + " INTEGER , " +
                     COLUMN_TID + " INTEGER);";
 
     public static final String TABLE_COURSES =
@@ -216,6 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_CLSID,count);
         values.put(COLUMN_CLASS,c2.getCname());
+        values.put(COLUMN_TOTALMARKS,c2.getTotalmarks());
         values.put(COLUMN_TID,c2.getTid());
         db.insert(TABLE_CNAME,null,values);
         db.close();
@@ -691,7 +694,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public String[] getrubricsparam(String rname) {
         String[] columns = new String[]{COLUMN_RNAME};
-        Cursor c = db.query(rname,columns,null,null,null,null,null);
+        Cursor c = getReadableDatabase().query(rname,columns,null,null,null,null,null);
         String result = "";
         int i=0;
 
@@ -711,6 +714,26 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public String[] getstudentname(String studenttable)
+    {
+        String[] columns = new String[]{COLUMN_STUDENT};
+        Cursor c = getReadableDatabase().query(studenttable,columns,null,null,null,null,null);
+        String result = "";
+        int i=0;
+        int studentname = c.getColumnIndex(COLUMN_STUDENT);
+        String[] studs = new String[c.getCount()];
+
+
+        if(c.moveToFirst())
+        {
+            for(i=0;i<c.getCount();i++) {
+                studs[i] =  c.getString(studentname) ;
+                c.moveToNext();
+            }
+        }
+        return  studs;
+
+    }
 
 
     public String[] getgradeparam(String gradetable)
@@ -765,6 +788,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         return count;
     }
+
+
 
 
     public int searchId(String name)

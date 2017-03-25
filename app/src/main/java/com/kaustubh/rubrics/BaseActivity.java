@@ -56,6 +56,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         navarray.add("View graphs");
         navarray.add("Send Students Feedback");
         navarray.add("Generate results");
+        navarray.add("Attendance");
         navarray.add("Manage Notes");
         navarray.add("Account Settings");
         navarray.add("Help & Support");
@@ -130,16 +131,21 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
 
-            case 8:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
+            case 8 : Intent b = new Intent(getApplicationContext(), MainAttendance.class);
+                startActivity(b);
+                finish();
+                break;
+
+            case 9:  Intent j = new Intent(getApplicationContext(), All_Notes.class);
                      startActivity(j);
                      finish();
                      break;
-            case 9:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
+            case 10:  Intent k = new Intent(getApplicationContext(), ViewAccount.class);
                      startActivity(k);
                      finish();
                      break;
 
-            case 10:Intent m = new Intent(getApplicationContext(), MainHelpSupport.class);
+            case 11:Intent m = new Intent(getApplicationContext(), MainHelpSupport.class);
                 startActivity(m);
                 finish();
                 break;

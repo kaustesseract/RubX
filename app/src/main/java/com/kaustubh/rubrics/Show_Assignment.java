@@ -67,12 +67,13 @@ public class Show_Assignment extends AppCompatActivity {
                     int year = cursor.getInt(cursor.getColumnIndex("year"));
                     int hour = cursor.getInt(cursor.getColumnIndex("hour"));
                     int minute = cursor.getInt(cursor.getColumnIndex("minute"));
+                    int months = month + 1;
 
                     TableRow row = new TableRow(context);
                     row.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,
                             TableLayout.LayoutParams.WRAP_CONTENT));
 
-                    String Lastdate = day+"/"+month+1+"/"+year;
+                    String Lastdate = day+"/"+months+"/"+year;
                     String deadline = hour+" : "+minute;
 
                     String[] colText={ass_name,Lastdate,deadline};

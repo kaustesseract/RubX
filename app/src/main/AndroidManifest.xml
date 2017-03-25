@@ -4,7 +4,7 @@
     package="com.kaustubh.rubrics">
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" ></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +39,7 @@
         <activity android:name=".CreateRubrics" />
         <activity android:name=".Course_list" />
         <activity android:name=".EnterRowCol" />
-        <activity android:name=".Types_Of_Rubric" />
+        <activity android:name=".Types_Of_Addc" />
         <activity android:name=".Descrete_rubrics" />
         <activity android:name=".EnterCol" />
         <activity android:name=".Display_rubrics" />
@@ -94,7 +94,10 @@
         <activity android:name=".MainGraphs" />
         <activity android:name=".MainStudentfeedback" />
         <activity android:name=".MainGenerateResults" />
-        <activity android:name=".MainHelpSupport"></activity>
+        <activity android:name=".MainHelpSupport" />
+        <activity android:name=".Attendance" />
+        <activity android:name=".MainAttendance" />
+        <activity android:name=".Add_Type_Rubrics"></activity>
     </application>
 
 </manifest>

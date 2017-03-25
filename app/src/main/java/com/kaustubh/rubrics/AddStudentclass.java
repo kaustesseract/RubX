@@ -22,20 +22,28 @@ public class AddStudentclass extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Bundle bundle = getIntent().getExtras();
+          //      Bundle bundle = getIntent().getExtras();
          //       int message = bundle.getInt("pid");
             //    Toast.makeText(getApplicationContext(), "Id is "+message , Toast.LENGTH_LONG).show();
 
                     EditText a = (EditText) findViewById(R.id.class1);
                     String str = a.getText().toString();
-                    helper.createclass(str);
+
+                EditText b = (EditText) findViewById(R.id.totstudent);
+                int totalstudent = Integer.parseInt(b.getText().toString());
+
+
+                helper.createclass(str);
                 Contact2 c2 = new Contact2();
                 c2.setCname(str);
-          //0-0      c2.setTid(message);
+                c2.setTotalmarks(totalstudent);
+               c2.setTid(3);
+
                 helper.inclass(c2);
 
-                    Intent i = new Intent(getApplicationContext(), Addclass.class);
+                    Intent i = new Intent(getApplicationContext(), Types_Of_Addc.class);
                     i.putExtra("str",str);
+                    i.putExtra("student",totalstudent);
 
                     startActivity(i);
                 finish();
