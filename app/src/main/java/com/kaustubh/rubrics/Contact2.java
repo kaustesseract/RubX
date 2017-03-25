@@ -7,6 +7,7 @@ public class Contact2 {
     int id;
     int tid;
     String cname;
+    int totalmarks;
 
 
     public void setCname(String cname)
@@ -28,4 +29,8 @@ public class Contact2 {
     {
         return this.tid;
     }
+
+    public void setTotalmarks(int totalmarks) { this.totalmarks = totalmarks; }
+
+    public int getTotalmarks() { return this.totalmarks; }
 }

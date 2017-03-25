@@ -15,59 +15,40 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class Types_Of_Addc extends AppCompatActivity {
-
+public class Add_Type_Rubrics extends AppCompatActivity {
     DatabaseHelper helper = new DatabaseHelper(this);
+    String mrow;
 
     public static final int requestcode = 1;
     private static final int  REQUEST_PERMISSION = 123;
-    String message;
-    int w=1;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_types__of__addc);
+        setContentView(R.layout.activity_add__type__rubrics);
 
         Bundle bundle = getIntent().getExtras();
-        message = bundle.getString("str");
-        final int totalstudent = bundle.getInt("student");
+        final String rubr = bundle.getString("rubr");
 
-        Button bt = (Button) findViewById(R.id.addm);
+        mrow = rubr + "row";
+
+        Button bto = (Button) findViewById(R.id.addman);
+
+        bto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),EnterCol.class);
+                i.putExtra("rubr",rubr);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        Button bt = (Button) findViewById(R.id.impcsv);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(getApplicationContext(),Addclass.class);
-                i.putExtra("str",message);
-                i.putExtra("student",totalstudent);
-                i.putExtra("increment",w);
-                startActivity(i);
-
-            }
-        });
-
-        Button bto = (Button) findViewById(R.id.addcsv);
-        bto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-           /*     Intent fileintent = new Intent(Intent.ACTION_GET_CONTENT);
-
-                fileintent.setType("gagt/sdf");
-
-                try {
-
-                    startActivityForResult(fileintent, requestcode);
-
-                } catch (ActivityNotFoundException e) {
-
-                    Toast.makeText(getApplicationContext(),"No app found for importing the file.",Toast.LENGTH_SHORT).show();
-
-                }
-                */
-                 if(haspermission())
+                if(haspermission())
                 {
                     importcsv();
 
@@ -79,11 +60,11 @@ public class Types_Of_Addc extends AppCompatActivity {
                     requestperms();
                 }
 
-
-
             }
         });
     }
+
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data == null)
@@ -96,7 +77,7 @@ public class Types_Of_Addc extends AppCompatActivity {
 
                 String filepath = data.getData().getPath();
 
-           //     Toast.makeText(getApplicationContext(), filepath, Toast.LENGTH_SHORT).show();
+                //     Toast.makeText(getApplicationContext(), filepath, Toast.LENGTH_SHORT).show();
                 String line = "";
 
                 try {
@@ -115,36 +96,37 @@ public class Types_Of_Addc extends AppCompatActivity {
 
                                 //Id, Company,Name,Price
 
-                                String studentc = str[0].toString();
+                                String row  = str[0].toString();
 
 
-                                String email = str[1].toString();
+                                String lweight = str[1].toString();
 
-                                String rolln = str[2].toString();
+                                String hweight = str[2].toString();
 
-                             //   int rolln = Integer.parseInt(str[2].toString());
+                                //   int rolln = Integer.parseInt(str[2].toString());
 
 
 
-           //                     int a = Integer.parseInt(str[2]);
-                               // int rolln = 2;
-                                String u = studentc+" "+email+" "+rolln;
+                                //                     int a = Integer.parseInt(str[2]);
+                                // int rolln = 2;
+                             //   String u = studentc+" "+email+" "+rolln;
 
-                           //     Toast.makeText(getApplicationContext(),u,Toast.LENGTH_SHORT).show();
+                                //     Toast.makeText(getApplicationContext(),u,Toast.LENGTH_SHORT).show();
 
-                            //    Toast.makeText(getApplicationContext(),rolln,Toast.LENGTH_SHORT).show();
-                                Contact1 c1 = new Contact1();
-                                c1.setStudentc(studentc);
-                                c1.setEmail(email);
+                                //    Toast.makeText(getApplicationContext(),rolln,Toast.LENGTH_SHORT).show();
+                                Contact4 c4 = new Contact4();
+                                c4.setRow(row);
+
                                 try {
-                                    c1.setRoll(Integer.parseInt(rolln));
-                                   // c1.setRoll(rolln);
+                                    c4.setLweight(Integer.parseInt(lweight));
+                                    c4.setHweight(Integer.parseInt(hweight));
+                                    // c1.setRoll(rolln);
                                 }
                                 catch (NumberFormatException nfe) {
                                     Toast.makeText(getApplicationContext(),"THERE IS A NUMBER FORMAT PROBLEM WITH YOUR CSV. ",Toast.LENGTH_SHORT).show();
                                 }
-                                helper.insertclass(c1, message);
-                             //   tv = (TextView)findViewById(R.id.showexclel);
+                                helper.insertRow(c4, mrow);
+                                //   tv = (TextView)findViewById(R.id.showexclel);
                                 //tv.setText(u);
 
 
@@ -170,6 +152,13 @@ public class Types_Of_Addc extends AppCompatActivity {
                 }
         }
     }
+
+
+
+
+
+
+
 
 
 
@@ -240,23 +229,22 @@ public class Types_Of_Addc extends AppCompatActivity {
 
     }
 
-public void importcsv()
-{
-    Intent fileintent = new Intent(Intent.ACTION_GET_CONTENT);
+    public void importcsv()
+    {
+        Intent fileintent = new Intent(Intent.ACTION_GET_CONTENT);
 
-    fileintent.setType("gagt/sdf");
+        fileintent.setType("gagt/sdf");
 
-    try {
+        try {
 
-        startActivityForResult(fileintent, requestcode);
+            startActivityForResult(fileintent, requestcode);
 
-    } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
 
-        Toast.makeText(getApplicationContext(),"No app found for importing the file.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"No app found for importing the file.",Toast.LENGTH_SHORT).show();
+
+        }
 
     }
-
-}
-
 
 }

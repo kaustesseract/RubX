@@ -57,7 +57,7 @@ public class MainAttendance extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), Attendance.class);
                 i.putExtra("text",text);
                 startActivity(i);
-               // finish();
+                finish();
 
             }});
     }

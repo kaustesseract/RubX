@@ -58,7 +58,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:ems="10"
         android:id="@+id/loweight"
         android:layout_alignBottom="@+id/textView33"
@@ -70,7 +70,6 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/hweight"
         android:layout_alignBaseline="@+id/loweight"
@@ -78,7 +77,8 @@
         android:layout_toRightOf="@+id/loweight"
         android:layout_alignRight="@+id/textView44"
         android:layout_alignEnd="@+id/textView44"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.kaustubh.rubrics;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import java.lang.String;
 
 public class Addclass extends AppCompatActivity {
+   // int i =1;
 
     DatabaseHelper helper = new DatabaseHelper(this);
 
@@ -68,6 +70,8 @@ public class Addclass extends AppCompatActivity {
 
                 Bundle bundle = getIntent().getExtras();
                 String message = bundle.getString("str");
+                int totalstudent = bundle.getInt("student");
+                int i = bundle.getInt("increment");
                // Toast.makeText(getApplicationContext(), "Class is "+message , Toast.LENGTH_LONG).show();
 
                 Contact1 c1 = new Contact1();
@@ -77,9 +81,27 @@ public class Addclass extends AppCompatActivity {
                 helper.insertclass(c1,message);
                 //finish();
 
-                student.setText("");
-                email1.setText("");
-                roll.setText("");
+                if(i!=totalstudent)
+                {
+                    i++;
+                    Intent l = new Intent(getApplicationContext(),Addclass.class);
+                    l.putExtra("str",message);
+                    l.putExtra("increment",i);
+                    l.putExtra("student",totalstudent);
+                    startActivity(l);
+                }
+                else{
+                    Intent y = new Intent(getApplicationContext(),BaseActivity.class);
+                    startActivity(y);
+                    finish();
+
+                }
+
+              //  student.setText("");
+               // email1.setText("");
+               // roll.setText("");
+
+
 
             }
         });

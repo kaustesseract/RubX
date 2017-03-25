@@ -21,6 +21,7 @@ public class Attendance extends AppCompatActivity {
     private ActionBar actionBar;
     ArrayList<String> selectedItems = new ArrayList<>();
     DatabaseHelper db = new DatabaseHelper(this);
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class Attendance extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         final String message = bundle.getString("text");
 
+         count = db.getstudentcount(message);
 
         ListView list = (ListView) findViewById(R.id.check_list);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
@@ -59,12 +61,18 @@ public class Attendance extends AppCompatActivity {
 
     public void selected(View view)
     {
-        String items = "";
+
+        int i=0;
+        //String items = "";
+        String[] items = new String[count];
         for(String item:selectedItems)
         {
-                items += item+"\n";
+                items[i]= item;
+            i++;
         }
-        Toast.makeText(getApplicationContext(),items,Toast.LENGTH_SHORT).show();
+        for(int j=0;j<i;j++) {
+            Toast.makeText(getApplicationContext(), items[j], Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

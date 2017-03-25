@@ -96,7 +96,8 @@
         <activity android:name=".MainGenerateResults" />
         <activity android:name=".MainHelpSupport" />
         <activity android:name=".Attendance" />
-        <activity android:name=".MainAttendance"></activity>
+        <activity android:name=".MainAttendance" />
+        <activity android:name=".Add_Type_Rubrics"></activity>
     </application>
 
 </manifest>
