@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "63859907656",
+    "project_id": "rubrics-162616"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63859907656:android:ad2c0fa2a5f90eda",
+        "android_client_info": {
+          "package_name": "com.kaustubh.rubrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63859907656-0vb7hdbhksmjko6r9t9o6b6i22npqpvl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kaustubh.rubrics",
+            "certificate_hash": "64881a5e66a68dd8c6454d8b65ba41eaf0507698"
+          }
+        },
+        {
+          "client_id": "63859907656-a554sk2au586lgei9o78sikbli8brbti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9lQxsqWrzVie46QmYQZ7Vq1crg1cQ0p0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

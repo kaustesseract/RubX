@@ -24,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_PHONE = "phone";
+    private static final String COLUMN_DOB = "dob";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_STUDENT = "student";
     private static final String COLUMN_TOTALMARKS = "totalmarks";
@@ -102,7 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
-    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null);";
+    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null  , day INTEGER not null , month INTEGER , year INTEGER );";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
  // private static final String TABLE_CLASS = "create table classes (cid integer primary key not null , " + " classname VARCHAR not null , );";
 
@@ -202,6 +204,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_NAME,c.getName());
         values.put(COLUMN_PASSWORD,c.getPassword());
         values.put(COLUMN_EMAIL,c.getEmail());
+        values.put(COLUMN_DAY , c.getDate());
+        values.put(COLUMN_MONTH , c.getMonth());
+        values.put(COLUMN_YEAR , c.getYear());
          db.insert(TABLE_NAME,null,values);
         db.close();
 

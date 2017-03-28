@@ -1,7 +1,10 @@
 package com.kaustubh.rubrics;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -9,12 +12,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -26,6 +37,8 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView navlist;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
+
+   // private GoogleApiClient mGoogleApiClient;
 
     public void onrecieve()
     {
@@ -39,7 +52,6 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-
 
 
 
@@ -189,6 +201,20 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+           // Intent j = new Intent(getApplicationContext(), BaseActivity.class);
+           // startActivity(j);
+            finishAffinity();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
 
 

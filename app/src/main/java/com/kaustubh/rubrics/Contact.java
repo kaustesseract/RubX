@@ -12,6 +12,11 @@ public class Contact {
     int roll;
     String classname;
     String studentc;
+    String phone;
+    int date;
+    int year;
+    int month;
+
 
 
     public void setName(String name)
@@ -78,6 +83,18 @@ public class Contact {
     {
         return this.roll;
     }
+
+    public void setPhone(String phone){this.phone = phone;}
+    public String getPhone(){return this.phone;}
+
+    public void setDate(int date){this.date = date;}
+    public int getDate(){ return this.date;}
+
+    public void setMonth(int month){this.month = month;}
+    public int getMonth(){ return this.month;}
+
+    public void setYear(int year){this.year = year;}
+    public int getYear(){ return this.year;}
 
 
 }

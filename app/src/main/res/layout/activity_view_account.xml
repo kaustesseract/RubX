@@ -132,13 +132,13 @@
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="32dp"
-        android:id="@+id/button" />
+        android:id="@+id/signout" />
 
     <Button
         android:text="EDIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button"
+        android:layout_alignBottom="@+id/signout"
         android:layout_toRightOf="@+id/textView72"
         android:layout_toEndOf="@+id/textView72"
         android:layout_marginLeft="52dp"
