@@ -98,10 +98,10 @@ public class Barchart extends AppCompatActivity {
 
 
             final ArrayList<String> studentid = new ArrayList<>();
-            String queryst = "SELECT st_id FROM "+gradetable;
+            String queryst = "SELECT Roll FROM "+gradetable;
             Cursor cr = db.rawQuery(queryst, null);
             for (cr.moveToFirst(); !cr.isAfterLast(); cr.moveToNext()) {
-                int k =  cr.getInt(cr.getColumnIndex("st_id"));
+                int k =  cr.getInt(cr.getColumnIndex("Roll+++++++"));
                 String j = String.valueOf(k);
                 studentid.add(j);
             }

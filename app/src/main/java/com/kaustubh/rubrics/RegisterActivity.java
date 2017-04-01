@@ -58,6 +58,18 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
+        Button btt = (Button) findViewById(R.id.sub);
+
+        btt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(getApplicationContext(),Choose_question.class);
+                startActivity(in);
+                finish();
+
+            }
+        });
 
 
 

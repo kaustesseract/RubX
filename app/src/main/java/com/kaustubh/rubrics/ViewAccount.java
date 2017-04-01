@@ -1,6 +1,8 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -78,6 +80,8 @@ public class ViewAccount extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+//                SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+//                pref.edit().clear().commit();
 
             }
         });

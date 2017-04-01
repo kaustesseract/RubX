@@ -55,31 +55,6 @@
         android:textSize="20sp"
         android:textColor="@android:color/background_light" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/loweight"
-        android:layout_alignBottom="@+id/textView33"
-        android:layout_toRightOf="@+id/textView33"
-        android:layout_alignRight="@+id/submitst"
-        android:layout_alignEnd="@+id/submitst"
-        android:textColor="@android:color/white" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/hweight"
-        android:layout_alignBaseline="@+id/loweight"
-        android:layout_alignBottom="@+id/loweight"
-        android:layout_toRightOf="@+id/loweight"
-        android:layout_alignRight="@+id/textView44"
-        android:layout_alignEnd="@+id/textView44"
-        android:textColor="@android:color/white"
-        android:inputType="number" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,5 +64,23 @@
         android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/loweight"
+        android:layout_alignTop="@+id/textView33"
+        android:layout_toRightOf="@+id/textView33"
+        android:layout_alignRight="@+id/submitst"
+        android:layout_alignEnd="@+id/submitst" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hweight"
+        android:layout_alignTop="@+id/loweight"
+        android:layout_toRightOf="@+id/loweight"
+        android:layout_alignRight="@+id/textView44"
+        android:layout_alignEnd="@+id/textView44" />
 
 </RelativeLayout>

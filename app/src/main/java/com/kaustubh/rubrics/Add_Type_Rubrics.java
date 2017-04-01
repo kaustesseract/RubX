@@ -18,6 +18,7 @@ import java.io.FileReader;
 public class Add_Type_Rubrics extends AppCompatActivity {
     DatabaseHelper helper = new DatabaseHelper(this);
     String mrow;
+    int i=1;
 
     public static final int requestcode = 1;
     private static final int  REQUEST_PERMISSION = 123;
@@ -28,6 +29,8 @@ public class Add_Type_Rubrics extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         final String rubr = bundle.getString("rubr");
+        final int count = bundle.getInt("count");
+        final int grade = bundle.getInt("grade");
 
         mrow = rubr + "row";
 
@@ -36,9 +39,12 @@ public class Add_Type_Rubrics extends AppCompatActivity {
         bto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),EnterCol.class);
-                i.putExtra("rubr",rubr);
-                startActivity(i);
+                Intent j = new Intent(getApplicationContext(),EnterCol.class);
+                j.putExtra("rubr",rubr);
+                j.putExtra("count",count);
+                j.putExtra("int",i);
+                j.putExtra("grade",grade);
+                startActivity(j);
                 finish();
             }
         });

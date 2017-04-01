@@ -31,6 +31,7 @@ public class Start_Grading extends AppCompatActivity {
     Context context;
     String sname;
     int count=0;
+    int roll;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,8 @@ public class Start_Grading extends AppCompatActivity {
        // for (i = 0; i < j;) {
 
             sname = datahelper.getstudentname(i, clas);
+        roll = datahelper.getstudentroll(i,clas);
+
 
 
             TableRow rowHeader = new TableRow(context);
@@ -253,7 +256,7 @@ public class Start_Grading extends AppCompatActivity {
                             }
 
 
-                            datahelper.insertgrades(put,cname,marks,w,gradetable,count);
+                            datahelper.insertgrades(roll,cname,marks,w,gradetable,count);
 
                           //  Toast.makeText(getApplicationContext(),cname[0]+":"+marks[0]+"\n"+cname[1]+":"+marks[1]+"\n"+cname[2]+":"+marks[2],Toast.LENGTH_LONG).show();
 
@@ -283,7 +286,7 @@ public class Start_Grading extends AppCompatActivity {
                             }
 
 
-                            datahelper.insertgrades(put,cname,marks,w,gradetable,count);
+                            datahelper.insertgrades(roll,cname,marks,w,gradetable,count);
                            // datahelper.insertgrades(put,cname,marks,w,gradetable,count);
                             Intent intents = new Intent(getApplicationContext(), BaseActivity.class);
                             startActivity(intents);

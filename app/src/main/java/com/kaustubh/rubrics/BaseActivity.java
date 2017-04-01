@@ -1,6 +1,8 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -20,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -83,7 +86,9 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-
+//        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+//        int uid = pref.getInt("pid",0);
+//        Toast.makeText(this, uid+"" , Toast.LENGTH_SHORT).show();
     /*   if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }*/

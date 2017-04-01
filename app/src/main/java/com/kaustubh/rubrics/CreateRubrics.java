@@ -30,6 +30,9 @@ public class CreateRubrics extends AppCompatActivity {
                 /*EditText highs = (EditText) findViewById(R.id.high);
                 int high = Integer.parseInt(highs.getText().toString());*/
 
+                EditText number = (EditText) findViewById(R.id.number);
+                int numbers = Integer.parseInt(number.getText().toString());
+
 
 
 
@@ -49,6 +52,8 @@ public class CreateRubrics extends AppCompatActivity {
 
                 Intent i = new Intent(getApplicationContext(), Add_Type_Rubrics.class);
                 i.putExtra("rubr",rubr);
+                i.putExtra("count",numbers);
+                i.putExtra("grade",grade);
                 // Toast.makeText(getApplicationContext(), "Id is "+column , Toast.LENGTH_LONG).show();
                 startActivity(i);
                 finish();

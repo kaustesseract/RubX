@@ -64,6 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_GRADEID = "Gr_id";
     private static final String COLUMN_SGID = "sg_id";
     private static final String COLUMN_TOTAL = "total";
+    private static final String ROLL = "Roll";
    // private static String k = " ";
 
 
@@ -407,7 +408,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         String studentgradetable =
                 "CREATE TABLE "+studentgrade+ "(" +
                         COLUMN_SGID + " INTEGER PRIMARY KEY , " +
-                        COLUMN_STID + " INTEGER , " ;
+                        ROLL + " INTEGER , " ;
 
 
                         for(int i=0;i<rcount;i++)
@@ -431,7 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_SGID,count);
-        values.put(COLUMN_STID,put);
+        values.put(ROLL,put);
         for(int i=0;i<counts;i++)
         {
             values.put(criteria[i],val[i]);
@@ -741,6 +742,28 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
+    public int[] getstudentroll(String studentgrade)
+    {
+        String[] columns = new String[]{ROLL};
+        Cursor c = getReadableDatabase().query(studentgrade,columns,null,null,null,null,null);
+        int i=0;
+        int studentroll = c.getColumnIndex(ROLL);
+        int[] rolls = new int[c.getCount()];
+        if(c.moveToFirst())
+        {
+            for(i=0;i<c.getCount();i++) {
+                rolls[i] =  c.getInt(studentroll) ;
+                c.moveToNext();
+            }
+        }
+        return  rolls;
+
+    }
+
+
+
+
+
     public String[] getgradeparam(String gradetable)
     {
 
@@ -947,6 +970,62 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             while(cursor.moveToNext());
         }
         return b;
+
+
+
+    }
+
+
+
+    public int getstudentroll(int i , String clas)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT  cl_id , roll FROM "+clas;
+        Cursor cursor = db.rawQuery(query,null);
+        String b = "Not found";
+        int c = 0;
+        int a = 0;
+        if(cursor.moveToFirst())
+        {
+            do{
+                a = cursor.getInt(0);
+
+                if(a==i)
+                {
+                    c = cursor.getInt(1);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
+    }
+
+    public String[] getemail(String clas,int[] roll)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT roll , email FROM "+clas;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        String b = "Not found";
+        String[] c = new String[count];
+        int a = 0;
+        int i=0;
+        if(cursor.moveToFirst())
+        {
+            do{
+
+                a = cursor.getInt(0);
+
+                if(a==roll[i])
+                {
+                    c[i] = cursor.getString(1);
+                }
+                i++;
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
 
 
 

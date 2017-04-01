@@ -50,7 +50,7 @@ public class view_rubrics extends AppCompatActivity {
         rowHeader.setBackgroundColor(Color.parseColor("#c0c0c0"));
         rowHeader.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
-        String[] headerText={"CRITERIA","HIGH LIMIT","LOW LIMIT"};
+        String[] headerText={"CRITERIA","LOW LIMIT","HIGH LIMIT"};
         for(String c:headerText) {
             TextView tv2 = new TextView(this);
             tv2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,

@@ -13,6 +13,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -296,6 +297,17 @@ public class Generate_pdf extends AppCompatActivity {
 
 
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+             Intent j = new Intent(getApplicationContext(), BaseActivity.class);
+             startActivity(j);
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
 
 

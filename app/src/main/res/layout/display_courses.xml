@@ -9,8 +9,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/cours"
         android:minHeight="60dp"
-        android:textAlignment="center"
-        android:textSize="30sp"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
         android:text="New Text"
         android:textColor="@android:color/background_light" />
 </LinearLayout>

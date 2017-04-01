@@ -10,8 +10,8 @@
         android:id="@+id/cls_name"
         android:minWidth="400dp"
         android:minHeight="60dp"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textColor="@android:color/background_light"
-        android:textAlignment="center" />
+        android:textAlignment="textStart" />
 
 </RelativeLayout>

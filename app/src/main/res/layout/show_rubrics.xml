@@ -9,11 +9,11 @@
         android:layout_alignParentTop="true"
         android:id="@+id/ru"
         android:textColor="@android:color/background_light"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textAlignment="center" />
+        android:textAlignment="textStart" />
 
 </RelativeLayout>

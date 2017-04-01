@@ -39,6 +39,7 @@ public class Grade_rubrics extends AppCompatActivity {
 
 
 
+
         db.open();
         Cursor cursor = db.showrubricslist();
         startManagingCursor(cursor);

@@ -118,15 +118,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"
-        android:id="@+id/register"
-        android:onClick="signup"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -142,6 +133,27 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:hint="INSERT DATE" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/register"
+        android:onClick="signup"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/textView26"
+        android:layout_toEndOf="@+id/textView26" />
+
+    <Button
+        android:text="NEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:id="@+id/sub"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
 
 
 </RelativeLayout>

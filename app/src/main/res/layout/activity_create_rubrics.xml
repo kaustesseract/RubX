@@ -27,39 +27,6 @@
         android:layout_toRightOf="@+id/textView14"
         android:layout_toEndOf="@+id/textView14" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submitst"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="67dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAME"
-        android:id="@+id/textView14"
-        android:textSize="25sp"
-        android:textColor="@android:color/background_light"
-        android:layout_below="@+id/textView13"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
-        android:layout_marginTop="124dp" />
-
-    <TextView
-        android:text="GRADE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/submitst"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="74dp"
-        android:id="@+id/textView41"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,6 +36,63 @@
         android:layout_alignLeft="@+id/submitst"
         android:layout_alignStart="@+id/submitst"
         android:id="@+id/editText4"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:id="@+id/textView14"
+        android:textSize="25sp"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_alignStart="@+id/textView13" />
+
+    <TextView
+        android:text="GRADE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView41"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/rubric"
+        android:layout_toStartOf="@+id/rubric" />
+
+    <TextView
+        android:text="NUMBER OF CRITERIA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginTop="46dp"
+        android:id="@+id/textView94"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_toLeftOf="@+id/submitst"
+        android:layout_toStartOf="@+id/submitst" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/submitst"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/number"
+        android:layout_alignBottom="@+id/textView94"
+        android:layout_toRightOf="@+id/textView94"
+        android:layout_toEndOf="@+id/textView94"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>
