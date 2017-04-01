@@ -49,8 +49,8 @@ public class GMAILSender extends javax.mail.Authenticator {
 
     public GMAILSender(String recepient, String subject, String message) {
         _host = "smtp.gmail.com"; // default smtp server
-        _port = "587"; // default smtp port
-        _sport = "587"; // default socketfactory port
+        _port = "465"; // default smtp port
+        _sport = "465"; // default socketfactory port
 
         _user = "kaustubhironmaiden@gmail.com"; // username
         _pass = "123kaustubh123"; // password
@@ -81,18 +81,21 @@ public class GMAILSender extends javax.mail.Authenticator {
          //   Session session = Session.getInstance(props, this);
 
 
-            Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(_user, _pass);
-                }
-            });
+//            Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+//                protected PasswordAuthentication getPasswordAuthentication() {
+//                    return new PasswordAuthentication("kaustubhironmaiden@gmail.com", "123kaustubh123");
+//                }
+//            });
 
-            new Connection().execute("");
+
+
+            Session session = Session.getInstance(props, this);
+           // new Connection().execute("Waiting.....");
 
             MimeMessage msg = new MimeMessage(session);
 
-            msg.setFrom(new InternetAddress(_from));
 
+            msg.setFrom(new InternetAddress(_from));
             InternetAddress addressTo = new InternetAddress(_to);
 
             msg.setRecipient(MimeMessage.RecipientType.TO, addressTo);
@@ -183,4 +186,7 @@ public class GMAILSender extends javax.mail.Authenticator {
     }
 
     // more of the getters and setters …..
+
+
+
 }

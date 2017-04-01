@@ -105,7 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
-    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null  , day INTEGER not null , month INTEGER , year INTEGER );";
+    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " + " name VARCHAR not null , password VARCHAR not null , email VARCHAR not null  , day INTEGER not null , month INTEGER , year INTEGER , question VARCHAR , answer VARCHAR );";
   //  private static final String TABLE_CREATE1 = "create table class (id integer primary key not null , " + " classname VARCHAR not null , student VARCHAR not null );";
  // private static final String TABLE_CLASS = "create table classes (cid integer primary key not null , " + " classname VARCHAR not null , );";
 

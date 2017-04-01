@@ -23,11 +23,13 @@ public class Choose_question extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_question);
+        Bundle bundle = getIntent().getExtras();
+        final String uname = bundle.getString("uname");
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         ListView list = (ListView) findViewById(R.id.forget);
-        String[] items = {"What is your favourite car ", "What is your favourite food", "Who is your favourite player", "What is your favourite TV series"};
+        String[] items = {"What is your favourite car ?", "What is your favourite food ?", "Who is your favourite player ?", "What is your favourite TV series ?"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.display_classes,R.id.cls_name,items);
 
@@ -40,6 +42,11 @@ public class Choose_question extends AppCompatActivity {
                 //  String list = (ll.getItemAtPosition(position));
                 String text = textView.getText().toString();
                 Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), Answer.class);
+                i.putExtra("uname",uname);
+                i.putExtra("text",text);
+                startActivity(i);
+                finish();
 
             }
         });
