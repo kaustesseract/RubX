@@ -107,8 +107,10 @@ public class MainAttendance extends AppCompatActivity {
                  clsid = db.searchcid(clas);
                  coid = db.searchcoid(cours);
 
+                String alldate = dayx+"/"+mont+"/"+yearx;
 
-              boolean att =  db.insertattendance(clsid,coid,dayx,mont,yearx);
+
+              boolean att =  db.insertattendance(clsid,coid,dayx,mont,yearx,alldate);
 
                 if(att == true)
                 {

@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_STUDENT = "student";
     private static final String COLUMN_QUESTION = "question";
     private static final String COLUMN_ANSWER = "answer";
-    private static final String COLUMN_TOTALMARKS = "totalmarks";
+    private static final String COLUMN_TOTALMARKS = "total_students";
     private static final String COLUMN_CLASSNAME = "classname";
     private static final String COLUMN_ROLL = "roll";
     private static final String COLUMN_CLSID = "cls_id";
@@ -70,6 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String ROLL = "Roll";
     private static final String COLUMN_ATTENDANCEID = "at_id";
     private static final String ATTID = "att_id";
+    private static final String COLUMN_ALLDATE = "dates";
     // private static String k = " ";
 
 
@@ -116,7 +117,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     COLUMN_CRID + " INTEGER , " +
                     COLUMN_DAY + " INTEGER , " +
                     COLUMN_MONTH + " INTEGER , " +
-                    COLUMN_YEAR + " INTEGER); ";
+                    COLUMN_YEAR + " INTEGER , " +
+                    COLUMN_ALLDATE + " VARCHAR); ";
 
 
 
@@ -634,7 +636,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public boolean insertattendance(int clsid,int coid,int dayx,int mont,int yearx)
+    public boolean insertattendance(int clsid,int coid,int dayx,int mont,int yearx,String alldate)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -648,6 +650,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_DAY,dayx);
         values.put(COLUMN_MONTH,mont);
         values.put(COLUMN_YEAR,yearx);
+        values.put(COLUMN_ALLDATE,alldate);
        long result =  db.insert(TABLE_ATTENDANCE,null,values);
         db.close();
 

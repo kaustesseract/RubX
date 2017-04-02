@@ -148,7 +148,7 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
                      finish();
                      break;
 
-            case 8 : Intent b = new Intent(getApplicationContext(), MainAttendance.class);
+            case 8 : Intent b = new Intent(getApplicationContext(), MainAttendance1.class);
                 startActivity(b);
                 finish();
                 break;

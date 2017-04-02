@@ -108,7 +108,10 @@
         <activity android:name=".Reneter" />
         <activity android:name=".Renenterpass" />
         <activity android:name=".Presentabsent" />
-        <activity android:name=".Addmorcsv"></activity>
+        <activity android:name=".Addmorcsv" />
+        <activity android:name=".MainAttendance1" />
+        <activity android:name=".Viewatclass" />
+        <activity android:name=".Viewatcourse"></activity>
     </application>
 
 </manifest>

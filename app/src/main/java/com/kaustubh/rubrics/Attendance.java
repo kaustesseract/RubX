@@ -39,8 +39,7 @@ public class Attendance extends AppCompatActivity {
     String tablename;
     String[] items;
     String students;
-    public static final int requestcode = 1;
-    private static final int  REQUEST_PERMISSION = 123;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,18 +107,10 @@ public class Attendance extends AppCompatActivity {
             students = items[i];
             db.insertatttable(tablename , students);
         }
+        Intent j = new Intent(getApplicationContext(), MainAttendance.class);
+        startActivity(j);
+        finish();
 
-        if(haspermission())
-        {
-            importcsv();
-
-
-
-        }
-        else
-        {
-            requestperms();
-        }
 
     }
 
@@ -161,168 +152,4 @@ public class Attendance extends AppCompatActivity {
 
 
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null)
-
-            return;
-
-        switch (requestCode) {
-
-            case requestcode:
-
-                String filepath = data.getData().getPath();
-
-                //     Toast.makeText(getApplicationContext(), filepath, Toast.LENGTH_SHORT).show();
-                String line = "";
-
-                try {
-
-                    if (resultCode == RESULT_OK) {
-
-                        try {
-
-                            FileReader file = new FileReader(filepath);
-                            BufferedReader buffer = new BufferedReader(file);
-
-                            while ((line = buffer.readLine()) != null) {
-
-
-                                String[] str = line.split(",",1);  // defining 3 columns with null or blank field //values acceptance
-
-                                //Id, Company,Name,Price
-
-                                String student = str[0].toString();
-
-
-                                //String email = str[1].toString();
-
-                                //String rolln = str[2].toString();
-
-                                //   int rolln = Integer.parseInt(str[2].toString());
-
-
-
-                                //                     int a = Integer.parseInt(str[2]);
-                                // int rolln = 2;
-                              //  String u = studentc+" "+email+" "+rolln;
-
-                                //     Toast.makeText(getApplicationContext(),u,Toast.LENGTH_SHORT).show();
-
-                                //    Toast.makeText(getApplicationContext(),rolln,Toast.LENGTH_SHORT).show();
-
-                                db.insertatttable(tablename,student);
-                                //   tv = (TextView)findViewById(R.id.showexclel);
-                                //tv.setText(u);
-
-
-
-
-
-
-
-                            }
-
-                        }
-
-                        catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                }
-                catch(Exception ex)
-                {
-
-                }
-        }
-    }
-
-
-
-
-    private boolean haspermission()
-    {
-        int res =0;
-
-        String[] permission = new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        for(String perms : permission)
-        {
-            res = checkCallingOrSelfPermission(perms);
-            if(!(res== PackageManager.PERMISSION_GRANTED))
-            {
-                return false;
-
-            }
-
-        }
-        return true;
-    }
-
-
-
-    private void requestperms()
-    {
-        String[] permission = new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            requestPermissions(permission,REQUEST_PERMISSION);
-        }
-
-
-
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean allowed = true;
-
-        switch (requestCode)
-        {
-            case REQUEST_PERMISSION :
-
-                for(int res : grantResults)
-                {
-                    allowed = allowed && (res == PackageManager.PERMISSION_GRANTED);
-                }
-                break;
-
-            default:
-                allowed = false;
-                break;
-        }
-
-        if(allowed)
-        {
-            importcsv();
-        }
-        else
-        {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if(shouldShowRequestPermissionRationale(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    Toast.makeText(getApplicationContext(), "No Permission", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-
-
-    }
-
-    public void importcsv()
-    {
-        Intent fileintent = new Intent(Intent.ACTION_GET_CONTENT);
-
-        fileintent.setType("gagt/sdf");
-
-        try {
-
-            startActivityForResult(fileintent, requestcode);
-
-        } catch (ActivityNotFoundException e) {
-
-            Toast.makeText(getApplicationContext(),"No app found for importing the file.",Toast.LENGTH_SHORT).show();
-
-        }
-
-    }
 }
