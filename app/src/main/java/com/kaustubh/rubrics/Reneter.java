@@ -39,8 +39,8 @@ DatabaseHelper helper = new DatabaseHelper(this);
 
                 else
                 {
-                    Intent i = new Intent(getApplicationContext(),Reneter.class);
-                    i.putExtra("question",question);
+                    Intent i = new Intent(getApplicationContext(),Renenterpass.class);
+                    i.putExtra("answer",anss);
                     startActivity(i);
                     finish();
                 }

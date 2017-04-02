@@ -11,10 +11,71 @@
     tools:context="com.kaustubh.rubrics.Renenterpass">
 
     <TextView
-        android:text="TextView"
+        android:text="REENTER ENTER DETAILS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView103" />
+        android:id="@+id/textView103"
+        android:textSize="24sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="USERNAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView103"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="113dp"
+        android:id="@+id/textView104"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="PASSWORD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:id="@+id/textView105"
+        android:layout_below="@+id/textView104"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_above="@+id/textView105"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp"
+        android:id="@+id/uname"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:text="SUBMIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="52dp"
+        android:id="@+id/subs" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/upass"
+        android:layout_alignBottom="@+id/textView105"
+        android:textColor="@android:color/black"
+        android:layout_alignLeft="@+id/uname"
+        android:layout_alignStart="@+id/uname"
+        android:layout_alignRight="@+id/uname"
+        android:layout_alignEnd="@+id/uname" />
 </RelativeLayout>

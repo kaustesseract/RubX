@@ -473,6 +473,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_ANSWER, c.getAnswer());
         db.update(TABLE_NAME,values,"name = ?",new String[] {uname});
         db.close();
+    }
+
+
+    public void updatepass(String answer,String unames,String passs)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_NAME,unames);
+        values.put(COLUMN_PASSWORD,passs);
+        db.update(TABLE_NAME,values,"answer = ?",new String[] {answer});
+        db.close();
+
 
 
     }
@@ -540,6 +553,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.close();
 
     }
+
+
 
 
     public void insertRow(Contact4 c4 , String mrow)
