@@ -1,5 +1,6 @@
 package com.kaustubh.rubrics;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +10,14 @@ import android.widget.TextView;
 
 public class Answer extends AppCompatActivity {
 
+    DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answer);
         Bundle bundle = getIntent().getExtras();
         final String uname = bundle.getString("uname");
-        String text = bundle.getString("text");
+        final String text = bundle.getString("text");
 
 
         TextView username = (TextView) findViewById(R.id.choose);
@@ -29,7 +31,27 @@ public class Answer extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                
+
+                String pass = password.getText().toString();
+
+                Contact c = new Contact();
+
+                c.setForget(text);
+                c.setAnswer(pass);
+             //   c.setName(uname);
+
+                db.insertanswerques(c,uname);
+
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);;
+                startActivity(i);
+                finish();
+
+
+
+
+
+
+
 
 
 

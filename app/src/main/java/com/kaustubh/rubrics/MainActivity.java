@@ -155,6 +155,15 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Button forget = (Button) findViewById(R.id.forgets);
+
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()

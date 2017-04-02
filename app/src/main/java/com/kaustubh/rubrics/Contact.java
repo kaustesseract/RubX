@@ -16,6 +16,8 @@ public class Contact {
     int date;
     int year;
     int month;
+    String forget;
+    String answer;
 
 
 
@@ -95,6 +97,30 @@ public class Contact {
 
     public void setYear(int year){this.year = year;}
     public int getYear(){ return this.year;}
+
+    public void setForget(String forget)
+
+    {
+        this.forget = forget;
+    }
+
+    public String getForget()
+
+    {
+        return this.forget;
+    }
+
+    public void setAnswer(String answer)
+
+    {
+        this.answer = answer;
+    }
+
+    public String getAnswer()
+
+    {
+        return this.answer;
+    }
 
 
 }

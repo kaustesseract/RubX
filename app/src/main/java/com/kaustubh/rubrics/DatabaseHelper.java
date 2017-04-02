@@ -28,6 +28,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_DOB = "dob";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_STUDENT = "student";
+    private static final String COLUMN_QUESTION = "question";
+    private static final String COLUMN_ANSWER = "answer";
     private static final String COLUMN_TOTALMARKS = "totalmarks";
     private static final String COLUMN_CLASSNAME = "classname";
     private static final String COLUMN_ROLL = "roll";
@@ -459,9 +461,24 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_ASSID, assid);
         db.insert(courseass,null,values);
 
+    }
+
+
+
+    public void insertanswerques(Contact c, String uname)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_QUESTION,c.getForget());
+        values.put(COLUMN_ANSWER, c.getAnswer());
+        db.update(TABLE_NAME,values,"name = ?",new String[] {uname});
+        db.close();
 
 
     }
+
+
+
 
     public void insertteacher(String tgrade)
     {
