@@ -106,7 +106,9 @@
         <activity android:name=".Answer" />
         <activity android:name=".Forgetpassword" />
         <activity android:name=".Reneter" />
-        <activity android:name=".Renenterpass"></activity>
+        <activity android:name=".Renenterpass" />
+        <activity android:name=".Presentabsent" />
+        <activity android:name=".Addmorcsv"></activity>
     </application>
 
 </manifest>

@@ -24,45 +24,6 @@
         android:textSize="60sp"
         android:textColor="#fdfdfe" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USERNAME"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="85dp"
-        android:layout_toLeftOf="@+id/submitst"
-        android:layout_toStartOf="@+id/submitst"
-        android:minHeight="30dp"
-        android:textSize="20sp"
-        android:textColor="#f8ebeb" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PASSWORD"
-        android:id="@+id/textView3"
-        android:singleLine="false"
-        android:textSize="20sp"
-        android:layout_marginBottom="91dp"
-        android:layout_above="@+id/submitst"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#fbf2f2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/user"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#faefef" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,38 +31,9 @@
         android:ems="10"
         android:id="@+id/pass"
         android:layout_alignBottom="@+id/textView3"
+        android:textColor="#fcf8f8"
         android:layout_alignLeft="@+id/user"
-        android:layout_alignStart="@+id/user"
-        android:textColor="#fcf8f8" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submitst"
-        android:layout_marginBottom="40dp"
-        android:onClick="click"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <com.google.android.gms.common.SignInButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/submitst"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/googs"></com.google.android.gms.common.SignInButton>
-
-    <Button
-        android:text="FORGOT PASSWORD?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/forgets"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp" />
+        android:layout_alignStart="@+id/user" />
 
     <Button
         android:layout_width="wrap_content"
@@ -111,5 +43,74 @@
         android:onClick="register"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/submitst"
+        android:layout_alignEnd="@+id/submitst" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/submitst"
+        android:onClick="click"
+        android:layout_above="@+id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/pass"
+        android:layout_toStartOf="@+id/pass" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASSWORD"
+        android:id="@+id/textView3"
+        android:singleLine="false"
+        android:textSize="18sp"
+        android:textColor="#fbf2f2"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="87dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/googs"
+        android:layout_above="@+id/forgets"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/forgets"
+        android:layout_alignStart="@+id/forgets"></com.google.android.gms.common.SignInButton>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/user"
+        android:textColor="#faefef"
+        android:layout_marginTop="58dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="USERNAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/user"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="FORGOT PASSWORD?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgets"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

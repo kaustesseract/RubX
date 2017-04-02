@@ -7,21 +7,83 @@
     android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.MainAttendance">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textView90"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/attendance" />
-
     <TextView
-        android:text="CLASS LIST"
+        android:text="ATTENDANCE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView90"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView90"
+        android:textSize="30sp"
+        android:textColor="@android:color/background_light" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clas"
+        android:layout_alignBottom="@+id/textView106"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/course"
+        android:layout_alignStart="@+id/course" />
+
+    <Spinner
+        android:layout_height="wrap_content"
+        android:id="@+id/course"
+        android:layout_alignTop="@+id/textView107"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="200dp" />
+
+    <Button
+        android:text="SUBMIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="37dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/date"
+        android:fontFamily="sans-serif"
+        android:hint="INSERT DATE"
+        android:textColorHint="@android:color/background_light"
+        android:layout_above="@+id/sub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="71dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:text="ENTER COURSE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView107"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:layout_above="@+id/date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="63dp" />
+
+    <TextView
+        android:text="ENTER CLASS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView106"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:layout_above="@+id/textView107"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="75dp" />
+
 </RelativeLayout>

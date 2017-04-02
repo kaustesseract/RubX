@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String TABLE_COURSE = "course";
     private static final String TABLE_RUBRIC = "rubrics";
     private static final String TABLE_STARTGRADE = "start_grading";
+    private static final String TABLE_ATTENDANCE = "attendance";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
@@ -67,7 +68,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_SGID = "sg_id";
     private static final String COLUMN_TOTAL = "total";
     private static final String ROLL = "Roll";
-   // private static String k = " ";
+    private static final String COLUMN_ATTENDANCEID = "at_id";
+    // private static String k = " ";
 
 
 
@@ -104,6 +106,16 @@ public class DatabaseHelper extends SQLiteOpenHelper{
              "CREATE TABLE "+TABLE_STARTGRADE+"(" +
                      COLUMN_STID + " INTEGER PRIMARY KEY , " +
                      COLUMN_GNAME + " VARCHAR);";
+
+
+    public static final String TABLE_ATTENDANCES =
+            "CREATE TABLE " +TABLE_ATTENDANCE + "(" +
+                    COLUMN_ATTENDANCEID + " INTEGER PRIMARY KEY , " +
+                    COLUMN_CLSID + " INTEGER , " +
+                    COLUMN_CRID + " INTEGER , " +
+                    COLUMN_DAY + " INTEGER , " +
+                    COLUMN_MONTH + " INTEGER , " +
+                    COLUMN_YEAR + " INTEGER); ";
 
 
 
@@ -153,6 +165,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         this.db = db;
 
         db.execSQL(TABLE_STGRADE);
+        this.db = db;
+
+        db.execSQL(TABLE_ATTENDANCES);
         this.db = db;
 
 
@@ -592,6 +607,34 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_MINUTE,ca.getMinute());
         db.insert(assname,null,values);
         db.close();
+
+    }
+
+    public boolean insertattendance(int clsid,int coid,int dayx,int mont,int yearx)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String query = "select * from "+TABLE_ATTENDANCE;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ATTENDANCEID,count);
+        values.put(COLUMN_CLSID,clsid);
+        values.put(COLUMN_CRID,coid);
+        values.put(COLUMN_DAY,dayx);
+        values.put(COLUMN_MONTH,mont);
+        values.put(COLUMN_YEAR,yearx);
+       long result =  db.insert(TABLE_ATTENDANCE,null,values);
+        db.close();
+
+        if(result == -1)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+
 
     }
 
@@ -1166,6 +1209,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         String query4 = "DROP TABLE IF EXISTS "+TABLE_STARTGRADE;
         db.execSQL(query4);
+        onCreate(db);
+
+        String query5 = "DROP TABLE IF EXISTS "+TABLE_ATTENDANCE;
+        db.execSQL(query5);
         onCreate(db);
 
 

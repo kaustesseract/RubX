@@ -21,7 +21,7 @@ public class  AlarmRubrics extends BroadcastReceiver {
 
     private void createnotification(Context context, String s, String s1, String alert) {
 
-        PendingIntent pintent = PendingIntent.getActivity(context,0,new Intent(context,BaseActivity.class),0);
+        PendingIntent pintent = PendingIntent.getActivity(context,0,new Intent(context,MainStartGrading.class),0);
         NotificationCompat.Builder mbuilder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(s)
