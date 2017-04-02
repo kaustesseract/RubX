@@ -33,6 +33,8 @@ public class MainAttendance extends AppCompatActivity {
     String clas;
     String cours;
     EditText dob;
+    int clsid;
+    int coid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,8 +104,8 @@ public class MainAttendance extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int clsid = db.searchcid(clas);
-                int coid = db.searchcoid(cours);
+                 clsid = db.searchcid(clas);
+                 coid = db.searchcoid(cours);
 
 
               boolean att =  db.insertattendance(clsid,coid,dayx,mont,yearx);
@@ -111,6 +113,13 @@ public class MainAttendance extends AppCompatActivity {
                 if(att == true)
                 {
                     Intent i = new Intent(getApplicationContext(),Presentabsent.class);
+
+                    i.putExtra("clsid",clsid);
+                    i.putExtra("coid",coid);
+                    i.putExtra("day",dayx);
+                    i.putExtra("month",mont);
+                    i.putExtra("year",yearx);
+                    i.putExtra("classname",clas);
                     startActivity(i);
                     finish();
                 }

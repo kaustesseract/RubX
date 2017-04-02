@@ -41,7 +41,7 @@ public class Choose_question extends AppCompatActivity {
                 TextView textView = (TextView) view.findViewById(R.id.cls_name);
                 //  String list = (ll.getItemAtPosition(position));
                 String text = textView.getText().toString();
-                Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(),text, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), Answer.class);
                 i.putExtra("uname",uname);
                 i.putExtra("text",text);

@@ -69,6 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_TOTAL = "total";
     private static final String ROLL = "Roll";
     private static final String COLUMN_ATTENDANCEID = "at_id";
+    private static final String ATTID = "att_id";
     // private static String k = " ";
 
 
@@ -365,6 +366,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+    public void createatttable(String tablename)
+    {
+        db = this.getWritableDatabase();
+        String rows =
+
+                "CREATE TABLE "  +tablename+ "(" +
+                        ATTID + " INTEGER PRIMARY KEY , " +
+                        COLUMN_STUDENT + " VARCHAR ); ";
+
+        db.execSQL(rows);
+
+    }
+
     public void createrow(String row)
     {
         db = this.getWritableDatabase();
@@ -458,9 +472,19 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_TOTAL,total);
         db.insert(gradetable,null,values);
 
+    }
 
-
-
+    public void insertatttable(String tablename , String students)
+    {
+        db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        String query = "select * from "+tablename;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        values.put(ATTID,count);
+        values.put(COLUMN_STUDENT,students);
+        db.insert(tablename,null,values);
+        db.close();
 
     }
 
