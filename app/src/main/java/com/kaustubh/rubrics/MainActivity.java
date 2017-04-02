@@ -160,7 +160,9 @@ public class MainActivity extends AppCompatActivity {
         forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    Intent i = new Intent(getApplicationContext(),Forgetpassword.class);
+                startActivity(i);
+               // finish();
             }
         });
 

@@ -103,7 +103,10 @@
         <activity android:name=".Choose_question" />
         <activity android:name=".Email_Course" />
         <activity android:name=".Email_assignment" />
-        <activity android:name=".Answer"></activity>
+        <activity android:name=".Answer" />
+        <activity android:name=".Forgetpassword" />
+        <activity android:name=".Reneter" />
+        <activity android:name=".Renenterpass"></activity>
     </application>
 
 </manifest>
