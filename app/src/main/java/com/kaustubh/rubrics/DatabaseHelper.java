@@ -1162,6 +1162,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
 
+
+
     public int getstudentroll(int i , String clas)
     {
         db = this.getReadableDatabase();
@@ -1215,6 +1217,38 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     }
+
+
+    public String[] getstname(String clas,int[] roll)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT roll , student FROM "+clas;
+        Cursor cursor = db.rawQuery(query,null);
+        int count = cursor.getCount();
+        String b = "Not found";
+        String[] c = new String[count];
+        int a = 0;
+        int i=0;
+        if(cursor.moveToFirst())
+        {
+            do{
+
+                a = cursor.getInt(0);
+
+                if(a==roll[i])
+                {
+                    c[i] = cursor.getString(1);
+                }
+                i++;
+            }
+            while(cursor.moveToNext());
+        }
+        return c;
+
+
+
+    }
+
 
 
     public int getrubricscount(String rname)

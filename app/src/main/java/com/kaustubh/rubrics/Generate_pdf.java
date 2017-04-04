@@ -7,6 +7,7 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.provider.DocumentsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -48,19 +50,31 @@ import static com.itextpdf.text.Font.ITALIC;
 
 public class Generate_pdf extends AppCompatActivity {
 
+    String clas;
     String filenames;
     private static final int  REQUEST_PERMISSION = 123;
+    String studentgrade;
+    DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_pdf);
 
         Bundle bundle = getIntent().getExtras();
-        final String course = bundle.getString("course");
-        final String clas = bundle.getString("class");
-        final String Assignment = bundle.getString("assname");
+        final String courses = bundle.getString("course");
+         clas = bundle.getString("class");
+        final String assname = bundle.getString("assname");
 
-        filenames =clas+"_"+course+"_"+Assignment;
+        final String course = courses + "_Grade";
+        int coid = db.searchcoid(courses);
+        int classid = db.searchcid(clas);
+
+        String assignmenttable = "Course_"+courses+"_"+coid;
+        int assid = db.searchassid(assname,assignmenttable);
+
+        filenames =clas+"_"+courses+"_"+assname;
+
+         studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid;
 
         Button but = (Button) findViewById(R.id.gpdf);
 
@@ -83,7 +97,7 @@ public class Generate_pdf extends AppCompatActivity {
                         String to[] = {"kaustubhironmaiden@gmail.com"};
                         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
                         emailIntent.putExtra(Intent.EXTRA_STREAM, path);
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, filenames);
                         startActivity(Intent.createChooser(emailIntent, "Send email..."));
                         // startActivityForResult(emailIntent,1);
                     }
@@ -120,7 +134,7 @@ public class Generate_pdf extends AppCompatActivity {
                         String to[] = {"kaustubhironmaiden@gmail.com"};
                         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
                         emailIntent.putExtra(Intent.EXTRA_STREAM, path);
-                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, filenames);
                         startActivity(Intent.createChooser(emailIntent, "Send email..."));
                         // startActivityForResult(emailIntent,1);
                     }
@@ -237,8 +251,24 @@ public class Generate_pdf extends AppCompatActivity {
             PdfWriter.getInstance(doc, new FileOutputStream(file));
 //open the document for writing
             doc.open();
+
+            int markscount = db.gettotalcount(studentgrade);
+
+
+            int line = 5;
+
+
+
+        int[] marks = db.gettotalmarks(studentgrade);
+            int[] roll = db.getstudentroll(studentgrade);
+        //    String[] name = db.getstname(clas,roll);
+
+            doc.add(new Paragraph("ROLL NO. "+" TOTAL MARKS",FontFactory.getFont(FontFactory.COURIER,30)));
 //add paragraph to the document
-            doc.add(new Paragraph(filenames));
+           for(int i=0;i<markscount;i++) {
+                doc.add(new Paragraph( String.valueOf(roll[i]) +  "                         "+String.valueOf(marks[i]), FontFactory.getFont(FontFactory.TIMES_ROMAN,25)));
+            }
+            //doc.add(new Paragraph("jh"));
 //close the document
             doc.close();
 
@@ -265,20 +295,47 @@ public class Generate_pdf extends AppCompatActivity {
        //     Toast.makeText(getApplicationContext(),"Already exits",Toast.LENGTH_SHORT).show();
         }
 
+        int markscount = db.gettotalcount(studentgrade);
+
+        int[] marks = db.gettotalmarks(studentgrade);
+        int[] roll = db.getstudentroll(studentgrade);
+
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet firstSheet = workbook.createSheet("Sheet - No 1");
         HSSFSheet secondSheet = workbook.createSheet("Sheet - No 2");
-        HSSFRow rowA = firstSheet.createRow(0);
-        HSSFCell cellA = rowA.createCell(0);
-        cellA.setCellValue(new HSSFRichTextString("Sheet One"));
+        HSSFRow rowd = firstSheet.createRow(0);
+        HSSFCell celld = rowd.createCell(0);
+        celld.setCellValue(new HSSFRichTextString("ROLL NO."));
+
+       // HSSFRow rowc = firstSheet.createRow(0);
+        HSSFCell cellc = rowd.createCell(1);
+        cellc.setCellValue(new HSSFRichTextString("TOTAL MARKS"));
+
+        for (int i=1; i<markscount; i++) {
+            HSSFRow rowA = firstSheet.createRow(i);
+            HSSFCell cellA = rowA.createCell(0);
+            cellA.setCellValue(new HSSFRichTextString(String.valueOf(roll[i])));
+            HSSFCell cellB = rowA.createCell(1);
+            cellB.setCellValue(new HSSFRichTextString(String.valueOf(marks[i])));
+        }
+//        for (int i=0; i<markscount; i++) {
+//            HSSFRow rowA = firstSheet.createRow(i);
+//            HSSFCell cellA = rowA.createCell(1);
+//            cellA.setCellValue(new HSSFRichTextString(String.valueOf(marks[i])));
+//        }
         HSSFRow rowB = secondSheet.createRow(0);
         HSSFCell cellB = rowB.createCell(0);
         cellB.setCellValue(new HSSFRichTextString("Sheet two"));
+
+
+
         FileOutputStream fos = null;
         try {
             String str_path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Rubrics";
             File file ;
             file = new File(str_path, filenames + ".xls");
+
+
             fos = new FileOutputStream(file);
             workbook.write(fos);
         } catch (IOException e) {
