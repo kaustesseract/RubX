@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.MainAttendance1">
 
     <Button
@@ -24,10 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/addat"
-        android:layout_alignStart="@+id/addat"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
         android:layout_marginBottom="103dp"
-        android:id="@+id/viewat" />
+        android:id="@+id/viewat"
+        android:layout_alignLeft="@+id/addat"
+        android:layout_alignStart="@+id/addat" />
+
+    <TextView
+        android:text="ATTENDANCE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView111"
+        android:textSize="30sp"
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>

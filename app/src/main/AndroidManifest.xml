@@ -111,7 +111,10 @@
         <activity android:name=".Addmorcsv" />
         <activity android:name=".MainAttendance1" />
         <activity android:name=".Viewatclass" />
-        <activity android:name=".Viewatcourse"></activity>
+        <activity android:name=".Viewatcourse" />
+        <activity android:name=".Viewatdates" />
+        <activity android:name=".Absentorpresent" />
+        <activity android:name=".Showstudents"></activity>
     </application>
 
 </manifest>

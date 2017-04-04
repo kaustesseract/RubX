@@ -108,7 +108,7 @@ public class Addmorcsv extends AppCompatActivity {
                             while ((line = buffer.readLine()) != null) {
 
 
-                                String[] str = line.split(",",1);  // defining 3 columns with null or blank field //values acceptance
+                                String[] str = line.split(",",2);  // defining 3 columns with null or blank field //values acceptance
 
                                 //Id, Company,Name,Price
 
@@ -131,6 +131,7 @@ public class Addmorcsv extends AppCompatActivity {
 
                                 //    Toast.makeText(getApplicationContext(),rolln,Toast.LENGTH_SHORT).show();
 
+                                db.createatttable(tablename);
                                 db.insertatttable(tablename,student);
                                 //   tv = (TextView)findViewById(R.id.showexclel);
                                 //tv.setText(u);

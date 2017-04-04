@@ -30,7 +30,7 @@ public class Presentabsent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 p = "p";
-                Intent i = new Intent(getApplicationContext(),Addmorcsv.class);
+                Intent i = new Intent(getApplicationContext(),Attendance.class);
                 i.putExtra("clsid",clsid);
                 i.putExtra("coid",coid);
                 i.putExtra("day",day);
@@ -48,7 +48,7 @@ public class Presentabsent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 p = "a";
-                Intent j = new Intent(getApplicationContext(),Addmorcsv.class);
+                Intent j = new Intent(getApplicationContext(),Attendance.class);
                 j.putExtra("clsid",clsid);
                 j.putExtra("coid",coid);
                 j.putExtra("day",day);
@@ -68,7 +68,7 @@ public class Presentabsent extends AppCompatActivity {
 
         if ((keyCode == KeyEvent.KEYCODE_BACK))
         {
-            Intent j = new Intent(getApplicationContext(), BaseActivity.class);
+            Intent j = new Intent(getApplicationContext(), MainAttendance1.class);
             startActivity(j);
             finish();
         }

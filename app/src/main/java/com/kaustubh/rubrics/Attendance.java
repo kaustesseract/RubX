@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class Attendance extends AppCompatActivity {
      String p;
     String clas;
     String tablename;
-    String[] items;
+
     String students;
 
     @Override
@@ -71,9 +72,9 @@ public class Attendance extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.check_list);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
       //  String[] items = {"Kaustubh", "Sushant", "Manish", "Kunal"};
-        String[] items = db.getstudentname(clas);
+        final String[][] items = {db.getstudentname(clas)};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkbox, R.id.itm, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.checkbox, R.id.itm, items[0]);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -90,29 +91,59 @@ public class Attendance extends AppCompatActivity {
 
             }
         });
+
+        Button bt = (Button) findViewById(R.id.submit);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int i=0;
+                //String items = "";
+                String[] items = new String[count];
+                for(String item:selectedItems)
+                {
+                    items[i]= item;
+                    i++;
+                }
+                for(int j=0;j<i;j++) {
+                    students = items[j];
+                   boolean result = db.insertatttable(tablename , students);
+
+                    if(result == false)
+                    {
+                        Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Intent j = new Intent(getApplicationContext(), MainAttendance1.class);
+                startActivity(j);
+                finish();
+
+
+            }
+        });
     }
 
-    public void selected(View view)
-    {
-
-        int i=0;
-        //String items = "";
-        items = new String[count];
-        for(String item:selectedItems)
-        {
-                items[i]= item;
-            i++;
-        }
-        for(int j=0;j<i;j++) {
-            students = items[i];
-            db.insertatttable(tablename , students);
-        }
-        Intent j = new Intent(getApplicationContext(), MainAttendance.class);
-        startActivity(j);
-        finish();
-
-
-    }
+//    public void selected(View view)
+//    {
+//
+//        int i=0;
+//        //String items = "";
+//        items = new String[count];
+//        for(String item:selectedItems)
+//        {
+//                items[i]= item;
+//            i++;
+//        }
+//        for(int j=0;j<i;j++) {
+//            students = items[i];
+//            db.insertatttable(tablename , students);
+//        }
+//        Intent j = new Intent(getApplicationContext(), MainAttendance1.class);
+//        startActivity(j);
+//        finish();
+//
+//
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

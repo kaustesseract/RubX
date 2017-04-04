@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_PHONE = "phone";
     private static final String COLUMN_DOB = "dob";
     private static final String COLUMN_EMAIL = "email";
-    private static final String COLUMN_STUDENT = "student";
+    public static final String COLUMN_STUDENT = "student";
     private static final String COLUMN_QUESTION = "question";
     private static final String COLUMN_ANSWER = "answer";
     private static final String COLUMN_TOTALMARKS = "total_students";
@@ -70,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String ROLL = "Roll";
     private static final String COLUMN_ATTENDANCEID = "at_id";
     private static final String ATTID = "att_id";
-    private static final String COLUMN_ALLDATE = "dates";
+    public static final String COLUMN_ALLDATE = "dates";
     // private static String k = " ";
 
 
@@ -301,10 +301,27 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
+
+    public Cursor getdate(int cls,int coid)
+    {
+        db = this.getWritableDatabase();
+        String qr = "select cr_id as _id , dates from attendance where cls_id = "+cls + " AND cr_id = "+coid;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
     public Cursor searchassign(String table)
     {
         db = this.getWritableDatabase();
         String qr = "select a_id as _id , ass_name from "+table;
+        Cursor res = db.rawQuery(qr,null);
+        return res;
+    }
+
+    public Cursor studentatt(String table)
+    {
+        db = this.getWritableDatabase();
+        String qr = "select att_id as _id , student from "+table;
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
@@ -476,7 +493,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public void insertatttable(String tablename , String students)
+    public boolean insertatttable(String tablename , String students)
     {
         db = this.getReadableDatabase();
         ContentValues values = new ContentValues();
@@ -484,9 +501,24 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(ATTID,count);
-        values.put(COLUMN_STUDENT,students);
-        db.insert(tablename,null,values);
+       //for(int j=0;j<i;j++) {
+            values.put(COLUMN_STUDENT, students);
+       // }
+       long result = db.insert(tablename,null,values);
         db.close();
+
+        if(result == -1)
+        {
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+
+
+
 
     }
 
