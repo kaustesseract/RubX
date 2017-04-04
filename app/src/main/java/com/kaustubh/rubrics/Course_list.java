@@ -1,6 +1,8 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Course_list extends AppCompatActivity {
 
@@ -18,8 +21,11 @@ public class Course_list extends AppCompatActivity {
         setContentView(R.layout.activity_course_list);
         DatabaseHelper db = new DatabaseHelper(this);
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         db.open();
-        Cursor cursor = db.showcourselist();
+        Cursor cursor = db.showcourselist(pid);
         startManagingCursor(cursor);
         String[] ar = new String[]{DatabaseHelper.COLUMN_CONAME};
         int[] name = new int[]{R.id.cours};

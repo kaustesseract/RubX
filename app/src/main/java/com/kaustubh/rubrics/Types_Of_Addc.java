@@ -1,7 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -21,6 +23,7 @@ public class Types_Of_Addc extends AppCompatActivity {
 
     public static final int requestcode = 1;
     private static final int  REQUEST_PERMISSION = 123;
+    String message1;
     String message;
     int w=1;
 
@@ -33,6 +36,11 @@ public class Types_Of_Addc extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         message = bundle.getString("str");
         final int totalstudent = bundle.getInt("student");
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
+       // message = message1+"_"+pid;
 
         Button bt = (Button) findViewById(R.id.addm);
         bt.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +115,8 @@ public class Types_Of_Addc extends AppCompatActivity {
 
                             FileReader file = new FileReader(filepath);
                             BufferedReader buffer = new BufferedReader(file);
+
+
 
                             while ((line = buffer.readLine()) != null) {
 

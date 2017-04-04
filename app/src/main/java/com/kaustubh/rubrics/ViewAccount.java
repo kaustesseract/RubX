@@ -47,41 +47,43 @@ public class ViewAccount extends AppCompatActivity {
         });
 
 
-        mGoogleApiClient = new GoogleApiClient.Builder(getApplicationContext())
-                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-                        Toast.makeText(getApplicationContext(), "Google Signin was unsuccessfull", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addApi(Auth.GOOGLE_SIGN_IN_API)
-                .build();
-
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuthListner = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser()==null)
-                {
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                  //  Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-
-
-                }
-
-            }
-        };
+//        mGoogleApiClient = new GoogleApiClient.Builder(getApplicationContext())
+//                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
+//                    @Override
+//                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+//
+//                        Toast.makeText(getApplicationContext(), "Google Signin was unsuccessfull", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addApi(Auth.GOOGLE_SIGN_IN_API)
+//                .build();
+//
+//        mAuth = FirebaseAuth.getInstance();
+//
+//        mAuthListner = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                if(firebaseAuth.getCurrentUser()==null)
+//                {
+//                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                  //  Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+//
+//
+//                }
+//
+//            }
+//        };
 
         Button bto = (Button) findViewById(R.id.signout);
         bto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
-//                SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
-//                pref.edit().clear().commit();
+//                mAuth.signOut();
+//                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+                SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+                pref.edit().clear().commit();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
 
             }
         });
@@ -126,7 +128,7 @@ public class ViewAccount extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListner);
+//        mAuth.addAuthStateListener(mAuthListner);
     }
 
 

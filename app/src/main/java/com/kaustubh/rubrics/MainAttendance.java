@@ -1,7 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -48,8 +50,11 @@ public class MainAttendance extends AppCompatActivity {
         yearx = cal.get(Calendar.YEAR);
         monthx=cal.get(Calendar.MONTH);
         dayx=cal.get(Calendar.DAY_OF_MONTH);
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
-        ArrayList<String> list = db.getspinnerdata();
+        ArrayList<String> list = db.getspinnerdata(pid);
         Spinner sp = (Spinner) findViewById(R.id.clas);
         ArrayAdapter<String> adp = new ArrayAdapter<String>(MainAttendance.this, R.layout.spinner_layout, R.id.txt, list);
         sp.setAdapter(adp);

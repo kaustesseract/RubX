@@ -86,9 +86,9 @@ public class BaseActivity extends AppCompatActivity implements AdapterView.OnIte
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-//        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
-//        int uid = pref.getInt("pid",0);
-//        Toast.makeText(this, uid+"" , Toast.LENGTH_SHORT).show();
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
     /*   if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }*/

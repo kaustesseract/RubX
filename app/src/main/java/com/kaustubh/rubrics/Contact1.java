@@ -9,6 +9,17 @@ public class Contact1 {
     String email;
     String studentc;
 
+    public void setTid(int id)
+    {
+        this.id = id;
+    }
+
+    public int getTid()
+
+    {
+        return this.id;
+    }
+
     public void setStudentc(String studentc)
     {
         this.studentc = studentc;

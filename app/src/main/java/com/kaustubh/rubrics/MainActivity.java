@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListner;
     String name;
     String password;
-//    SharedPreferences pref;
-//    SharedPreferences.Editor edit;
+    SharedPreferences pref;
+    SharedPreferences.Editor edit;
     void image() {
         //    ImageView img = (ImageView) findViewById(R.id.rubrics);
         //   img.animate().translationXBy(-1000f).setDuration(3000);
@@ -98,17 +98,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
-//        edit = pref.edit();
+        pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        edit = pref.edit();
+
+        if(pref.contains("pid")){
+            Intent in12 = new Intent(getApplicationContext(),BaseActivity.class);
+            startActivity(in12);
+            finish();
+        }
         mAuth = FirebaseAuth.getInstance();
         mAuthListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                //if(pref.contains("pid")){
-//                    Intent in12 = new Intent(getApplicationContext(),BaseActivity.class);
-//                    startActivity(in12);
-//                    finish();
-//                }
+
                 if (firebaseAuth.getCurrentUser() != null) {
 
                     startActivity(new Intent(getApplicationContext(), BaseActivity.class));
@@ -139,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
                     //  session.setLgi(true);
                     Intent i = new Intent(getApplicationContext(), BaseActivity.class);
                     i.putExtra("pid", pid);
-//                    edit.putInt("pid",pid);
-//                    edit.commit();
-                    // Toast.makeText(getApplicationContext(), "Id is "+pid , Toast.LENGTH_LONG).show();
+                    edit.putInt("pid",pid);
+                    edit.commit();
+                     Toast.makeText(getApplicationContext(), "Id is "+pid , Toast.LENGTH_LONG).show();
                     startActivity(i);
                     finish();
 

@@ -16,6 +16,17 @@
         android:textSize="36sp"
         android:textColor="@android:color/background_light" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLASS NAME"
+        android:id="@+id/textView36"
+        android:textSize="30sp"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBottom="@+id/class1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,26 +39,6 @@
         android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="118dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CLASS NAME"
-        android:id="@+id/textView36"
-        android:textSize="30sp"
-        android:textColor="@android:color/background_light"
-        android:layout_alignBottom="@+id/class1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="SUBMIT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="48dp"
-        android:id="@+id/submitst" />
 
     <TextView
         android:text="TOTAL STUDENTS"
@@ -73,4 +64,13 @@
         android:textColor="@android:color/white"
         android:layout_alignLeft="@+id/class1"
         android:layout_alignStart="@+id/class1" />
+
+    <Button
+        android:text="SUBMIT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:id="@+id/submitst" />
 </RelativeLayout>

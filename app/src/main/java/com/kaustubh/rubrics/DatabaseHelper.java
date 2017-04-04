@@ -266,20 +266,20 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }*/
 
-    public Cursor showclasslist()
+    public Cursor showclasslist(int id)
     {
 
         db = this.getWritableDatabase();
-        String qr = "select  cls_id as _id, cname from "+TABLE_CNAME;
+        String qr = "select  cls_id as _id, cname from "+TABLE_CNAME+" where tid="+id;
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
 
-    public Cursor showcourselist()
+    public Cursor showcourselist(int id)
     {
 
         db = this.getWritableDatabase();
-        String qr = "select  cr_id as _id, coursename from "+TABLE_COURSE;
+        String qr = "select  cr_id as _id, coursename from "+TABLE_COURSE+" where tid="+id;
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
@@ -293,10 +293,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
-    public Cursor getcourseid(int cls)
+    public Cursor getcourseid(int cls,int id)
     {
         db = this.getWritableDatabase();
-        String qr = "select cr_id as _id , coursename from course where cls_id = "+cls;
+        String qr = "select cr_id as _id , coursename from course where cls_id = "+cls+" AND tid="+id;
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
@@ -339,6 +339,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_CRID,count);
         values.put(COLUMN_CONAME, cr.getCourse());
+        values.put(COLUMN_TID,cr.getTid());
         values.put(COLUMN_CLSID, cr.getClasid());
         db.insert(TABLE_COURSE,null,values);
         db.close();
@@ -697,11 +698,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public ArrayList<String> getspinnerdata() {
+    public ArrayList<String> getspinnerdata(int id) {
         ArrayList<String> list = new ArrayList<String>();
         db = this.getReadableDatabase();
         db.beginTransaction();
-        String query = "select * from "+TABLE_CNAME;
+        String query = "select * from "+TABLE_CNAME+" where tid="+id;
         Cursor cursor = db.rawQuery(query, null);
         try{
         if (cursor.getCount() > 0) {

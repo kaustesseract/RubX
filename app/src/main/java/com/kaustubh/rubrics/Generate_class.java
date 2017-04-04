@@ -1,6 +1,8 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,9 +34,12 @@ public class Generate_class extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         DatabaseHelper db = new DatabaseHelper(this);
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         db.open();
-        Cursor cursor = db.showclasslist();
+        Cursor cursor = db.showclasslist(pid);
         startManagingCursor(cursor);
         String[] ar = new String[]{DatabaseHelper.COLUMN_CLASS};
         int[] name = new int[]{R.id.stugrade};
