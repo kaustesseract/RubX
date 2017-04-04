@@ -14,13 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Email_Course extends AppCompatActivity {
+    final DatabaseHelper db = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email__course);
 
-        DatabaseHelper db = new DatabaseHelper(this);
 
         Bundle bundle = getIntent().getExtras();
         final String message = bundle.getString("text");
@@ -54,9 +54,14 @@ public class Email_Course extends AppCompatActivity {
                 TextView textView = (TextView) view.findViewById(R.id.stg);
                 //  String list = (ll.getItemAtPosition(position));
                 String course = textView.getText().toString();
+
+                int coid = db.searchcoid(course);
+
+                String table = "Course" + "_" + course + "_" + coid+"_"+pid;
                 Intent i = new Intent(getApplicationContext(), Email_assignment.class);
                 i.putExtra("course",course);
                 i.putExtra("class",message);
+                i.putExtra("table",table);
                 startActivity(i);
 
             }});

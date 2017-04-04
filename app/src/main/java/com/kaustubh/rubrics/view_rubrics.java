@@ -1,6 +1,7 @@
 package com.kaustubh.rubrics;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -18,6 +19,7 @@ import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.R.attr.thumb;
 import static android.view.Gravity.CENTER;
@@ -36,9 +38,12 @@ public class view_rubrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rubrics);
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         Bundle bundle = getIntent().getExtras();
         String rubrics = bundle.getString("text");
-        String rubric = rubrics+"row";
+        String rubric = rubrics+"_row_"+pid;
         context = this;
         DatabaseHelper datahelper = new DatabaseHelper(context);
 

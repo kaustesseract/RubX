@@ -4,7 +4,9 @@ import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import static android.R.color.white;
 
 public class Assignment extends AppCompatActivity{
 
@@ -40,104 +44,133 @@ public class Assignment extends AppCompatActivity{
         setContentView(R.layout.activity_assignment);
 
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
         yearx = cal.get(Calendar.YEAR);
         monthx=cal.get(Calendar.MONTH);
         dayx=cal.get(Calendar.DAY_OF_MONTH);
         hour_x=cal.get(Calendar.HOUR);
         minute_x=cal.get(Calendar.MINUTE);
 
+
         deadline = (EditText) findViewById(R.id.calender);
         time = (EditText) findViewById(R.id.editText);
 
 
+            final ArrayList<String> list = helper.getcoursespinnerdata(pid);
+            Spinner sp = (Spinner) findViewById(R.id.cname);
+            ArrayAdapter<String> adp = new ArrayAdapter<String>(Assignment.this, R.layout.spinner_layout, R.id.txt, list);
+            sp.setAdapter(adp);
 
+            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-        ArrayList<String> list = helper.getcoursespinnerdata();
-        Spinner sp = (Spinner) findViewById(R.id.cname);
-        ArrayAdapter<String> adp = new ArrayAdapter<String>(Assignment.this, R.layout.spinner_layout, R.id.txt, list);
-        sp.setAdapter(adp);
-
-        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
-                cours = parent.getItemAtPosition(pos).toString();
-            }
-
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        Button bd = (Button) findViewById(R.id.calendar);
-
-       bd.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               new DatePickerDialog(Assignment.this,listner,yearx,monthx,dayx).show();
-           }
-       });
-
-
-        Button bt = (Button) findViewById(R.id.time);
-
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new TimePickerDialog(Assignment.this,listi,hour_x,minute_x, false).show();
-            }
-        });
-
-
-
-        Button br = (Button) findViewById(R.id.submitst);
-        br.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-              //  EditText deadlines = (EditText) findViewById(R.id.editText);
-
-
-                EditText anames = (EditText) findViewById(R.id.aname);
-                String aname = anames.getText().toString();
-
-
-
-
-                int coid = helper.searchcoid(cours);
-                String assname = "Course_"+cours+"_"+coid;
-
-                String tablename = helper.searchtable(assname) ;
-
-                if(assname.equals(tablename))
-                {
-                    ContactAssignment ca = new ContactAssignment();
-                    ca.setAssname(aname);
-                    ca.setDay(dayx);
-                    ca.setMonth(monthx);
-                    ca.setYear(yearx);
-                    ca.setHour(hour_x);
-                    ca.setMinute(minute_x);
-                    helper.insertassignment(ca,assname);
-                    Toast.makeText(Assignment.this,"Assignment is created successfully",Toast.LENGTH_SHORT).show();
-                 //   finish();
-
+                public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                    cours = parent.getItemAtPosition(pos).toString();
                 }
 
-                else {
+                public void onNothingSelected(AdapterView<?> parent) {
 
-                    helper.createassignment(assname);
-
-                    ContactAssignment ca = new ContactAssignment();
-                    ca.setAssname(aname);
-                    ca.setDay(dayx);
-                    ca.setMonth(monthx);
-                    ca.setYear(yearx);
-                    ca.setHour(hour_x);
-                    ca.setMinute(minute_x);
-                    helper.insertassignment(ca, assname);
-                    Toast.makeText(Assignment.this, "Assignment is created successfully", Toast.LENGTH_SHORT).show();
-                 //   finish();
                 }
+            });
+
+            Button bd = (Button) findViewById(R.id.calendar);
+
+            bd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new DatePickerDialog(Assignment.this, listner, yearx, monthx, dayx).show();
+                }
+            });
+
+
+            Button bt = (Button) findViewById(R.id.time);
+
+            bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new TimePickerDialog(Assignment.this, listi, hour_x, minute_x, false).show();
+                }
+            });
+
+
+            Button br = (Button) findViewById(R.id.submitst);
+            br.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+
+                    final EditText anames = (EditText) findViewById(R.id.aname);
+
+
+                    if( deadline.getText().toString().trim().equals("") && time.getText().toString().trim().equals("") && anames.getText().toString().trim().equals(""))
+                    {
+                        deadline.setError( "Deadline date" );
+                        time.setError( "Deadline Time" );
+                        anames.setError( "Assignment name" );
+
+                        deadline.setHint("Deadline");
+                        time.setHint("Time");
+                        anames.setHint("Assignment name ");
+
+                        deadline.setHintTextColor(getResources().getColor(white));
+                        time.setHintTextColor(getResources().getColor(white));
+                        anames.setHintTextColor(getResources().getColor(white));
+
+                    }
+
+
+                    else if( deadline.getText().toString().trim().equals("") || time.getText().toString().trim().equals("") || anames.getText().toString().trim().equals(""))
+                    {
+
+                        Toast.makeText(getApplicationContext(),"Enter all field",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    else {
+
+                        //  EditText deadlines = (EditText) findViewById(R.id.editText);
+
+
+                        String aname = anames.getText().toString();
+
+
+                        int coid = helper.searchcoid(cours);
+                        String assname = "Course_" + cours + "_" + coid + "_" + pid;
+
+                        String tablename = helper.searchtable(assname);
+
+                        if (assname.equals(tablename)) {
+                            ContactAssignment ca = new ContactAssignment();
+                            ca.setAssname(aname);
+                            // ca.setTid(pid);
+                            ca.setDay(dayx);
+                            ca.setMonth(monthx);
+                            ca.setYear(yearx);
+                            ca.setHour(hour_x);
+                            ca.setMinute(minute_x);
+                            helper.insertassignment(ca, assname);
+                            Toast.makeText(Assignment.this, "Assignment is created successfully", Toast.LENGTH_SHORT).show();
+                            //   finish();
+
+                        } else {
+
+                            helper.createassignment(assname);
+
+                            ContactAssignment ca = new ContactAssignment();
+                            ca.setAssname(aname);
+                            ca.setTid(pid);
+                            ca.setDay(dayx);
+                            ca.setMonth(monthx);
+                            ca.setYear(yearx);
+                            ca.setHour(hour_x);
+                            ca.setMinute(minute_x);
+                            helper.insertassignment(ca, assname);
+                            Toast.makeText(Assignment.this, "Assignment is created successfully", Toast.LENGTH_SHORT).show();
+                            //   finish();
+                        }
 
               /*  Intent intent = new Intent(getApplicationContext(),BaseActivity.class);
 
@@ -154,7 +187,7 @@ public class Assignment extends AppCompatActivity{
 
 // Setting up the notification of the deadline
 
-             //   Calendar cal = Calendar.getInstance();
+                        //   Calendar cal = Calendar.getInstance();
                /* cal.setTimeInMillis(System.currentTimeMillis());
                 cal.clear();
                 cal.set(yearx,monthx,dayx,2,26);*/
@@ -176,46 +209,47 @@ public class Assignment extends AppCompatActivity{
                         PendingIntent.FLAG_UPDATE_CURRENT);
                 AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager1.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent1);*/
-               // finish();
+                        // finish();
 
 
-               // cal.set(dayx, monthx, yearx);
+                        // cal.set(dayx, monthx, yearx);
 
                /* cal.set(Calendar.HOUR_OF_DAY,hour_x);
                 cal.set(Calendar.MINUTE,minute_x);
                 cal.set(Calendar.SECOND,0);*/
-               // cal.set(Calendar.AM_PM,Calendar.PM);
+                        // cal.set(Calendar.AM_PM,Calendar.PM);
 
 
-                Calendar cal1 = Calendar.getInstance();
-                cal1.set(Calendar.DAY_OF_MONTH, dayx);
-                cal1.set(Calendar.MONTH, monthx);
-                cal1.set(Calendar.YEAR, yearx);
-                cal1.set(Calendar.HOUR_OF_DAY, hour_x);
-                cal1.set(Calendar.MINUTE, minute_x);
+                        Calendar cal1 = Calendar.getInstance();
+                        cal1.set(Calendar.DAY_OF_MONTH, dayx);
+                        cal1.set(Calendar.MONTH, monthx);
+                        cal1.set(Calendar.YEAR, yearx);
+                        cal1.set(Calendar.HOUR_OF_DAY, hour_x);
+                        cal1.set(Calendar.MINUTE, minute_x);
 
-               // cal1.set(Calendar.AM_PM,Calendar.PM);
+                        // cal1.set(Calendar.AM_PM,Calendar.PM);
 
 
               /*  cal.set(Calendar.HOUR_OF_DAY,hour_x);
                 cal.set(Calendar.MINUTE,minute_x);*/
 
 
-                Intent myIntent1  = new Intent(getApplicationContext(),AlarmRubrics.class);
-                PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(), 1253, myIntent1,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
-                AlarmManager alarmManager1 = (AlarmManager)getSystemService(ALARM_SERVICE);
-                alarmManager1.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), pendingIntent1);
-                finish();
-            }
-        });
+                        Intent myIntent1 = new Intent(getApplicationContext(), AlarmRubrics.class);
+                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(getApplicationContext(), 1253, myIntent1,
+                                PendingIntent.FLAG_UPDATE_CURRENT);
+                        AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        alarmManager1.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), pendingIntent1);
+                        finish();
+                    }
+                }
+            });
+
+
+        }
 
 
 
 
-
-
-    }
 
     DatePickerDialog.OnDateSetListener listner = new DatePickerDialog.OnDateSetListener() {
         @Override

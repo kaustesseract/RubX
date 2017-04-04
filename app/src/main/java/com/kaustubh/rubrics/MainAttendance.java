@@ -72,7 +72,7 @@ public class MainAttendance extends AppCompatActivity {
 
 
 
-        ArrayList<String> list1 = db.getcoursespinnerdata();
+        ArrayList<String> list1 = db.getcoursespinnerdata(pid);
         Spinner sp1 = (Spinner) findViewById(R.id.course);
         ArrayAdapter<String> adp1 = new ArrayAdapter<String>(MainAttendance.this, R.layout.spinner_layout, R.id.txt, list1);
         sp1.setAdapter(adp1);

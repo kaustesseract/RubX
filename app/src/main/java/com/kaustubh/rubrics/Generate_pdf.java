@@ -1,7 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
@@ -59,6 +61,10 @@ public class Generate_pdf extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_pdf);
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
 
         Bundle bundle = getIntent().getExtras();
         final String courses = bundle.getString("course");
@@ -69,7 +75,7 @@ public class Generate_pdf extends AppCompatActivity {
         int coid = db.searchcoid(courses);
         int classid = db.searchcid(clas);
 
-        String assignmenttable = "Course_"+courses+"_"+coid;
+        String assignmenttable = "Course_"+courses+"_"+coid+"_"+pid;
         int assid = db.searchassid(assname,assignmenttable);
 
         filenames =clas+"_"+courses+"_"+assname;

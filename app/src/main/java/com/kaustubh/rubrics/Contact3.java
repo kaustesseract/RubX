@@ -34,4 +34,8 @@ public class Contact3 {
     public void setGrade(int grade) {this.grade = grade;}
 
     public int getGrade() {return this.grade;}
+
+    public void setTid(int id){this.id = id;}
+    public int getTid() {return this.id;}
+
 }

@@ -100,6 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             "CREATE TABLE "+TABLE_RUBRIC+"(" +
                     COLUMN_RID + " INTEGER PRIMARY KEY , " +
                     COLUMN_RNAME + " VARCHAR , " +
+                    COLUMN_TID + " INTEGER " +
                     COLUMN_GRADE + " INTEGER);";
                   //  COLUMN_LIMIT +  " INTEGER);";
 
@@ -284,11 +285,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return res;
     }
 
-    public Cursor showrubricslist()
+    public Cursor showrubricslist(int id)
     {
 
         db = this.getWritableDatabase();
-        String qr = "select  r_id as _id, rname from "+TABLE_RUBRIC;
+        String qr = "select  r_id as _id, rname from "+TABLE_RUBRIC+" where tid="+id;
         Cursor res = db.rawQuery(qr,null);
         return res;
     }
@@ -356,6 +357,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         int count = cursor.getCount();
         values.put(COLUMN_RID,count);
         values.put(COLUMN_RNAME,c3.getRubric());
+        values.put(COLUMN_TID,c3.getTid());
         values.put(COLUMN_GRADE,c3.getGrade());
        // values.put(LOW,c3.getLow());
        // values.put(HIGH,c3.getHigh());
@@ -658,6 +660,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(query,null);
         int count = cursor.getCount();
         values.put(COLUMN_ASSID,count);
+       // values.put(COLUMN_TID,ca.getTid());
         values.put(COLUMN_ASSNAME,ca.getAssname());
         values.put(COLUMN_DAY,ca.getDay());
         values.put(COLUMN_MONTH,ca.getMonth());
@@ -725,11 +728,11 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
 
-    public ArrayList<String> getcoursespinnerdata() {
+    public ArrayList<String> getcoursespinnerdata(int id) {
         ArrayList<String> list = new ArrayList<String>();
         db = this.getReadableDatabase();
         db.beginTransaction();
-        String query = "select * from "+TABLE_COURSE;
+        String query = "select * from "+TABLE_COURSE+" where tid="+id;
         Cursor cursor = db.rawQuery(query, null);
         try{
             if (cursor.getCount() > 0) {

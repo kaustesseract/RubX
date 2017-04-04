@@ -14,6 +14,11 @@ public class ContactAssignment {
     int hour;
     int minute;
     String coname;
+    int id;
+
+    public void setTid(int id){this.id = id;}
+    public int getTid() {return this.id;}
+
 
 
     public void setAssname(String assname)

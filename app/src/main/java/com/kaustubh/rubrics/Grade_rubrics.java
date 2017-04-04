@@ -1,6 +1,8 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,25 +25,28 @@ public class Grade_rubrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade_rubrics);
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         Bundle bundle = getIntent().getExtras();
        final String courses = bundle.getString("course");
         final String clas = bundle.getString("class");
         final String assname = bundle.getString("assname");
-        String tgrade = "grade";
+        String tgrade = "grade_"+pid;
         final String course = courses + "_Grade";
         int coid = db.searchcoid(courses);
         int classid = db.searchcid(clas);
-        String assignmenttable = "Course_"+courses+"_"+coid;
+        String assignmenttable = "Course_"+courses+"_"+coid+"_"+pid;
         int assid = db.searchassid(assname,assignmenttable);
         final int put = 0;
 
-        final String studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid;
+        final String studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid+"_"+pid;
 
 
 
 
         db.open();
-        Cursor cursor = db.showrubricslist();
+        Cursor cursor = db.showrubricslist(pid);
         startManagingCursor(cursor);
         String[] ar = new String[]{DatabaseHelper.COLUMN_RNAME};
         int[] name = new int[]{R.id.ru};
@@ -65,7 +70,7 @@ public class Grade_rubrics extends AppCompatActivity {
                 //  String list = (ll.getItemAtPosition(position));
                String text = textView.getText().toString();
 
-                rname = text+"row";
+                rname = text+"_row_"+pid;
                 int rcount =  db.getrubricscount(rname);
                 int i;
               //  Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
@@ -86,9 +91,19 @@ public class Grade_rubrics extends AppCompatActivity {
                     intent.putExtra("gradetable",studentgrade);
                     intent.putExtra("courses",courses);
                     startActivity(intent);
+
+
+                    //CORRECTION DONE IN ALERT BOX
                 }
                 else {
                     db.createstartgrade(rubname, studentgrade, rcount);
+                    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
+                    intent.putExtra("class",clas);
+                    intent.putExtra("rubname",rname);
+                    intent.putExtra("int",put);
+                    intent.putExtra("gradetable",studentgrade);
+                    intent.putExtra("courses",courses);
+                    startActivity(intent);
                 }
 
 
@@ -115,6 +130,8 @@ public class Grade_rubrics extends AppCompatActivity {
                 db.courseassignment(course);
            //     db.insertgrade(coid, course, tgrade);
                 db.insertcourseassignment(assname,assid,course);
+//                Toast.makeText(this,"Table already exists",Toast.LENGTH_SHORT).show();
+
             }
 
 

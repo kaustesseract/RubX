@@ -1,6 +1,7 @@
 package com.kaustubh.rubrics;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -11,6 +12,7 @@ import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.view.Gravity.START;
 
@@ -24,6 +26,11 @@ public class Show_Assignment extends AppCompatActivity {
         setContentView(R.layout.activity_show__assignment);
         Bundle bundle = getIntent().getExtras();
         String asstable = bundle.getString("asstable");
+
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
 
         context = this;
         DatabaseHelper datahelper = new DatabaseHelper(context);

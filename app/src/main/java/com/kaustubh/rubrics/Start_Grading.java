@@ -79,6 +79,7 @@ public class Start_Grading extends AppCompatActivity {
                 tv2.setTextSize(18);
                 tv2.setTextColor(Color.BLUE);
                 tv2.setPadding(0, 0, 0, 25);
+                tv2.setText(0);
                 tv2.setText(c);
                 rowHeader.addView(tv2);
             }

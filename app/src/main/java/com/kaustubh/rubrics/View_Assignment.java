@@ -53,7 +53,7 @@ public class View_Assignment extends AppCompatActivity {
 
                 int coid = helper.searchcoid(text);
 
-                String asstable = "Course_"+text+"_"+coid;
+                String asstable = "Course_"+text+"_"+coid+"_"+pid;
                 // Toast.makeText(getApplicationContext(), "Class "+text  , Toast.LENGTH_LONG).show();
                 // System.out.println("Choosen Country = : " + list);
                   Intent i = new Intent(getApplicationContext(), Show_Assignment.class);
