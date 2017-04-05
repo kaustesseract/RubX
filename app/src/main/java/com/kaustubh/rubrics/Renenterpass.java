@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import static android.R.color.white;
 
 public class Renenterpass extends AppCompatActivity {
 
@@ -26,14 +29,32 @@ public class Renenterpass extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String unames = uname.getText().toString();
-                String passs = pass.getText().toString();
+                if( uname.getText().toString().trim().equals("") && pass.getText().toString().trim().equals(""))
+                {
+                    uname.setError( "Username is required!" );
+                    pass.setError( "Password is required!" );
 
-                db.updatepass(answer,unames,passs);
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-             //   i.putExtra("answer",anss);
-                startActivity(i);
-                finish();
+                    uname.setHint("Username");
+                    pass.setHint("Password");
+                    uname.setHintTextColor(getResources().getColor(white));
+                    pass.setHintTextColor(getResources().getColor(white));
+                }
+
+                else if(uname.getText().toString().trim().equals("") || pass.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    String unames = uname.getText().toString();
+                    String passs = pass.getText().toString();
+
+                    db.updatepass(answer, unames, passs);
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    //   i.putExtra("answer",anss);
+                    startActivity(i);
+                    finish();
+                }
 
             }
         });

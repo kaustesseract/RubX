@@ -45,31 +45,26 @@ public class Answer extends AppCompatActivity {
                     username.setHintTextColor(getResources().getColor(white));
                 }
 
-                else if(username.getText().toString().trim().equals("") )
-                {
-                    Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
+                else {
+
+
+                    String pass = password.getText().toString();
+
+                    Contact c = new Contact();
+
+                    c.setForget(text);
+                    c.setAnswer(pass);
+                    //   c.setName(uname);
+
+                    db.insertanswerques(c, uname);
+
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    ;
+                    startActivity(i);
+                    finish();
+
+
                 }
-
-
-                String pass = password.getText().toString();
-
-                Contact c = new Contact();
-
-                c.setForget(text);
-                c.setAnswer(pass);
-             //   c.setName(uname);
-
-                db.insertanswerques(c,uname);
-
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);;
-                startActivity(i);
-                finish();
-
-
-
-
-
-
 
 
 

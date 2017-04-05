@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.R.color.white;
+
 public class Reneter extends AppCompatActivity {
 DatabaseHelper helper = new DatabaseHelper(this);
     @Override
@@ -29,20 +31,29 @@ DatabaseHelper helper = new DatabaseHelper(this);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String anss = ans.getText().toString();
-                String answers = helper.matchanswer(anss);
 
-                if(answers.equals("not"))
+                if( ans.getText().toString().trim().equals("") )
                 {
-                    Toast.makeText(getApplicationContext(),"The answer is incorrect" , Toast.LENGTH_LONG).show();
+                    ans.setError( "Enter answer" );
+
+
+                    ans.setHint("Enter answer");
+
+                    ans.setHintTextColor(getResources().getColor(white));
                 }
+                else {
 
-                else
-                {
-                    Intent i = new Intent(getApplicationContext(),Renenterpass.class);
-                    i.putExtra("answer",anss);
-                    startActivity(i);
-                    finish();
+                    String anss = ans.getText().toString();
+                    String answers = helper.matchanswer(anss);
+
+                    if (answers.equals("not")) {
+                        Toast.makeText(getApplicationContext(), "The answer is incorrect", Toast.LENGTH_LONG).show();
+                    } else {
+                        Intent i = new Intent(getApplicationContext(), Renenterpass.class);
+                        i.putExtra("answer", anss);
+                        startActivity(i);
+                        finish();
+                    }
                 }
 
             }
