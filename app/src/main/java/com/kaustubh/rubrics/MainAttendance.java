@@ -26,6 +26,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static android.R.color.white;
+
 public class MainAttendance extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
     int yearx,monthx,dayx,mont;
@@ -105,37 +107,61 @@ public class MainAttendance extends AppCompatActivity {
         });
 
 
+
+        final EditText co = (EditText) findViewById(R.id.coutcome);
+
+
+
+
         Button bt = (Button) findViewById(R.id.sub);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 clsid = db.searchcid(clas);
-                 coid = db.searchcoid(cours);
-
-                String alldate = dayx+"/"+mont+"/"+yearx;
 
 
-              boolean att =  db.insertattendance(clsid,coid,dayx,mont,yearx,alldate);
-
-                if(att == true)
+                if( dob.getText().toString().trim().equals("") && co.getText().toString().trim().equals(""))
                 {
-                    Intent i = new Intent(getApplicationContext(),Presentabsent.class);
+                    dob.setError( "Insert date!" );
+                    co.setError( "Course Outcome!" );
 
-                    i.putExtra("clsid",clsid);
-                    i.putExtra("coid",coid);
-                    i.putExtra("day",dayx);
-                    i.putExtra("month",mont);
-                    i.putExtra("year",yearx);
-                    i.putExtra("classname",clas);
-                    startActivity(i);
-                    finish();
+
+                    dob.setHintTextColor(getResources().getColor(white));
+                    co.setHintTextColor(getResources().getColor(white));
                 }
 
-                else
+                else if(dob.getText().toString().trim().equals("") || co.getText().toString().trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(),"Didnt add" , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
                 }
+                else {
 
+                    String coutcome = co.getText().toString();
+
+                    String cout = co.getText().toString();
+                    clsid = db.searchcid(clas);
+                    coid = db.searchcoid(cours);
+
+                    String alldate = dayx + "/" + mont + "/" + yearx;
+
+
+                    boolean att = db.insertattendance(clsid, coid, dayx, mont, yearx, coutcome , alldate);
+
+                    if (att == true) {
+                        Intent i = new Intent(getApplicationContext(), Presentabsent.class);
+
+                        i.putExtra("clsid", clsid);
+                        i.putExtra("coid", coid);
+                        i.putExtra("day", dayx);
+                        i.putExtra("month", mont);
+                        i.putExtra("year", yearx);
+                        i.putExtra("classname", clas);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Didnt add", Toast.LENGTH_LONG).show();
+                    }
+
+                }
 
 
             }

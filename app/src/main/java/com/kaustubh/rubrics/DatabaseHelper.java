@@ -71,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String COLUMN_ATTENDANCEID = "at_id";
     private static final String ATTID = "att_id";
     public static final String COLUMN_ALLDATE = "dates";
+    private static final String COLUMN_COUTCOME = "coutcome";
     // private static String k = " ";
 
 
@@ -119,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     COLUMN_DAY + " INTEGER , " +
                     COLUMN_MONTH + " INTEGER , " +
                     COLUMN_YEAR + " INTEGER , " +
+                    COLUMN_COUTCOME + " VARCHAR , "+
                     COLUMN_ALLDATE + " VARCHAR); ";
 
 
@@ -688,7 +690,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public boolean insertattendance(int clsid,int coid,int dayx,int mont,int yearx,String alldate)
+    public boolean insertattendance(int clsid,int coid,int dayx,int mont,int yearx, String co ,String alldate)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -702,6 +704,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         values.put(COLUMN_DAY,dayx);
         values.put(COLUMN_MONTH,mont);
         values.put(COLUMN_YEAR,yearx);
+        values.put(COLUMN_COUTCOME,co);
         values.put(COLUMN_ALLDATE,alldate);
        long result =  db.insert(TABLE_ATTENDANCE,null,values);
         db.close();

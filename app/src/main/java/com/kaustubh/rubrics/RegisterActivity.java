@@ -115,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                     dobs.setHintTextColor(getResources().getColor(white));
                 }
 
-                else if(username.getText().toString().trim().equals("") && password.getText().toString().trim().equals("") && pass2.getText().toString().trim().equals("") && email.getText().toString().trim().equals("") && dobs.getText().toString().trim().equals(""))
+                else if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("") || pass2.getText().toString().trim().equals("") || email.getText().toString().trim().equals("") || dobs.getText().toString().trim().equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
                 }
