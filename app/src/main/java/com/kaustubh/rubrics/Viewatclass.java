@@ -24,7 +24,7 @@ public class Viewatclass extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         db.open();
         Cursor cursor = db.showclasslist(pid);
         startManagingCursor(cursor);

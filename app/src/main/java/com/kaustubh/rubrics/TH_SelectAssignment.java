@@ -22,7 +22,7 @@ public class TH_SelectAssignment extends AppCompatActivity {
         setContentView(R.layout.activity_th__select_assignment);
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         Bundle bundle = getIntent().getExtras();
         final String course = bundle.getString("course");

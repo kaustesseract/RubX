@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -108,11 +109,11 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-                    username.setHintTextColor(getResources().getColor(white));
-                    pass2.setHintTextColor(getResources().getColor(white));
-                    password.setHintTextColor(getResources().getColor(white));
-                    email.setHintTextColor(getResources().getColor(white));
-                    dobs.setHintTextColor(getResources().getColor(white));
+                    username.setHintTextColor(getResources().getColor(black));
+                    pass2.setHintTextColor(getResources().getColor(black));
+                    password.setHintTextColor(getResources().getColor(black));
+                    email.setHintTextColor(getResources().getColor(black));
+                    dobs.setHintTextColor(getResources().getColor(black));
                 }
 
                 else if(username.getText().toString().trim().equals("") || password.getText().toString().trim().equals("") || pass2.getText().toString().trim().equals("") || email.getText().toString().trim().equals("") || dobs.getText().toString().trim().equals(""))

@@ -34,7 +34,7 @@ public class AddCourse extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
         ArrayList<String> list = helper.getspinnerdata(pid);

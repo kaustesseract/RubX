@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Reneter extends AppCompatActivity {
@@ -39,7 +40,7 @@ DatabaseHelper helper = new DatabaseHelper(this);
 
                     ans.setHint("Enter answer");
 
-                    ans.setHintTextColor(getResources().getColor(white));
+                    ans.setHintTextColor(getResources().getColor(black));
                 }
                 else {
 

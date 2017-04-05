@@ -89,7 +89,19 @@ public class CreateRubrics extends AppCompatActivity {
                         String row = rubr + "_row_" + pid;
                         // String column = rubr+"column";
 
-                        helper.createrow(row);
+
+                        try {
+                            helper.createrow(row);
+                        }
+                        catch (Exception e)
+                        {
+                            Toast.makeText(getApplicationContext(), "Rubrics already exists", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(getApplicationContext(),MainClass.class);
+                            startActivity(i);
+                            finish();
+                        }
+
+
                         // helper.createcol(column);
 
                         Intent i = new Intent(getApplicationContext(), Add_Type_Rubrics.class);

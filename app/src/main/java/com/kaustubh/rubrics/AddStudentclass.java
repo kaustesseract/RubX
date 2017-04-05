@@ -25,7 +25,7 @@ public class AddStudentclass extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+   //     Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -64,17 +64,22 @@ public class AddStudentclass extends AppCompatActivity {
 
                     String table = helper.searchtable(str);
 
-                    if(table.equals(str))
-                    {
-                        Toast.makeText(getApplicationContext(),"Class already exists",Toast.LENGTH_SHORT).show();
-
-                    }
 
 
                     int totalstudent = Integer.parseInt(b.getText().toString());
 
+                    try {
+                        helper.createclass(str);
+                    }
+                    catch (Exception e)
+                    {
+                        Toast.makeText(getApplicationContext(), "Class already exists", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(),MainClass.class);
+                        startActivity(i);
+                        finish();
+                    }
 
-                    helper.createclass(str);
+
                     Contact2 c2 = new Contact2();
                     c2.setCname(str1);
                     c2.setTotalmarks(totalstudent);

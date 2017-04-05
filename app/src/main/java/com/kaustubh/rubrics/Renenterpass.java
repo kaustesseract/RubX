@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Renenterpass extends AppCompatActivity {
@@ -36,8 +37,8 @@ public class Renenterpass extends AppCompatActivity {
 
                     uname.setHint("Username");
                     pass.setHint("Password");
-                    uname.setHintTextColor(getResources().getColor(white));
-                    pass.setHintTextColor(getResources().getColor(white));
+                    uname.setHintTextColor(getResources().getColor(black));
+                    pass.setHintTextColor(getResources().getColor(black));
                 }
 
                 else if(uname.getText().toString().trim().equals("") || pass.getText().toString().trim().equals(""))

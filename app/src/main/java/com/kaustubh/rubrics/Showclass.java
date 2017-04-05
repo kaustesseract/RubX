@@ -178,7 +178,7 @@ Context context;
                         tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                                 TableRow.LayoutParams.WRAP_CONTENT));
                         tv.setGravity(Gravity.START);
-                        tv.setTextColor(Color.WHITE);
+                        tv.setTextColor(Color.BLACK);
                         tv.setTextSize(18);
                         tv.setPadding(0, 0, 0, 80);
                         tv.setText(text);

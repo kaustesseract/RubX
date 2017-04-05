@@ -29,7 +29,7 @@ public class Show_Assignment extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
         context = this;
@@ -90,7 +90,7 @@ public class Show_Assignment extends AppCompatActivity {
                         tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                                 TableRow.LayoutParams.WRAP_CONTENT));
                         tv.setGravity(Gravity.START);
-                        tv.setTextColor(Color.WHITE);
+                        tv.setTextColor(Color.BLACK);
                         tv.setTextSize(18);
                         tv.setPadding(0, 0, 0, 80);
                         tv.setText(text);

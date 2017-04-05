@@ -179,7 +179,7 @@ public class Start_Grading extends AppCompatActivity {
                             tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
                                     TableRow.LayoutParams.WRAP_CONTENT));
                             tv.setGravity(Gravity.START);
-                            tv.setTextColor(Color.WHITE);
+                            tv.setTextColor(Color.BLACK);
                             tv.setTextSize(25);
                             tv.setPadding(0, 0, 0, 80);
                             tv.setText(text);
@@ -190,7 +190,7 @@ public class Start_Grading extends AppCompatActivity {
 
                             tv1.setGravity(Gravity.RIGHT);
                             tv1.setTextSize(25);
-                            tv1.setTextColor(Color.WHITE);
+                            tv1.setTextColor(Color.BLACK);
                             tv1.setId(count);
                             tv1.setText(String.valueOf(0));
                             asdfg.put("name"+tv1.getId(),text);

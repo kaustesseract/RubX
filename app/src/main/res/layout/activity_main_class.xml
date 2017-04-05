@@ -26,20 +26,6 @@
         android:textAlignment="center" />
 
     <Button
-        android:text="VIEW CLASS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewc"
-        android:textColor="@android:color/background_light"
-        android:layout_below="@+id/addc"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="64dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/holo_red_dark" />
-
-    <Button
         android:text="ADD CLASS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,13 +43,26 @@
         android:text="EDIT AND DELETE CLASS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="75dp"
         android:id="@+id/button7"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark"
+        android:layout_below="@+id/viewc"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="VIEW CLASS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewc"
         android:textColor="@android:color/background_light"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

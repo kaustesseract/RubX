@@ -4,7 +4,6 @@
     android:id="@+id/activity_view_rubrics"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.view_rubrics">
 
 

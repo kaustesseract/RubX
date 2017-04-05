@@ -23,17 +23,17 @@ public class MainGraphs extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-        Button buto = (Button) findViewById(R.id.sxy);
-
-        buto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(getApplicationContext(),SimplePieChartActivity.class);
-                startActivity(intent);
-            }
-        });
+//       // Button buto = (Button) findViewById(R.id.sxy);
+//
+//        buto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+//                Intent intent = new Intent(getApplicationContext(),SimplePieChartActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         Button but = (Button) findViewById(R.id.bubble1);
 
@@ -59,17 +59,17 @@ public class MainGraphs extends AppCompatActivity {
             }
         });
 
-        Button scatter = (Button) findViewById(R.id.scatter);
-
-        scatter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
-                Intent intent = new Intent(getApplicationContext(),Scatter_plot.class);
-                startActivity(intent);
-            }
-        });
+//        Button scatter = (Button) findViewById(R.id.scatter);
+//
+//        scatter.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //Pass the context and the Activity class you need to open from the Fragment Class, to the Intent
+//                Intent intent = new Intent(getApplicationContext(),Scatter_plot.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

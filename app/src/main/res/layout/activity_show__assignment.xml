@@ -4,7 +4,6 @@
     android:id="@+id/activity_show__assignment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bbk"
     tools:context="com.kaustubh.rubrics.Show_Assignment">
 
     <TableLayout

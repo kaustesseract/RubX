@@ -38,7 +38,7 @@ public class Types_Of_Addc extends AppCompatActivity {
         final int totalstudent = bundle.getInt("student");
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
        // message = message1+"_"+pid;
 

@@ -47,7 +47,7 @@ public class Assignment extends AppCompatActivity{
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         yearx = cal.get(Calendar.YEAR);
         monthx=cal.get(Calendar.MONTH);
