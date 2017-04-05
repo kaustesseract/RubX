@@ -23,6 +23,6 @@
 
     <include layout="@layout/content_all__notes"
         android:id="@+id/include"
-        android:layout_height="462dp" />
+        android:layout_height="475dp" />
 
 </android.support.design.widget.CoordinatorLayout>

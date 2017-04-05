@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Answer extends AppCompatActivity {
@@ -42,7 +43,7 @@ public class Answer extends AppCompatActivity {
 
                     username.setHint("Enter answer");
 
-                    username.setHintTextColor(getResources().getColor(white));
+                    username.setHintTextColor(getResources().getColor(black));
                 }
 
                 else {

@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Assignment extends AppCompatActivity{
@@ -115,9 +116,9 @@ public class Assignment extends AppCompatActivity{
                         time.setHint("Time");
                         anames.setHint("Assignment name ");
 
-                        deadline.setHintTextColor(getResources().getColor(white));
-                        time.setHintTextColor(getResources().getColor(white));
-                        anames.setHintTextColor(getResources().getColor(white));
+                        deadline.setHintTextColor(getResources().getColor(black));
+                        time.setHintTextColor(getResources().getColor(black));
+                        anames.setHintTextColor(getResources().getColor(black));
 
                     }
 

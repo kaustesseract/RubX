@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.lang.String;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Addclass extends AppCompatActivity {
@@ -81,9 +82,9 @@ public class Addclass extends AppCompatActivity {
                     roll.setHint("Roll No.");
 
 
-                    student.setHintTextColor(getResources().getColor(white));
-                    email1.setHintTextColor(getResources().getColor(white));
-                    roll.setHintTextColor(getResources().getColor(white));
+                    student.setHintTextColor(getResources().getColor(black));
+                    email1.setHintTextColor(getResources().getColor(black));
+                    roll.setHintTextColor(getResources().getColor(black));
                 }
 
                 if( student.getText().toString().trim().equals("") || email1.getText().toString().trim().equals("") || roll.getText().toString().trim().equals(""))

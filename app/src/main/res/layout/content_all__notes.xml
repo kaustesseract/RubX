@@ -10,14 +10,19 @@
     tools:showIn="@layout/activity_all__notes">
 
     <TextView
-        android:text="My Notes"
+        android:text="MY NOTES"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:id="@+id/textView60"
         android:layout_alignParentTop="true"
-        android:textColor="@android:color/black"
-        android:textSize="36sp" />
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#263238"
+        android:layout_height="40dp"
+        android:textAlignment="center" />
 
     <ListView
         android:layout_width="match_parent"
