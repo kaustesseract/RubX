@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class Forgetpassword extends AppCompatActivity {
@@ -32,8 +33,8 @@ DatabaseHelper helper = new DatabaseHelper(this);
                     emails.setError( "Email is required!" );
 
 
-                    unames.setHintTextColor(getResources().getColor(white));
-                    emails.setHintTextColor(getResources().getColor(white));
+                    unames.setHintTextColor(getResources().getColor(black));
+                    emails.setHintTextColor(getResources().getColor(black));
                 }
 
                 else if(unames.getText().toString().trim().equals("") || emails.getText().toString().trim().equals(""))

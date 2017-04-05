@@ -76,24 +76,42 @@ public class Assignment extends AppCompatActivity{
                 }
             });
 
-            Button bd = (Button) findViewById(R.id.calendar);
+           // Button bd = (Button) findViewById(R.id.calendar);
 
-            bd.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    new DatePickerDialog(Assignment.this, listner, yearx, monthx, dayx).show();
+        deadline.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // Always use a TextKeyListener when clearing a TextView to prevent android
+                    // warnings in the log
+                    new DatePickerDialog(Assignment.this,listner,yearx,monthx,dayx).show();
+
                 }
-            });
+            }
+        });
 
 
-            Button bt = (Button) findViewById(R.id.time);
+        time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
-            bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // Always use a TextKeyListener when clearing a TextView to prevent android
+                    // warnings in the log
+                    new TimePickerDialog(Assignment.this, listi, hour_x, minute_x, false).show();
+
+                }
+            }
+        });
+         //   Button bt = (Button) findViewById(R.id.time);
+
+        /*    bt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     new TimePickerDialog(Assignment.this, listi, hour_x, minute_x, false).show();
                 }
-            });
+            });*/
 
 
             Button br = (Button) findViewById(R.id.submitst);

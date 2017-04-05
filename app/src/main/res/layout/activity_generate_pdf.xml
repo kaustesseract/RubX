@@ -4,28 +4,22 @@
     android:id="@+id/activity_generate_pdf"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kaustubh.rubrics.Generate_pdf">
 
     <TextView
         android:text="GENERATE FILES"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView78"
         android:textSize="30sp"
-        android:textColor="@android:color/background_light" />
-
-    <Button
-        android:text="GENERATE PDF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        android:id="@+id/gpdf"
-        android:layout_below="@+id/cpdf"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp" />
+        android:textColor="@android:color/background_light"
+        android:textAlignment="center" />
 
     <Button
         android:text="GENERATE EXCEL"
@@ -39,4 +33,14 @@
         android:layout_alignLeft="@+id/gpdf"
         android:layout_alignStart="@+id/gpdf"
         android:textSize="24sp" />
+
+    <Button
+        android:text="GENERATE PDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:id="@+id/gpdf"
+        android:textSize="24sp"
+        android:layout_below="@+id/textView78"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

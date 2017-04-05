@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class CreateRubrics extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class CreateRubrics extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
 
@@ -53,9 +54,9 @@ public class CreateRubrics extends AppCompatActivity {
                         grades.setHint("Enter grades");
                         number.setHint("Enter number of criterias");
 
-                        rub.setHintTextColor(getResources().getColor(white));
-                        grades.setHintTextColor(getResources().getColor(white));
-                        number.setHintTextColor(getResources().getColor(white));
+                        rub.setHintTextColor(getResources().getColor(black));
+                        grades.setHintTextColor(getResources().getColor(black));
+                        number.setHintTextColor(getResources().getColor(black));
                     }
 
                     else if(rub.getText().toString().trim().equals("") || grades.getText().toString().trim().equals("") ||  number.getText().toString().trim().equals(""))

@@ -8,13 +8,16 @@
 
     <TextView
         android:text="EDIT NOTES"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/textView61"
-        android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:background="#263238" />
 
     <EditText
         android:layout_width="wrap_content"

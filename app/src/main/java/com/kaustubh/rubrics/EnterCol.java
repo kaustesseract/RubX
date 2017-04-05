@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class EnterCol extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class EnterCol extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
         Spinner spinner = (Spinner) findViewById(R.id.loweight);
@@ -145,7 +146,7 @@ public class EnterCol extends AppCompatActivity {
 
 
                         rows.setHint("Criteria(Aim,Theory)");
-                        rows.setHintTextColor(getResources().getColor(white));
+                        rows.setHintTextColor(getResources().getColor(black));
                     }
 
                     else {
