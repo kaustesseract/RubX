@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bbk"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kaustubh.rubrics.Addclass">
 
     <TextView
@@ -12,74 +15,17 @@
         android:text="ADD CLASS"
         android:id="@+id/textView27"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:minHeight="80dp"
+        android:minHeight="40dp"
         android:minWidth="180dp"
         android:textIsSelectable="false"
-        android:textSize="40sp"
-        android:textColor="#f6efef" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="STUDENT NAME"
-        android:id="@+id/textView28"
-        android:minHeight="40dp"
-        android:minWidth="80dp"
-        android:textSize="20sp"
-        android:textColor="#f9f3f3"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/textView27"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="EMAIL ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView29"
+        android:textSize="30sp"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/textView114"
-        android:layout_alignEnd="@+id/textView114"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_alignBottom="@+id/textView29"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/email"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:text="ROLL NUMBER"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView29"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="77dp"
-        android:id="@+id/textView114"
-        android:textSize="20sp"
-        android:textColor="@android:color/background_light" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/roll"
-        android:layout_alignBottom="@+id/textView114"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="11dp"
-        android:textColor="@android:color/white" />
+        android:background="#263238"
+        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,8 +35,13 @@
         android:nestedScrollingEnabled="false"
         android:textSize="14sp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="37dp" />
+        android:layout_marginBottom="37dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -98,10 +49,46 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/cls_name"
-        android:layout_alignBaseline="@+id/textView28"
-        android:layout_alignBottom="@+id/textView28"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@android:color/black"
+        android:hint="STUDENT NAME"
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/textView27"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/roll"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="62dp"
+        android:layout_above="@+id/but"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@android:color/background_light" />
+        android:hint="ROLL NUMBER"
+        android:textColorHint="@android:color/background_dark" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/email"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="58dp"
+        android:layout_below="@+id/cls_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColorHint="@android:color/background_dark"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="EMAIL ID" />
 
 </RelativeLayout>

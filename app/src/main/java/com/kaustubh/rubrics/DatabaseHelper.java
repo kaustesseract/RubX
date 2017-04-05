@@ -1031,6 +1031,47 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
+
+
+
+    public String getemail(int id )
+    {
+        db = this.getReadableDatabase();
+        String query = "select id , email from "+TABLE_NAME;
+        Cursor cursor = db.rawQuery(query,null);
+        String b,c;
+        c = "not";
+        int a;
+        if(cursor.moveToFirst())
+        {
+            do {
+                a = cursor.getInt(0);
+
+                if (a == id) {
+                    c = cursor.getString(1);
+                    break;
+
+                }
+            }
+            while (cursor.moveToNext()) ;
+        }
+        return c;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public String matchanswer(String answer)
     {
         db = this.getReadableDatabase();

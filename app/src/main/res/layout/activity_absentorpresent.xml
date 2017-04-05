@@ -15,17 +15,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="129dp"
-        android:id="@+id/present" />
+        android:id="@+id/present"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark" />
+
+    <TextView
+        android:text="MARK ATTENDANCE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/textView67"
+        android:textSize="30sp"
+        android:textColor="@android:color/background_light"
+        android:textAlignment="center"
+        android:background="#263238" />
 
     <Button
         android:text="ABSENT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/present"
-        android:layout_alignRight="@+id/present"
-        android:layout_alignEnd="@+id/present"
-        android:layout_marginTop="93dp"
-        android:id="@+id/absent" />
+        android:id="@+id/absent"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="119dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

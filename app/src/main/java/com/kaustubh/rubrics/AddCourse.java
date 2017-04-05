@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class AddCourse extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class AddCourse extends AppCompatActivity {
                     cours.setError( "Classname is required!" );
 
                     cours.setHint("classname");
-                    cours.setHintTextColor(getResources().getColor(white));
+                    cours.setHintTextColor(getResources().getColor(black));
                 }
 
                 else {

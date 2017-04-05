@@ -7,31 +7,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.AddCourse">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submitst"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD COURSE"
         android:id="@+id/textView38"
-        android:textSize="50sp"
-        android:layout_alignRight="@+id/course"
-        android:layout_alignEnd="@+id/course"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:textSize="30sp"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:layout_below="@+id/editText2" />
+        android:background="#263238"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT CLASS"
+        android:id="@+id/textView39"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="76dp"
+        android:layout_above="@+id/submitst"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Spinner
 
@@ -46,43 +49,32 @@
         android:layout_toEndOf="@+id/textView39">
        </Spinner>
 
-    <EditText
+    <Button
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/submitst"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark" />
+
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/course"
         android:minWidth="180dp"
         android:minHeight="40dp"
-        android:textColor="@android:color/white"
-        android:layout_alignBottom="@+id/textView37"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SELECT CLASS"
-        android:id="@+id/textView39"
-        android:textSize="25sp"
-        android:textColor="@android:color/background_light"
-        android:layout_marginBottom="76dp"
-        android:layout_above="@+id/submitst"
-        android:layout_toLeftOf="@+id/course"
-        android:layout_toStartOf="@+id/course" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="COURSE NAME"
-        android:id="@+id/textView37"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:layout_marginTop="68dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="87dp"
         android:layout_below="@+id/textView38"
-        android:layout_toLeftOf="@+id/course"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_alignLeft="@+id/textView39"
-        android:layout_alignStart="@+id/textView39" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColorHint="@android:color/black"
+        android:hint="ENTER COURSE NAME" />
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class AddStudentclass extends AppCompatActivity {
@@ -41,12 +42,12 @@ public class AddStudentclass extends AppCompatActivity {
                 if( a.getText().toString().trim().equals("") && b.getText().toString().trim().equals(""))
                 {
                     a.setError( "Classname is required!" );
-                    b.setError( "Count is required!" );
+                    b.setError( "Student Count is required!" );
 
                     a.setHint("classname");
                     b.setHint("count of student");
-                    a.setHintTextColor(getResources().getColor(white));
-                    b.setHintTextColor(getResources().getColor(white));
+                    a.setHintTextColor(getResources().getColor(black));
+                    b.setHintTextColor(getResources().getColor(black));
                 }
 
                 else if(a.getText().toString().trim().equals("") || b.getText().toString().trim().equals(""))

@@ -56,6 +56,7 @@ public class Generate_pdf extends AppCompatActivity {
     String filenames;
     private static final int  REQUEST_PERMISSION = 123;
     String studentgrade;
+    String email;
     DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,9 @@ public class Generate_pdf extends AppCompatActivity {
         setContentView(R.layout.activity_generate_pdf);
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
+        email = db.getemail(pid);
 
 
         Bundle bundle = getIntent().getExtras();
@@ -100,7 +103,7 @@ public class Generate_pdf extends AppCompatActivity {
                         Uri path = Uri.fromFile(filelocation);
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("vnd.android.cursor.dir/email");
-                        String to[] = {"kaustubhironmaiden@gmail.com"};
+                        String to[] = {email};
                         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
                         emailIntent.putExtra(Intent.EXTRA_STREAM, path);
                         emailIntent.putExtra(Intent.EXTRA_SUBJECT, filenames);
@@ -137,7 +140,7 @@ public class Generate_pdf extends AppCompatActivity {
                         Uri path = Uri.fromFile(filelocation);
                         Intent emailIntent = new Intent(Intent.ACTION_SEND);
                         emailIntent.setType("vnd.android.cursor.dir/email");
-                        String to[] = {"kaustubhironmaiden@gmail.com"};
+                        String to[] = {email};
                         emailIntent.putExtra(Intent.EXTRA_EMAIL, to);
                         emailIntent.putExtra(Intent.EXTRA_STREAM, path);
                         emailIntent.putExtra(Intent.EXTRA_SUBJECT, filenames);

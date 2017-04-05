@@ -201,6 +201,7 @@ public class Start_Grading extends AppCompatActivity {
                                     TableRow.LayoutParams.WRAP_CONTENT,
                                     TableRow.LayoutParams.WRAP_CONTENT));
                             view1.setProgress(0);
+
                             view1.setPadding(25, 25, 25, 25);
                           //  view1.setKeyProgressIncrement(1);
                            //  view1.setMinimumHeight(rows_hweight);
