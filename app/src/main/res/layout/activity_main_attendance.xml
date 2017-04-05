@@ -4,19 +4,24 @@
     android:id="@+id/activity_main_attendance"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kaustubh.rubrics.MainAttendance">
 
     <TextView
         android:text="ATTENDANCE"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
         android:id="@+id/textView90"
         android:textSize="30sp"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:background="#263238"
+        android:textAlignment="center" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -25,8 +30,8 @@
         android:layout_alignBottom="@+id/textView106"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/course"
-        android:layout_alignStart="@+id/course" />
+        android:layout_toRightOf="@+id/textView107"
+        android:layout_toEndOf="@+id/textView107" />
 
     <Spinner
         android:layout_height="wrap_content"
@@ -34,31 +39,16 @@
         android:layout_alignTop="@+id/textView107"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_width="200dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/date"
-        android:fontFamily="sans-serif"
-        android:hint="INSERT DATE"
-        android:textColorHint="@android:color/background_light"
-        android:layout_marginBottom="37dp"
-        android:textColor="@android:color/white"
-        android:layout_above="@+id/sub"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_width="200dp"
+        android:layout_toRightOf="@+id/textView107"
+        android:layout_toEndOf="@+id/textView107" />
 
     <TextView
         android:text="ENTER CLASS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView106"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:layout_below="@+id/textView90"
         android:layout_alignParentLeft="true"
@@ -70,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView107"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:layout_below="@+id/clas"
         android:layout_alignParentLeft="true"
@@ -83,21 +73,45 @@
         android:layout_height="wrap_content"
         android:id="@+id/sub"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="37dp" />
+        android:layout_marginBottom="37dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/date"
+        android:fontFamily="sans-serif"
+        android:hint="INSERT DATE"
+        android:textColorHint="@android:color/background_dark"
+        android:layout_marginBottom="35dp"
+        android:textColor="@android:color/black"
+        android:layout_above="@+id/sub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="37dp"
         android:id="@+id/coutcome"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/course"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="@android:color/white" />
+        android:hint="ENTER COURSE OUTCOME"
+        android:textColorHint="@android:color/black" />
 
 </RelativeLayout>

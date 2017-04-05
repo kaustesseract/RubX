@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,79 +9,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:id="@+id/group"
-    tools:context="com.kaustubh.rubrics.MainActivity"
-    android:background="@drawable/books">
+    tools:context="com.kaustubh.rubrics.MainActivity">
 
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" LOGIN"
-        android:id="@+id/textView"
+        app:srcCompat="@drawable/my_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:minHeight="80dp"
-        android:minWidth="220dp"
-        android:textSize="60sp"
-        android:textColor="#fdfdfe" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/pass"
-        android:layout_alignBottom="@+id/textView3"
-        android:textColor="#fcf8f8"
-        android:layout_alignLeft="@+id/user"
-        android:layout_alignStart="@+id/user" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/button3"
-        android:onClick="register"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/submitst"
-        android:layout_alignEnd="@+id/submitst" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:id="@+id/submitst"
-        android:onClick="click"
-        android:layout_above="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/pass"
-        android:layout_toStartOf="@+id/pass" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PASSWORD"
-        android:id="@+id/textView3"
-        android:singleLine="false"
-        android:textSize="18sp"
-        android:textColor="#fbf2f2"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="87dp" />
-
-    <com.google.android.gms.common.SignInButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/googs"
-        android:layout_above="@+id/forgets"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/forgets"
-        android:layout_alignStart="@+id/forgets"></com.google.android.gms.common.SignInButton>
+        android:id="@+id/imageView3"
+        android:layout_height="100dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -88,29 +26,72 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/user"
-        android:textColor="#faefef"
-        android:layout_marginTop="58dp"
-        android:layout_below="@+id/textView"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+        android:hint="USERNAME"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="26dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:text="USERNAME"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        android:layout_alignBottom="@+id/user"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/pass"
+        android:textColor="@android:color/background_dark"
+        android:textColorHint="@android:color/black"
+        android:hint="PASSWORD"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:id="@+id/submitst"
+        android:onClick="click"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark"
+        android:layout_above="@+id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/button3"
+        android:onClick="register"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark"
+        android:layout_above="@+id/forgets"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="FORGOT PASSWORD?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgets"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

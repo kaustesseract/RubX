@@ -4,32 +4,11 @@
     android:id="@+id/activity_main_assignment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kaustubh.rubrics.MainAssignment">
-
-    <Button
-        android:text="VIEW ASSIGNMENT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addac"
-        android:layout_marginTop="102dp"
-        android:id="@+id/viewac"
-        android:layout_alignLeft="@+id/addac"
-        android:layout_alignStart="@+id/addac"
-        android:layout_alignRight="@+id/addac"
-        android:layout_alignEnd="@+id/addac" />
-
-    <Button
-        android:text="ADD ASSIGNMENT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="126dp"
-        android:id="@+id/addac"
-        android:layout_below="@+id/textView81"
-        android:layout_alignRight="@+id/textView81"
-        android:layout_alignEnd="@+id/textView81"
-        android:layout_alignLeft="@+id/textView81"
-        android:layout_alignStart="@+id/textView81" />
 
     <TextView
         android:text="MANAGE ASSIGNMENT"
@@ -39,5 +18,52 @@
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center"
+        android:background="#263238" />
+
+    <Button
+        android:text="VIEW ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewac"
+        android:background="@android:color/holo_red_dark"
+        android:layout_below="@+id/addac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="82dp"
+        android:textColor="@android:color/background_light"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="ADD ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="82dp"
+        android:id="@+id/addac"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/textView81"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="EDIT AND DELETE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="52dp"
+        android:id="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark" />
 </RelativeLayout>

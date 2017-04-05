@@ -26,6 +26,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static android.R.color.black;
 import static android.R.color.white;
 
 public class MainAttendance extends AppCompatActivity {
@@ -54,7 +55,7 @@ public class MainAttendance extends AppCompatActivity {
         dayx=cal.get(Calendar.DAY_OF_MONTH);
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         ArrayList<String> list = db.getspinnerdata(pid);
         Spinner sp = (Spinner) findViewById(R.id.clas);
@@ -125,8 +126,8 @@ public class MainAttendance extends AppCompatActivity {
                     co.setError( "Course Outcome!" );
 
 
-                    dob.setHintTextColor(getResources().getColor(white));
-                    co.setHintTextColor(getResources().getColor(white));
+                    dob.setHintTextColor(getResources().getColor(black));
+                    co.setHintTextColor(getResources().getColor(black));
                 }
 
                 else if(dob.getText().toString().trim().equals("") || co.getText().toString().trim().equals(""))

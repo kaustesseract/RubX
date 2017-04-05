@@ -8,18 +8,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/img"
     tools:context="com.kaustubh.rubrics.Grade_rubrics">
 
     <TextView
         android:text="SHOW RUBRICS"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView24"
-        android:textSize="35sp"
+        android:textSize="30sp"
         android:textColor="@android:color/background_light"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#263238"
+        android:textAlignment="center" />
 
     <ListView
         android:layout_width="match_parent"
