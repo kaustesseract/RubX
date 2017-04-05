@@ -29,7 +29,7 @@ public class Choose_question extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         ListView list = (ListView) findViewById(R.id.forget);
-        String[] items = {"What is your favourite car ?", "What is your favourite food ?", "Who is your favourite player ?", "What is your favourite TV series ?"};
+        String[] items = {"What is your favourite car ?", "What is your favourite food ?", "Who is your favourite player ?", "Favourite TV series ?"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.display_classes,R.id.cls_name,items);
 

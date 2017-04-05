@@ -26,20 +26,6 @@
         android:background="#263238" />
 
     <Button
-        android:text="VIEW ASSIGNMENT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewac"
-        android:background="@android:color/holo_red_dark"
-        android:layout_below="@+id/addac"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="82dp"
-        android:textColor="@android:color/background_light"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
         android:text="ADD ASSIGNMENT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,16 +40,30 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:text="EDIT AND DELETE ASSIGNMENT"
+        android:text="VIEW ASSIGNMENT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:id="@+id/button2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/viewac"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/addac"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="66dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="EDIT OR DELETE ASSIGNMENT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
         android:textColor="@android:color/background_light"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"
+        android:layout_below="@+id/viewac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

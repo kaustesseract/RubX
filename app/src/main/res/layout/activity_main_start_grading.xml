@@ -37,20 +37,6 @@
         android:background="@android:color/holo_red_dark" />
 
     <Button
-        android:text="EDIT AND DELETE GRADES"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="86dp"
-        android:id="@+id/button11"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@android:color/background_light"
-        android:background="@android:color/holo_red_dark" />
-
-    <Button
         android:text="VIEW STDENT GRADES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,4 +49,18 @@
         android:layout_alignParentEnd="true"
         android:textColor="@android:color/background_light"
         android:background="@android:color/holo_red_dark" />
+
+    <Button
+        android:text="EDIT OR DELETE GRADES"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button11"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_red_dark"
+        android:layout_below="@+id/viewgrade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

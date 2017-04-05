@@ -1,8 +1,10 @@
 package com.kaustubh.rubrics;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,42 +60,58 @@ public class AddStudentclass extends AppCompatActivity {
 
 
                 else {
-                    String str1 = a.getText().toString().replaceAll("[-+.^:,~!@#$%^&*()_=;<>/`]","");
+                    String str1 = a.getText().toString().replaceAll("[-+.^:,~!@#$%^&*()_=;<>/`]", "");
 
                     String str = str1 + "_" + pid;
 
                     String table = helper.searchtable(str);
 
 
-
                     int totalstudent = Integer.parseInt(b.getText().toString());
 
-                    try {
-                        helper.createclass(str);
-                    }
-                    catch (Exception e)
+                    if (str.equals(table))
+
+
                     {
-                        Toast.makeText(getApplicationContext(), "Class already exists", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(getApplicationContext(),MainClass.class);
+//                        helper.createclass(str);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AddStudentclass.this);
+                        builder.setMessage("Class is already created. Do you want to edit it ?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent i = new Intent(getApplicationContext(), BaseActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.setTitle("ALERT !!");
+                        alertDialog.show();
+                    } else {
+                        helper.createclass(str);
+
+                        Contact2 c2 = new Contact2();
+                        c2.setCname(str1);
+                        c2.setTotalmarks(totalstudent);
+                        c2.setTid(pid);
+
+                        helper.inclass(c2);
+
+
+                        Intent i = new Intent(getApplicationContext(), Types_Of_Addc.class);
+                        i.putExtra("str", str);
+                        i.putExtra("student", totalstudent);
+
                         startActivity(i);
                         finish();
                     }
-
-
-                    Contact2 c2 = new Contact2();
-                    c2.setCname(str1);
-                    c2.setTotalmarks(totalstudent);
-                    c2.setTid(pid);
-
-                    helper.inclass(c2);
-
-
-                    Intent i = new Intent(getApplicationContext(), Types_Of_Addc.class);
-                    i.putExtra("str", str);
-                    i.putExtra("student", totalstudent);
-
-                    startActivity(i);
-                    finish();
                 }
             }
 

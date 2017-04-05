@@ -37,30 +37,30 @@
         android:background="@android:color/holo_red_dark" />
 
     <Button
+        android:text="EDIT OR DELETE RUBRICS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button10"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/rubricv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="63dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:text="VIEW RUBRICS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rubricv"
+        android:layout_marginTop="64dp"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
         android:layout_below="@+id/rubrica"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="68dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/holo_red_dark"
-        android:textColor="@android:color/background_light" />
-
-    <Button
-        android:text="EDIT AND DELETE RUBRICS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
-        android:id="@+id/button10"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_red_dark"
-        android:textColor="@android:color/background_light" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

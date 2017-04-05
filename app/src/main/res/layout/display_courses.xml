@@ -6,11 +6,11 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/cours"
         android:minHeight="60dp"
         android:textAlignment="textStart"
         android:textSize="24sp"
         android:text="New Text"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@android:color/background_dark"
+        android:layout_height="50dp" />
 </LinearLayout>

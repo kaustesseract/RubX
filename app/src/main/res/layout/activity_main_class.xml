@@ -40,7 +40,7 @@
         android:background="@android:color/holo_red_dark" />
 
     <Button
-        android:text="EDIT AND DELETE CLASS"
+        android:text="EDIT OR DELETE CLASS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button7"
