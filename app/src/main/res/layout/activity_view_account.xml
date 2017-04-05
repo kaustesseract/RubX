@@ -8,7 +8,7 @@
     android:textAlignment="center">
 
     <TextView
-        android:text="VIEW ACCOUNT"
+        android:text="MY ACCOUNT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,25 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView66"
         android:hint="username"
-        android:id="@+id/textView67"
+        android:id="@+id/user"
         android:layout_alignTop="@+id/textView66"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textView66"
         android:layout_toEndOf="@+id/textView66"
         android:textAlignment="center"
-        android:textSize="24sp" />
-
-    <TextView
-        android:text="EMAIL ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView70"
-        android:layout_below="@+id/textView66"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:textColor="@android:color/black"
         android:textSize="24sp" />
 
     <TextView
@@ -58,67 +46,27 @@
     <TextView
         android:text="email@xyz.com"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView71"
+        android:layout_height="50dp"
+        android:id="@+id/email"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/textView66"
         android:layout_toEndOf="@+id/textView66"
         android:layout_alignTop="@+id/textView70"
-        android:layout_alignBottom="@+id/textView70"
         android:textAlignment="center"
         android:textSize="18sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView73"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView72"
-        android:layout_toEndOf="@+id/textView72"
-        android:layout_alignTop="@+id/textView72"
-        android:layout_alignBottom="@+id/textView72"
-        android:textAlignment="center"
-        android:text="@android:string/emptyPhoneNumber"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="PHONE NUMBER"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
-        android:id="@+id/textView72"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:layout_below="@+id/textView70"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textAlignment="center" />
-
-    <TextView
-        android:text="DOB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView72"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="66dp"
-        android:id="@+id/textView74"
-        android:textColor="@android:color/black"
-        android:textSize="24sp" />
 
     <TextView
         android:text="DOB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView74"
-        android:id="@+id/textView75"
+        android:id="@+id/dob"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textView74"
-        android:layout_alignLeft="@+id/textView71"
-        android:layout_alignStart="@+id/textView71"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
         android:textAlignment="center"
         android:textSize="18sp" />
 
@@ -126,22 +74,44 @@
         android:text="LOGOUT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView75"
+        android:id="@+id/signout"
+        android:layout_marginBottom="57dp"
+        android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/textView74"
-        android:layout_toEndOf="@+id/textView74"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="32dp"
-        android:id="@+id/signout" />
+        android:layout_toEndOf="@+id/textView74" />
 
     <Button
         android:text="EDIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/edt"
+        android:layout_alignBaseline="@+id/signout"
         android:layout_alignBottom="@+id/signout"
-        android:layout_toRightOf="@+id/textView72"
-        android:layout_toEndOf="@+id/textView72"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp"
-        android:id="@+id/edt" />
+        android:layout_alignRight="@+id/textView65"
+        android:layout_alignEnd="@+id/textView65" />
+
+    <TextView
+        android:text="DOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView74"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_above="@+id/signout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="56dp" />
+
+    <TextView
+        android:text="EMAIL ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView70"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_marginBottom="78dp"
+        android:layout_above="@+id/textView74"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

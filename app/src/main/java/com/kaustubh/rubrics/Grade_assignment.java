@@ -31,7 +31,7 @@ public class Grade_assignment extends AppCompatActivity {
 
         String table = "Course" + "_" + course + "_" + coid+"_"+pid;
 
-        Toast.makeText(this, table , Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, table , Toast.LENGTH_SHORT).show();
 
         try {
 

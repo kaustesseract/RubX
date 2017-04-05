@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import static android.R.color.white;
+
 public class RegisterActivity extends AppCompatActivity {
 
     DatabaseHelper helper = new DatabaseHelper(this);
@@ -95,6 +97,31 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+                if( username.getText().toString().trim().equals("") && password.getText().toString().trim().equals("") && pass2.getText().toString().trim().equals("") && email.getText().toString().trim().equals("") && dobs.getText().toString().trim().equals(""))
+                {
+                    username.setError( "Username is required!" );
+                    pass2.setError( "Enter password again!" );
+                    password.setError( "Password is required!" );
+                    email.setError( "Email is required!" );
+                    dobs.setError( "Classname is required!" );
+
+
+
+                    username.setHintTextColor(getResources().getColor(white));
+                    pass2.setHintTextColor(getResources().getColor(white));
+                    password.setHintTextColor(getResources().getColor(white));
+                    email.setHintTextColor(getResources().getColor(white));
+                    dobs.setHintTextColor(getResources().getColor(white));
+                }
+
+                else if(username.getText().toString().trim().equals("") && password.getText().toString().trim().equals("") && pass2.getText().toString().trim().equals("") && email.getText().toString().trim().equals("") && dobs.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
+                }
+
+                else
+                {
                 final String uname = username.getText().toString();
                 final String pass = password.getText().toString();
                 final String emai = email.getText().toString();
@@ -118,9 +145,10 @@ public class RegisterActivity extends AppCompatActivity {
                     helper.insertcontact(c);
 
                     Intent i = new Intent(getApplicationContext(), Choose_question.class);
-                    i.putExtra("uname",uname);
+                    i.putExtra("uname", uname);
                     startActivity(i);
                     finish();
+                }
 
                 }
 

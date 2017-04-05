@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.R.color.white;
 
 public class Answer extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class Answer extends AppCompatActivity {
         final String text = bundle.getString("text");
 
 
-        TextView username = (TextView) findViewById(R.id.choose);
+        final TextView username = (TextView) findViewById(R.id.choose);
         final EditText password = (EditText) findViewById(R.id.answer);
 
         username.setText(text);
@@ -30,6 +33,22 @@ public class Answer extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if( username.getText().toString().trim().equals("") )
+                {
+                    username.setError( "Enter answer" );
+
+
+                    username.setHint("Enter answer");
+
+                    username.setHintTextColor(getResources().getColor(white));
+                }
+
+                else if(username.getText().toString().trim().equals("") )
+                {
+                    Toast.makeText(getApplicationContext(),"Enter all fields",Toast.LENGTH_SHORT).show();
+                }
 
 
                 String pass = password.getText().toString();

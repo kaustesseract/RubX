@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,6 +30,7 @@ public class ViewAccount extends AppCompatActivity {
     private GoogleApiClient mGoogleApiClient;
 
     private ActionBar actionBar;
+    DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,10 @@ public class ViewAccount extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         Button bt = (Button) findViewById(R.id.edt);
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +52,17 @@ public class ViewAccount extends AppCompatActivity {
             }
         });
 
+
+        TextView users = (TextView) findViewById(R.id.user);
+        TextView emails = (TextView) findViewById(R.id.email);
+        TextView dobs = (TextView) findViewById(R.id.dob);
+
+        String[] c = db.getalluserdetails(pid);
+        int[] dob = db.getdob(pid);
+
+        users.setText(c[0]);
+        emails.setText(c[1]);
+        dobs.setText(String.valueOf(dob[0])+"/"+String.valueOf(dob[1])+"/"+String.valueOf(dob[2]));
 
 //        mGoogleApiClient = new GoogleApiClient.Builder(getApplicationContext())
 //                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {

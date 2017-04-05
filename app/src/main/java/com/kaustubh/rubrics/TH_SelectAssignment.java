@@ -56,7 +56,7 @@ public class TH_SelectAssignment extends AppCompatActivity {
                 //  String list = (ll.getItemAtPosition(position));
                 String assname = textView.getText().toString();
                 int assid = db.searchassid(assname,table);
-                String grade = "Studentgrade_"+clsid+"_"+coid+"_"+assid;
+                String grade = "Studentgrade_"+clsid+"_"+coid+"_"+assid+"_"+pid;
 
                 Intent i = new Intent(getApplicationContext(), Set_TH.class);
                 i.putExtra("gradetable",grade);

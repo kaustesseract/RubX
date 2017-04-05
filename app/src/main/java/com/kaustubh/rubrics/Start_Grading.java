@@ -3,6 +3,7 @@ package com.kaustubh.rubrics;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -37,8 +38,13 @@ public class Start_Grading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start__grading);
 
+
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         context = this;
         asdfg = new HashMap<>();
+
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        int pid = pref.getInt("pid",0);
 
         Bundle bundle = getIntent().getExtras();
         final String courses = bundle.getString("courses");
@@ -48,6 +54,12 @@ public class Start_Grading extends AppCompatActivity {
 
        final int put = bundle.getInt("int");
 
+      //  final String clas = clase+"_"+pid;
+
+
+
+
+        Toast.makeText(getApplication(), clas, Toast.LENGTH_SHORT).show();
 
 
         final DatabaseHelper datahelper = new DatabaseHelper(context);
@@ -79,7 +91,7 @@ public class Start_Grading extends AppCompatActivity {
                 tv2.setTextSize(18);
                 tv2.setTextColor(Color.BLUE);
                 tv2.setPadding(0, 0, 0, 25);
-                tv2.setText(0);
+//                tv2.setText(0);
                 tv2.setText(c);
                 rowHeader.addView(tv2);
             }
@@ -180,6 +192,7 @@ public class Start_Grading extends AppCompatActivity {
                             tv1.setTextSize(25);
                             tv1.setTextColor(Color.WHITE);
                             tv1.setId(count);
+                            tv1.setText(String.valueOf(0));
                             asdfg.put("name"+tv1.getId(),text);
 
                             SeekBar view1 = new SeekBar(context);
@@ -200,7 +213,9 @@ public class Start_Grading extends AppCompatActivity {
                                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
 
-                                    tv1.setText(String.valueOf(progress));
+
+                                        tv1.setText(String.valueOf(progress));
+
 
                                     asdfg.put("value"+tv1.getId(),tv1.getText().toString().trim());
 

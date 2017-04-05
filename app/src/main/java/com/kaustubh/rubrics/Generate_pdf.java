@@ -78,9 +78,9 @@ public class Generate_pdf extends AppCompatActivity {
         String assignmenttable = "Course_"+courses+"_"+coid+"_"+pid;
         int assid = db.searchassid(assname,assignmenttable);
 
-        filenames =clas+"_"+courses+"_"+assname;
+        filenames =clas+"_"+courses+"_"+assname+"_"+pid;
 
-         studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid;
+         studentgrade = "Studentgrade_"+classid+"_"+coid+"_"+assid+"_"+pid;
 
         Button but = (Button) findViewById(R.id.gpdf);
 

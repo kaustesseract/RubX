@@ -1,9 +1,12 @@
 package com.kaustubh.rubrics;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +22,7 @@ import java.util.Arrays;
 public class Grade_rubrics extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
      String rname;
+    String clas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +31,12 @@ public class Grade_rubrics extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         Bundle bundle = getIntent().getExtras();
        final String courses = bundle.getString("course");
-        final String clas = bundle.getString("class");
+         String clasi = bundle.getString("class");
+       clas = clasi+"_"+pid;
+
         final String assname = bundle.getString("assname");
         String tgrade = "grade_"+pid;
         final String course = courses + "_Grade";
@@ -84,13 +90,34 @@ public class Grade_rubrics extends AppCompatActivity {
 
                 if(studentgrade.equals(studgrade))
                 {
-                    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
+                /*    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
                     intent.putExtra("class",clas);
                     intent.putExtra("rubname",rname);
                     intent.putExtra("int",put);
                     intent.putExtra("gradetable",studentgrade);
                     intent.putExtra("courses",courses);
-                    startActivity(intent);
+                    startActivity(intent);*/
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Grade_rubrics.this);
+                    builder.setMessage("Grading has already done. Do you want to edit ?").setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent i = new Intent(getApplicationContext(),BaseActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.setTitle("ALERT !!");
+                    alertDialog.show();
 
 
                     //CORRECTION DONE IN ALERT BOX

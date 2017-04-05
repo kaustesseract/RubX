@@ -1,7 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -27,12 +29,15 @@ public class Add_Type_Rubrics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__type__rubrics);
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         Bundle bundle = getIntent().getExtras();
         final String rubr = bundle.getString("rubr");
         final int count = bundle.getInt("count");
         final int grade = bundle.getInt("grade");
 
-        mrow = rubr + "row";
+        mrow = rubr + "_row_" + pid;
 
         Button bto = (Button) findViewById(R.id.addman);
 

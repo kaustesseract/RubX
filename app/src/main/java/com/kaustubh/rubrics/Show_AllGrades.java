@@ -1,5 +1,7 @@
 package com.kaustubh.rubrics;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -27,17 +29,20 @@ public class Show_AllGrades extends AppCompatActivity {
         String clas = bundle.getString("class");
         String assname = bundle.getString("assname");
 
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        final int pid = pref.getInt("pid",0);
+        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
 
         int coid = databaseHelper.searchcoid(course);
         int classid = databaseHelper.searchcid(clas);
 
 
-        String assignmenttable = "Course_"+course+"_"+coid;
+        String assignmenttable = "Course_"+course+"_"+coid+"_"+pid;
 
         int assid = databaseHelper.searchassid(assname,assignmenttable);
 
-        String gradetable = "Studentgrade_"+classid+"_"+coid+"_"+assid;
+        String gradetable = "Studentgrade_"+classid+"_"+coid+"_"+assid+"_"+pid;
 
         String tableattr[] = databaseHelper.getgradeparam(gradetable);
 

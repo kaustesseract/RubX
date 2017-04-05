@@ -1,7 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -49,6 +51,10 @@ public class Attendance extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+        SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
+        int pid = pref.getInt("pid",0);
+
         Bundle bundle = getIntent().getExtras();
 
           clsid = bundle.getInt("clsid");
@@ -57,11 +63,13 @@ public class Attendance extends AppCompatActivity {
         month = bundle.getInt("month");
        year = bundle.getInt("year");
         p = bundle.getString("p");
-         clas = bundle.getString("classname");
+        String clasi = bundle.getString("classname");
 
         tablename = "Attendance_"+clsid+"_"+coid+"_"+day+"_"+month+"_"+year+"_"+p;
 
         db.createatttable(tablename);
+
+        clas = clasi+"_"+pid;
 
 
 

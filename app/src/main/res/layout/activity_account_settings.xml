@@ -6,32 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.kaustubh.rubrics.EditAccount">
 
-    <TextView
-        android:text="EDIT ACCOUNT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView62"
-        android:textSize="30sp"
-        android:textColor="@android:color/black" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:layout_alignBottom="@+id/textView64"
-        android:id="@+id/editText5"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
+        android:id="@+id/emails"
+        android:layout_alignLeft="@+id/users"
+        android:layout_alignStart="@+id/users" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/users"
         android:layout_alignBottom="@+id/textView63"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -63,60 +53,38 @@
         android:layout_alignParentStart="true" />
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/editText9"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="114dp"
-        android:layout_toRightOf="@+id/textView68"
-        android:layout_toEndOf="@+id/textView68" />
-
     <TextView
-        android:text="PHONE NUMBER"
+        android:text="EDIT ACCOUNT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView68"
+        android:id="@+id/textView62"
+        android:textSize="30sp"
         android:textColor="@android:color/black"
-        android:textSize="24sp" />
-
-    <TextView
-        android:text="DOB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editText11"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/textView69"
-        android:textColor="@android:color/black"
-        android:textSize="24sp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="SUBMIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText11"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:id="@+id/button8" />
+        android:id="@+id/subm"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/emails"
+        android:layout_alignStart="@+id/emails"
+        android:layout_marginBottom="59dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:layout_marginTop="35dp"
-        android:id="@+id/editText11"
-        android:layout_below="@+id/editText9"
+        android:id="@+id/dobs"
+        android:layout_above="@+id/subm"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

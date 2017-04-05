@@ -100,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             "CREATE TABLE "+TABLE_RUBRIC+"(" +
                     COLUMN_RID + " INTEGER PRIMARY KEY , " +
                     COLUMN_RNAME + " VARCHAR , " +
-                    COLUMN_TID + " INTEGER " +
+                    COLUMN_TID + " INTEGER , " +
                     COLUMN_GRADE + " INTEGER);";
                   //  COLUMN_LIMIT +  " INTEGER);";
 
@@ -562,6 +562,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.update(TABLE_NAME,values,"answer = ?",new String[] {answer});
         db.close();
 
+    }
+
+    public void getaccupdate(int pid,String uname,String em,int dayx,int mont,int yearx)
+    {
+
+        db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put("name",uname);
+        values.put("email",em);
+        values.put("day",dayx);
+        values.put("month",mont);
+        values.put("year",yearx);
+        db.update(TABLE_NAME , values ,"id = ?",new String[]{String.valueOf(pid)});
+        db.close();
 
 
     }
@@ -1221,6 +1237,92 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     }
+
+
+
+    public String[] getalluserdetails(int id)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT id , name , email FROM contacts";
+        Cursor cursor = db.rawQuery(query,null);
+
+        String b = "Not found";
+    //    String[] c = new String[5];
+        String name = "";
+        String email = "";
+        int day;
+        int month;
+        int year;
+        int a = 0;
+        int i=0;
+        if(cursor.moveToFirst())
+        {
+            do{
+
+                a = cursor.getInt(0);
+
+                if(a==id)
+                {
+                    name = cursor.getString(1);
+                    email = cursor.getString(2);
+
+                }
+
+            }
+            while(cursor.moveToNext());
+
+
+        }
+
+        String[] c = new String[]{name,email};
+        return c;
+
+
+
+    }
+
+
+    public int[] getdob(int id)
+    {
+        db = this.getReadableDatabase();
+        String query = "SELECT id , day , month , year FROM contacts";
+        Cursor cursor = db.rawQuery(query,null);
+
+        String b = "Not found";
+        //    String[] c = new String[5];
+
+        int day = 0;
+        int month = 0;
+        int year = 0;
+        int a = 0;
+        int i=0;
+        if(cursor.moveToFirst())
+        {
+            do{
+
+                a = cursor.getInt(0);
+
+                if(a==id)
+                {
+                    day = cursor.getInt(1);
+                    month = cursor.getInt(2);
+                    year = cursor.getInt(3);
+
+                }
+
+            }
+            while(cursor.moveToNext());
+
+
+        }
+
+        int[] c = new int[]{day,month,year};
+        return c;
+
+
+
+    }
+
 
 
     public String[] getstname(String clas,int[] roll)
