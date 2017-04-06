@@ -33,22 +33,12 @@
         android:textAlignment="center" />
 
     <Spinner
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/loweight"
         android:layout_alignTop="@+id/textView33"
         android:layout_toRightOf="@+id/textView33"
-        android:layout_alignRight="@+id/submitst"
-        android:layout_alignEnd="@+id/submitst" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/hweight"
-        android:layout_alignTop="@+id/loweight"
-        android:layout_toRightOf="@+id/loweight"
-        android:layout_alignRight="@+id/textView44"
-        android:layout_alignEnd="@+id/textView44" />
+        android:layout_alignBottom="@+id/textView33"
+        android:layout_width="80dp" />
 
     <TextView
         android:text="ENTER WEIGHT"
@@ -69,11 +59,21 @@
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/background_dark"
         android:hint="ENTER THR CRITERIA"
-        android:layout_above="@+id/loweight"
+        android:layout_below="@+id/textView44"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="87dp"
+        android:layout_marginTop="93dp"
+        android:layout_alignRight="@+id/hweight"
+        android:layout_alignEnd="@+id/hweight" />
+
+    <Spinner
+        android:layout_height="wrap_content"
+        android:id="@+id/hweight"
+        android:layout_width="30dp"
+        android:layout_alignTop="@+id/loweight"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/loweight"
+        android:layout_toEndOf="@+id/loweight" />
 
 </RelativeLayout>

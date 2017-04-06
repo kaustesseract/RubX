@@ -1,12 +1,9 @@
 package com.kaustubh.rubrics;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,25 +18,22 @@ import java.util.Arrays;
 
 public class Grade_rubrics extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
-     String rname;
-    String clas;
+    String rname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade_rubrics);
 
+        Bundle bundle = getIntent().getExtras();
+
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-       // Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
-        Bundle bundle = getIntent().getExtras();
-       final String courses = bundle.getString("course");
-         String clasi = bundle.getString("class");
-       clas = clasi+"_"+pid;
-
+        final String courses = bundle.getString("course");
+        final String clas = bundle.getString("class");
         final String assname = bundle.getString("assname");
-        String tgrade = "grade_"+pid;
-        final String course = courses + "_Grade";
+        String tgrade = "grade";
+        final String course = courses + "_Grade"+"_"+pid;
         int coid = db.searchcoid(courses);
         int classid = db.searchcid(clas);
         String assignmenttable = "Course_"+courses+"_"+coid+"_"+pid;
@@ -50,6 +44,7 @@ public class Grade_rubrics extends AppCompatActivity {
 
 
 
+        final String clase = clas+"_"+pid;
 
         db.open();
         Cursor cursor = db.showrubricslist(pid);
@@ -74,14 +69,14 @@ public class Grade_rubrics extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView textView = (TextView) view.findViewById(R.id.ru);
                 //  String list = (ll.getItemAtPosition(position));
-               String text = textView.getText().toString();
+                String text = textView.getText().toString();
 
                 rname = text+"_row_"+pid;
                 int rcount =  db.getrubricscount(rname);
                 int i;
-              //  Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
+                //  Toast.makeText(getApplicationContext(),"The count is "+rcount,Toast.LENGTH_LONG).show();
 
-              //  String[] rubname = new String[r];
+                //  String[] rubname = new String[r];
 
                 String rubname[] = db.getrubricsparam(rname);
 
@@ -90,42 +85,26 @@ public class Grade_rubrics extends AppCompatActivity {
 
                 if(studentgrade.equals(studgrade))
                 {
-                /*    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
-                    intent.putExtra("class",clas);
-                    intent.putExtra("rubname",rname);
-                    intent.putExtra("int",put);
-                    intent.putExtra("gradetable",studentgrade);
-                    intent.putExtra("courses",courses);
-                    startActivity(intent);*/
+//                    Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
+//                    intent.putExtra("class",clas);
+//                    intent.putExtra("rubname",rname);
+//                    intent.putExtra("int",put);
+//                    intent.putExtra("gradetable",studentgrade);
+//                    intent.putExtra("courses",courses);
+//                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"Table already exists",Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(getApplicationContext(), BaseActivity.class);
+                   // in.putExtra("text",courses);
+                    startActivity(in);
+                    finish();
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Grade_rubrics.this);
-                    builder.setMessage("Grading has already done. Do you want to edit ?").setCancelable(false)
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent i = new Intent(getApplicationContext(),BaseActivity.class);
-                                    startActivity(i);
-                                    finish();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
-
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.setTitle("ALERT !!");
-                    alertDialog.show();
-
-
-                    //CORRECTION DONE IN ALERT BOX
                 }
                 else {
+                    Toast.makeText(getApplicationContext(),"Table already ",Toast.LENGTH_SHORT).show();
+
                     db.createstartgrade(rubname, studentgrade, rcount);
                     Intent intent = new Intent(getApplicationContext(), Start_Grading.class);
-                    intent.putExtra("class",clas);
+                    intent.putExtra("class",clase);
                     intent.putExtra("rubname",rname);
                     intent.putExtra("int",put);
                     intent.putExtra("gradetable",studentgrade);
@@ -155,10 +134,8 @@ public class Grade_rubrics extends AppCompatActivity {
             }
             else {
                 db.courseassignment(course);
-           //     db.insertgrade(coid, course, tgrade);
+                //     db.insertgrade(coid, course, tgrade);
                 db.insertcourseassignment(assname,assid,course);
-//                Toast.makeText(this,"Table already exists",Toast.LENGTH_SHORT).show();
-
             }
 
 

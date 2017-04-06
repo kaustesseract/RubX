@@ -18,8 +18,9 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/textView55"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        android:background="#263238" />
+        android:textSize="28sp"
+        android:background="#263238"
+        android:textAlignment="center" />
 
     <EditText
         android:layout_width="wrap_content"

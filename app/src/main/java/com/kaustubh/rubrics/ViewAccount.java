@@ -42,7 +42,7 @@ public class ViewAccount extends AppCompatActivity {
 
         SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
         final int pid = pref.getInt("pid",0);
-        Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +100,7 @@ public class ViewAccount extends AppCompatActivity {
                 SharedPreferences pref = getSharedPreferences("info.conf", Context.MODE_PRIVATE);
                 pref.edit().clear().commit();
                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
 
 
             }

@@ -54,12 +54,14 @@ public class Start_Grading extends AppCompatActivity {
 
        final int put = bundle.getInt("int");
 
+
+
       //  final String clas = clase+"_"+pid;
 
 
 
 
-        Toast.makeText(getApplication(), clas, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(getApplication(), clas, Toast.LENGTH_SHORT).show();
 
 
         final DatabaseHelper datahelper = new DatabaseHelper(context);
@@ -252,6 +254,8 @@ public class Start_Grading extends AppCompatActivity {
 
         Button button = new Button(this);
         button.setText("submit");
+                button.setTextColor(Color.WHITE);
+                button.setBackgroundColor(Color.RED);
         button.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT,         TableRow.LayoutParams.WRAP_CONTENT));
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override

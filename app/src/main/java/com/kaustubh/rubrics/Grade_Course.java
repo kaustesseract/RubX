@@ -27,6 +27,7 @@ public class Grade_Course extends AppCompatActivity {
      //   Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
         Bundle bundle = getIntent().getExtras();
         final String message = bundle.getString("text");
+      //  Toast.makeText(this, pid+"" , Toast.LENGTH_SHORT).show();
 
         int cid = db.searchcid(message);
 

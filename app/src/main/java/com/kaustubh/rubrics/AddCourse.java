@@ -73,8 +73,7 @@ public class AddCourse extends AppCompatActivity {
                 }
 
                 else {
-                    String course = cours.getText().toString().replaceAll("[-+.^:,~!@#$%^&*()_=;<>/`]","");
-
+                    String course = cours.getText().toString().replaceAll("[-+.^:,~!@#$%^&*()_=;<>/`]", "");
 
 
                     Contactcourse cr = new Contactcourse();
@@ -83,9 +82,10 @@ public class AddCourse extends AppCompatActivity {
                     cr.setClasid(clsid);
 
                     helper.insertcourse(cr);
+
+                    Toast.makeText(getApplicationContext(), "Course created successfully", Toast.LENGTH_LONG).show();
+                    finish();
                 }
-                Toast.makeText(getApplicationContext(), "Course created successfully", Toast.LENGTH_LONG).show();
-                finish();
 
 
             }

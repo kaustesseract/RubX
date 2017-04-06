@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -50,6 +51,7 @@ public class Grade_Students extends AppCompatActivity {
                 String text = textView.getText().toString();
                Intent i = new Intent(getApplicationContext(), Grade_Course.class);
                 i.putExtra("text",text);
+                //Toast.makeText(Grade_Students.this, text , Toast.LENGTH_SHORT).show();
                 startActivity(i);
 
             }});
